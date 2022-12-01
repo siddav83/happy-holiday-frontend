@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const FestivityType = createContext();
 
 export const FestivityProvider = (props) => {
-	const [festive, setCalender] = useState({
+	const [festive, setFestive] = useState({
 		festivity: "Christmas",
 		calender: true,
 	});
@@ -12,7 +12,7 @@ export const FestivityProvider = (props) => {
 		<FestivityType.Provider
 			value={{
 				festive,
-				setCalender,
+				setFestive,
 			}}
 		>
 			{props.children}
