@@ -9,8 +9,8 @@ const Home = () => {
 		name: 'Christmas',
 		date: new Date(2022, 11, 25)
 	})
-	const [counter, setCounter] = useState(null)
-	const counterLimit = 99
+	const [countdown, setCountdown] = useState(null)
+	const countdownLimit = 99
 	
 	function daysLeft(target){
 		const timeLeft = target.getTime() - new Date().getTime()
@@ -18,15 +18,15 @@ const Home = () => {
 	}
 
 	useEffect(() => {
-		setCounter(daysLeft(nextEvent.date))
+		setCountdown(daysLeft(nextEvent.date))
 	}, [nextEvent])
 
 	return <div>
 		<h1>Happy Holidays!</h1>
 
 		{
-			counter < counterLimit && <>
-				<h2>{counter}</h2>
+			countdown < countdownLimit && <>
+				<h2>{countdown}</h2>
 				<p>days until {nextEvent.name}</p>
 			</>
 		}
