@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
 import { Home, User, Tab, Holidays } from "./Pages";
 import { Navbar, TabNav, CategoryCard, AddNav } from "./Components";
 function App() {
@@ -41,6 +42,7 @@ function App() {
 			</Routes>
 		</div>
 	);
+
 }
 
 export default App;

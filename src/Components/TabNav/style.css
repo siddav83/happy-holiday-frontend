@@ -1,0 +1,11 @@
+.container-tab {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-tab img {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    border-radius: 25%;
+}
