@@ -6,7 +6,7 @@ export const StatsProvider = (props) => {
 	const [stats, setStats] = useState({
 		stats_id: "",
 		posts: [],
-		want: [],
+		popular: [],
 	});
 
 	return (
