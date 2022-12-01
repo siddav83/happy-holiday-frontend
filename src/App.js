@@ -1,7 +1,23 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Home, User } from "./Pages";
+import { Navbar } from "./Components";
 function App() {
 	return (
 		<div className="App">
-			<h1>happy holiday</h1>
+			<Routes>
+				{/* Pages */}
+				<Route path="/" element={<Home />} />
+				<Route
+					path="/User"
+					element={
+						<>
+							<User />
+							<Navbar />
+						</>
+					}
+				/>
+			</Routes>
 		</div>
 	);
 }
