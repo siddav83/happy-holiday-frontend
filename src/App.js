@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, User, Tab } from "./Pages";
-import { Navbar } from "./Components";
+import { Navbar, TabNav, CategoryCard, AddNav } from "./Components";
 function App() {
     return (
         <div className="App">
@@ -22,6 +22,9 @@ function App() {
                     element={
                         <>
                             <Tab />
+                            <TabNav />
+                            <CategoryCard />
+                            <AddNav />
                             <Navbar />
                         </>
                     }
