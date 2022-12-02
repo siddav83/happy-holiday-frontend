@@ -2,3 +2,21 @@
 .holidays-heading {
 	font-size: min(70px, 12vw);
 }
+
+.calender-btn {
+	margin: 2rem 0;
+	padding: 1rem 3rem;
+	border: none;
+	background-color: var(--red);
+	font-size: 20px;
+	font-weight: 600;
+	border-radius: 6px;
+	box-shadow: -4px 4px 0 black;
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.calender-btn:hover {
+	background-color: var(--green);
+	transform: translateY(4px);
+}
