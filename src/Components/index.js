@@ -5,3 +5,4 @@ export { default as TabNav } from "./TabNav/TabNav";
 export { default as Modal } from "./Modal";
 export { default as Countdown } from "./Countdown/Countdown";
 export { default as FunFact } from "./FunFact/FunFact";
+export { default as Calender } from "./Calender/Calender";

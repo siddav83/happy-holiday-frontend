@@ -1,0 +1,30 @@
+.calender-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: 10px;
+	height: 100%;
+	width: 100%;
+}
+
+.calender-day {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 90px;
+	font-weight: 600;
+	font-family: pacifico, sans-serif;
+}
+
+.calender-day:nth-child(5n + 2),
+.calender-day:nth-child(5n + 5) {
+	background-color: var(--green);
+}
+
+.calender-day:nth-child(5n + 1),
+.calender-day:nth-child(5n + 4) {
+	background-color: var(--blue);
+}
+
+.calender-day:nth-child(5n + 3) {
+	background-color: var(--red);
+}
