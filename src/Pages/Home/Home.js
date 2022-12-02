@@ -111,7 +111,6 @@ const Home = () => {
 					loggedIn ?
 					<div>
 						<button>Home</button>
-						<button>Dashboard</button>
 						<button>Wishlist</button>
 						<button>Friends</button>
 						<button>Events</button>
