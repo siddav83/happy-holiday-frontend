@@ -4,13 +4,14 @@ export const UserContext = createContext();
 
 export const UserProvider = (props) => {
 	const [userData, setUserData] = useState({
-		id: "",
+		user_id: "",
 		username: "",
 		friends: [],
 		wants: [],
 		dreams: [],
 		dislikes: [],
 		brands: [],
+		buying: [],
 	});
 
 	return (
