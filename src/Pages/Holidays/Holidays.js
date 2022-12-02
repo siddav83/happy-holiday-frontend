@@ -14,9 +14,9 @@ const Holidays = () => {
 	return (
 		<>
 			<div className="main-container">
+				<h1 className="holidays-heading">Happy Holidays!</h1>
 				{!calenderToggle ? (
 					<>
-						<h1 className="holidays-heading">Happy Holidays!</h1>
 						<Countdown />
 						<FunFact />
 						<button className="calender-btn" onClick={toggleCalender}>
