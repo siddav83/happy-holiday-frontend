@@ -3,13 +3,18 @@ import "./style.css";
 import { CalenderContext } from "../../Context/CalenderContext";
 
 const Calender = ({ setCalenderToggle }) => {
-	const { calender, today } = useContext(CalenderContext);
-	const [toggleDay, setToggleDay] = useState(false);
+	const { calender, today, toggleDay, setToggleDay } =
+		useContext(CalenderContext);
 	const [selectedDay, setSelectedDay] = useState({});
 
 	const openDay = (day) => {
 		setToggleDay((prev) => !prev);
 		setSelectedDay(day);
+	};
+
+	const closeDay = () => {
+		setToggleDay((prev) => !prev);
+		setSelectedDay("");
 	};
 
 	return (
@@ -41,7 +46,7 @@ const Calender = ({ setCalenderToggle }) => {
 					<p>{selectedDay.joke}</p>
 					<h2>Joke of the day</h2>
 					<p>{selectedDay.fact}</p>
-					<button onClick={() => setToggleDay(false)}>
+					<button onClick={closeDay}>
 						<i class="fa-solid fa-x close-btn" />
 					</button>
 				</div>
