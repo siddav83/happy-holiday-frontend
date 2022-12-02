@@ -75,29 +75,52 @@ const Home = () => {
 
 	return (
 		<div className="main-container Home">
-			<h1>Happy Holidays!</h1>
+			<header>
+				<h1>Happy Holidays!</h1>
+				<p>Celebrate holidays and special moments with your friends and family! <a href="#">Share a new holiday event</a> or <a href="#">make your wishlist</a> now.</p>
+			</header>
 
-			{countdown < countdownLimit && (
-				<>
-					<h2>{countdown}</h2>
-					<p>days until {nextEvent.name}</p>
-				</>
-			)}
-
-			{loggedIn ? (
-				<div>
-					<h1>Hello {loggedIn.email}</h1>
-					<a href="#" onClick={logout}>
-						Logout
-					</a>
-				</div>
-			) : (
-				<div>
+			<main>
+				{
+					countdown < countdownLimit && <div>
+						<div>
+							<h2>{countdown}</h2>
+							<p>days until {nextEvent.name}</p>
+						</div>
+						<div>
+							<h2>My Wishlist</h2>
+							<div>
+							{
+								loggedIn ? <>Nothing in your wishlist. <a href="#">Add items</a></> : <><a href="#" onClick={() => setDisplayModal('Login')}>Sign in to create a wishlist.</a></>
+							}
+							</div>
+						</div>
+						<div>
+							<h2>Custom gift ideas</h2>
+							<div></div>
+						</div>
+						<div>
+							<h2>Most popular gifts</h2>
+							<div></div>
+						</div>
+					</div>
+				}
+			</main>
+			<div>
+				{
+					loggedIn ?
+					<div>
+						<button>Home</button>
+						<button>Wishlist</button>
+						<button>Friends</button>
+						<button>Events</button>
+						<button onClick={logout}>Logout</button>
+					</div> : 
 					<button onClick={() => setDisplayModal("Login")}>
 						Login or sign up
 					</button>
-				</div>
-			)}
+				}
+			</div>
 
 			{displayModal === "Login" && (
 				<Modal show={true} close={closeModal}>
