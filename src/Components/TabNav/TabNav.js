@@ -1,13 +1,23 @@
 import React from "react";
 import "./style.css";
 
-export default function TabNav() {
+const TabNav = () => {
     return (
-        <div className="container-tab">
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-        </div>
+        <nav className="tabnav-navbar">
+            <button>
+                <i className="fa-regular fa-thumbs-up"></i>
+            </button>
+            <button>
+                <i className="fa-regular fa-thumbs-down"></i>
+            </button>
+            <button>
+                <i className="fa-regular fa-star"></i>
+            </button>
+            <button>
+                <i className="fa-solid fa-face-grin-hearts"></i>
+            </button>
+        </nav>
     );
-}
+};
+
+export default TabNav;

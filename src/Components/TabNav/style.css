@@ -1,11 +1,17 @@
-.container-tab {
+.tabnav-navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-.container-tab img {
-    background-color: red;
-    height: 50px;
-    width: 50px;
-    border-radius: 25%;
+.tabnav-navbar button {
+    text-align: center;
+    font-size: 30px;
+    border: 1px black solid;
+    border-radius: 50%;
+}
+
+.tabnav-navbar i {
+    padding: 10px;
+    min-height: 50px;
+    min-width: 50px;
 }
