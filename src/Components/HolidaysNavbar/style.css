@@ -22,3 +22,18 @@
 	text-shadow: -2px 2px 0px black;
 	scale: 1.1;
 }
+
+/* -- SVG CSS -- */
+
+.svg-separator {
+	display: block;
+	background: 0 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 9;
+	-webkit-transform: translateY(-100%) translateY(2px);
+	transform: translateY(-100%) translateY(2px);
+	width: 100%;
+}
