@@ -6,6 +6,8 @@ export const CalenderProvider = (props) => {
 	const [calender, setCalender] = useState(Calender);
 	const [daysLeft, setDaysLeft] = useState(25);
 	const [today, setToday] = useState(25);
+	const [calenderToggle, setCalenderToggle] = useState(false);
+	const [toggleDay, setToggleDay] = useState(false);
 
 	return (
 		<CalenderContext.Provider
@@ -16,6 +18,10 @@ export const CalenderProvider = (props) => {
 				setDaysLeft,
 				today,
 				setToday,
+				calenderToggle,
+				setCalenderToggle,
+				toggleDay,
+				setToggleDay,
 			}}
 		>
 			{props.children}

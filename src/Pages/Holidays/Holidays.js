@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./style.css";
 import { Countdown, HolidaysNavbar, FunFact } from "../../Components";
 import { Calender } from "../../Components";
+import { CalenderContext } from "../../Context/CalenderContext";
 
 const Holidays = () => {
-	const [calenderToggle, setCalenderToggle] = useState(false);
+	const { calenderToggle, setCalenderToggle } = useContext(CalenderContext);
 
 	const toggleCalender = () => {
 		setCalenderToggle((prev) => !prev);
