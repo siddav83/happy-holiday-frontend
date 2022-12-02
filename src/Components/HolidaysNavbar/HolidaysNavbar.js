@@ -6,16 +6,16 @@ const Navbar = () => {
 	return (
 		<nav className="holidays-navbar">
 			<NavLink to="/">
-				<i class="fa-solid fa-right-from-bracket"></i>
+				<i className="fa-solid fa-right-from-bracket"></i>
 			</NavLink>
 			<NavLink to="/community">
-				<i class="fa-solid fa-earth-europe"></i>
+				<i className="fa-solid fa-earth-europe"></i>
 			</NavLink>
 			<NavLink to="/holidays">
-				<i class="fa-solid fa-clock"></i>
+				<i className="fa-solid fa-clock"></i>
 			</NavLink>
 			<NavLink to="/friends">
-				<i class="fa-solid fa-user-group"></i>
+				<i className="fa-solid fa-user-group"></i>
 			</NavLink>
 		</nav>
 	);
