@@ -70,6 +70,7 @@ input {
 	padding: 1rem 0;
 	height: 92vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
