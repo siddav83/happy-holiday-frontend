@@ -4,9 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import { Home, User, Tab, Holidays } from "./Pages";
 import {
     HolidaysNavbar,
+    HolidaysNavbarAdd,
     TabNav,
     CategoryCard,
-    AddNav,
     Countdown,
 } from "./Components";
 function App() {
@@ -28,9 +28,6 @@ function App() {
                     element={
                         <>
                             <Tab />
-                            <TabNav />
-                            <CategoryCard />
-                            <AddNav />
                         </>
                     }
                 />
