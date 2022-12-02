@@ -1,11 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
-import friendsIcon from "../../Assets/images/friends-icon.png";
 
 const Navbar = () => {
 	return (
-		<nav className="holiday-navbar">
+		<nav className="holidays-navbar">
 			<NavLink to="/">
 				<i class="fa-solid fa-right-from-bracket"></i>
 			</NavLink>

@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Home, User, Tab, Holidays } from "./Pages";
-import { Navbar, TabNav, CategoryCard, AddNav } from "./Components";
+import { HolidaysNavbar, TabNav, CategoryCard, AddNav } from "./Components";
 function App() {
 	return (
 		<div className="App">
@@ -14,7 +14,6 @@ function App() {
 					element={
 						<>
 							<User />
-							<Navbar />
 						</>
 					}
 				/>
@@ -26,7 +25,6 @@ function App() {
 							<TabNav />
 							<CategoryCard />
 							<AddNav />
-							<Navbar />
 						</>
 					}
 				/>
@@ -35,14 +33,13 @@ function App() {
 					element={
 						<>
 							<Holidays />
-							<Navbar />
+							<HolidaysNavbar />
 						</>
 					}
 				/>
 			</Routes>
 		</div>
 	);
-
 }
 
 export default App;
