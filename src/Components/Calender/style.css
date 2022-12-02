@@ -2,12 +2,35 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 8px;
-	height: 80%;
+	height: 0%;
 	width: 100%;
 	margin-top: 1rem;
 }
 
-.calender-day {
+.calender-day-crossed {
+	position: relative;
+	background-color: rgb(75, 75, 75);
+	color: white;
+}
+
+.calender-day-crossed::before,
+.calender-day-crossed::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 5px;
+	transform: rotate(50deg);
+	background-color: var(--red);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+	border-radius: 50px;
+}
+.calender-day-crossed::after {
+	transform: rotate(130deg);
+}
+
+.calender-day,
+.calender-day-crossed {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -19,21 +42,24 @@
 	transition: 0.3s ease-in-out;
 	border-radius: 6px;
 	text-shadow: -1px 1px 0px var(--grey-shadow);
+	border: 2px solid white;
 }
 
-.calender-day:hover {
+.calender-day:hover,
+.calender-day-crossed:hover {
 	color: white;
-	text-shadow: -4px 4px 0 black;
+	text-shadow: -5px 5px 0 black;
+	border: 2px solid black;
 }
 
 /* Calender Colors */
-
 .calender-day:nth-child(3n + 0) {
 	background-color: var(--green);
 }
 .calender-day:nth-child(3n + 1) {
 	background-color: var(--blue);
 }
+
 .calender-day:nth-child(3n + 2) {
 	background-color: var(--red);
 }
@@ -46,14 +72,55 @@
 	align-items: center;
 	position: absolute;
 	top: 10px;
-	left: 10px;
-	padding: 0.5rem;
+	left: 5%;
+	padding: 0.5rem 0.75rem;
 	background-color: var(--red);
 	box-shadow: -2px 2px 0 black;
 	transition: 0.3s ease-in-out;
+	font-size: min(30px, 5vw);
 }
 
 .back-btn:hover {
 	background-color: var(--green);
 	padding: 0.5rem 1rem;
+}
+
+/*  Show Day*/
+
+.show-day {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--red);
+	top: 20%;
+	right: 5%;
+	bottom: 20%;
+	left: 5%;
+	z-index: 100;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 16px;
+	padding: 0 2rem;
+	box-shadow: -6px 6px 0 black;
+	border: 2px solid black;
+}
+
+.show-day h2 {
+	margin: 1rem;
+	font-size: min(50px, 7vw);
+}
+
+.show-day .close-btn {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	font-size: min(50px, 8vw);
+	color: rgba(0, 0, 0, 0.4);
+	transition: 0.3s ease-in-out;
+}
+
+.show-day .close-btn:hover {
+	color: black;
 }
