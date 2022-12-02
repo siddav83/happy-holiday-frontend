@@ -7,7 +7,7 @@ import "./main.css";
 import { UserProvider } from "./Context/UserContext";
 import { CalenderProvider } from "./Context/CalenderContext";
 import { StatsProvider } from "./Context/StatsContext";
-import { FestivityProvider } from "./Context/FestivityProvider";
+import { FestivityProvider } from "./Context/FestivityContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
