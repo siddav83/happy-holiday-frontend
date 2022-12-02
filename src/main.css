@@ -12,6 +12,8 @@ font-family: 'Poppins', sans-serif;  // Normal
 	--purple: rgb(121, 80, 242);
 	--blue: rgb(34, 139, 230);
 	--grey-shadow: rgba(255, 255, 255, 0.3);
+	--main-font: "Pacifico", sans-serif;
+	--normal-font: "Poppins", sans-serif;
 }
 
 /* General */
@@ -44,14 +46,19 @@ h2 {
 	font-family: "Pacifico", sans-serif;
 }
 
-p,
-a,
-button,
-input,
 h3,
 h4,
 h5 {
 	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+}
+
+p,
+a,
+button,
+input {
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
 }
 
 /* Reusable main container*/
