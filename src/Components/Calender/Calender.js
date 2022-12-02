@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 import { CalenderContext } from "../../Context/CalenderContext";
 
-const Calender = () => {
+const Calender = ({ setCalenderToggle }) => {
 	const { calender } = useContext(CalenderContext);
 	console.log(calender);
 	return (
 		<div className="calender-container">
-			<button className="back-btn">
+			<button
+				className="back-btn"
+				onClick={() => setCalenderToggle((prev) => !prev)}
+			>
 				<i class="fa-solid fa-backward"></i>
 			</button>
 			{calender?.map((day, i) => {
