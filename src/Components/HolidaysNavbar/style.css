@@ -1,0 +1,24 @@
+.holidays-navbar {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: 60px;
+	background-color: var(--red);
+}
+
+.holidays-navbar i {
+	color: black;
+	font-size: 34px;
+	text-shadow: -2px 2px 0 var(--grey-shadow);
+	transition: 0.3s ease-in-out;
+}
+
+.holidays-navbar i:hover {
+	color: white;
+	text-shadow: -2px 2px 0px black;
+	scale: 1.1;
+}
