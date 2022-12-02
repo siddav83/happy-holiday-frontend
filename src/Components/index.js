@@ -6,3 +6,4 @@ export { default as Modal } from "./Modal";
 export { default as Countdown } from "./Countdown/Countdown";
 export { default as FunFact } from "./FunFact/FunFact";
 export { default as CategoryList } from "./CatergoryList/CategoryList";
+export { default as Calender } from "./Calender/Calender";

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import "./style.css";
-
+import { CalenderContext } from "../../Context/CalenderContext";
 const Countdown = () => {
-	const [daysLeft, setDaysLeft] = useState(25);
+	const { daysLeft, setDaysLeft, setToday } = useContext(CalenderContext);
 
 	useEffect(() => {
 		// Get Todays Date
 		const date = new Date();
 		let day = date.getDate();
 		// Set Days Left
+		setToday(day);
 		setDaysLeft(25 - day);
 	});
 

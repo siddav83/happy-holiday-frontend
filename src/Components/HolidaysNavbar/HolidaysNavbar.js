@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
+import { CalenderContext } from "../../Context/CalenderContext";
 
 const Navbar = () => {
+	const { setToggleDay, setCalenderToggle } = useContext(CalenderContext);
+
+	const toggleToMain = () => {
+		setToggleDay(false);
+		setCalenderToggle(false);
+	};
+
 	return (
 		<nav className="holidays-navbar">
 			{/* Swirly Pattern START */}
@@ -29,16 +37,19 @@ const Navbar = () => {
 			{/* Swirly Pattern END */}
 
 			<NavLink to="/">
-				<i className="fa-solid fa-right-from-bracket"></i>
+				<i
+					className="fa-solid fa-right-from-bracket"
+					onClick={toggleToMain}
+				></i>
 			</NavLink>
 			<NavLink to="/community">
-				<i className="fa-solid fa-earth-europe"></i>
+				<i className="fa-solid fa-earth-europe" onClick={toggleToMain}></i>
 			</NavLink>
-			<NavLink to="/holidays">
+			<NavLink to="/holidays" onClick={toggleToMain}>
 				<i className="fa-solid fa-clock"></i>
 			</NavLink>
 			<NavLink to="/friends">
-				<i className="fa-solid fa-user-group"></i>
+				<i className="fa-solid fa-user-group" onClick={toggleToMain}></i>
 			</NavLink>
 		</nav>
 	);

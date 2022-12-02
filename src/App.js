@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import { Home, User, Tab, Holidays } from "./Pages";
 import {
     HolidaysNavbar,
@@ -36,7 +35,6 @@ function App() {
                     element={
                         <>
                             <Holidays />
-                            <HolidaysNavbar />
                         </>
                     }
                 />
