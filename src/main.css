@@ -31,3 +31,16 @@ video {
 	display: block;
 	max-width: 100%;
 }
+
+/* Reusable main container*/
+
+.main-container {
+	width: 90%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 1rem 0;
+	height: 94vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
