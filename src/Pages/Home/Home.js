@@ -31,7 +31,16 @@ const Home = () => {
 		console.log(formData, "LOGIN")
 
 		axios.post('http://127.0.0.1:5000/login', formData)
-			.then(res => console.log(res, "POST RESPONSE"))
+			.then(res => {
+				console.log(res.data, "POST RESPONSE")
+				if(res.data.message === "Logged In."){
+					console.log("LOGIN AS", formData['email'])
+					setLoggedIn(formData)
+					closeModal()
+				} else {
+					console.log("FAILED")
+				}
+			})
 			.catch(err => console.error(err))
 	}
 
@@ -41,8 +50,21 @@ const Home = () => {
 		console.log(formData, "REGISTER")
 
 		axios.post('http://127.0.0.1:5000/register', formData)
-			.then(res => console.log(res, "POST RESPONSE"))
+			.then(res => {
+				console.log(res, "POST RESPONSE")
+				if(res.data.message === ""){
+					console.log("REGISTERED")
+				} else {
+					console.log("FAILED")
+				}
+			})
 			.catch(err => console.error(err))
+	}
+
+	function logout(e){
+		e.preventDefault()
+		setLoggedIn(null)
+		console.log("LOGOUT")
 	}
 
 	useEffect(() => {
@@ -60,7 +82,12 @@ const Home = () => {
 		}
 
 		{
-			!loggedIn && <button onClick={() => setDisplayModal('Login')}>Login or sign up</button>
+			loggedIn ? <div>
+				<h1>Hello {loggedIn.email}</h1>
+				<a href="#" onClick={logout}>Logout</a>
+			</div> : <div>
+				<button onClick={() => setDisplayModal('Login')}>Login or sign up</button>
+			</div>
 		}
 
 		{
