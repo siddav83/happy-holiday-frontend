@@ -10,7 +10,7 @@ export default function Tab() {
                 <TabNav />
             </div>
             <div className="card-container">
-                <CategoryCard className="item-a" />
+                <CategoryCard />
                 <CategoryCard />
                 <CategoryCard />
                 <CategoryCard />
