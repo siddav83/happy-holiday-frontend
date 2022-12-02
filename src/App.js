@@ -1,17 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import { Home, User, Tab, Holidays } from "./Pages";
-import {
-	HolidaysNavbar,
-	TabNav,
-	CategoryCard,
-	AddNav,
-	Countdown,
-} from "./Components";
+import { TabNav, CategoryCard, AddNav } from "./Components";
+import Background from "./Assets/images/background.webp";
 function App() {
 	return (
 		<div className="App">
+			<img className="background" src={Background} alt="snowfall" />
 			<Routes>
 				{/* Pages */}
 				<Route path="/" element={<Home />} />
