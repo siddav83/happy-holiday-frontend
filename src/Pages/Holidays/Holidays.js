@@ -3,7 +3,7 @@ import "./style.css";
 
 const Holidays = () => {
 	return (
-		<div>
+		<div className="main-container">
 			<h1>Happy Holidays</h1>
 		</div>
 	);
