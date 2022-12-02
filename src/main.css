@@ -41,6 +41,12 @@ video {
 	max-width: 100%;
 }
 
+h1 {
+	color: var(--red);
+	text-shadow: -2px 4px 0 black;
+	font-size: min(70px, 12vw);
+}
+
 h1,
 h2 {
 	font-family: "Pacifico", sans-serif;
