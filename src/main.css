@@ -4,6 +4,7 @@
 	--green: rgb(18, 184, 134);
 	--purple: rgb(121, 80, 242);
 	--blue: rgb(34, 139, 230);
+	--grey-shadow: rgba(255, 255, 255, 0.3);
 }
 
 /* General */
@@ -29,4 +30,17 @@ svg,
 video {
 	display: block;
 	max-width: 100%;
+}
+
+/* Reusable main container*/
+
+.main-container {
+	width: 90%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 1rem 0;
+	height: 92vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

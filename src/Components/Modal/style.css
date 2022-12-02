@@ -1,0 +1,23 @@
+.Modal {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000000bd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    color: blue;
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
