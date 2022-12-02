@@ -24,7 +24,7 @@ const Holidays = () => {
 						</button>
 					</>
 				) : (
-					<Calender />
+					<Calender setCalenderToggle={setCalenderToggle} />
 				)}
 			</div>
 			<HolidaysNavbar />
