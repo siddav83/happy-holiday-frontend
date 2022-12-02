@@ -1,26 +1,51 @@
-import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import "./style.css";
 import { CalenderContext } from "../../Context/CalenderContext";
 
 const Calender = ({ setCalenderToggle }) => {
-	const { calender } = useContext(CalenderContext);
-	console.log(calender);
+	const { calender, today } = useContext(CalenderContext);
+	const [toggleDay, setToggleDay] = useState(false);
+	const [selectedDay, setSelectedDay] = useState({});
+
+	const openDay = (day) => {
+		setToggleDay((prev) => !prev);
+		setSelectedDay(day);
+	};
+
 	return (
 		<div className="calender-container">
 			<button
 				className="back-btn"
 				onClick={() => setCalenderToggle((prev) => !prev)}
 			>
-				<i class="fa-solid fa-backward"></i>
+				<i className="fa-solid fa-backward" />
 			</button>
-			{calender?.map((day, i) => {
-				return (
-					<div className="calender-day" key={i}>
-						{day.day}
-					</div>
-				);
-			})}
+			{!toggleDay ? (
+				calender?.map((day, i) => {
+					return (
+						<div
+							onClick={() => openDay(day)}
+							className={
+								today < day.day ? "calender-day" : "calender-day-crossed"
+							}
+							key={i}
+						>
+							{day.day}
+						</div>
+					);
+				})
+			) : (
+				<div className="show-day">
+					<h2>Day: {selectedDay.day}</h2>
+					<h2>Todays fact of the day</h2>
+					<p>{selectedDay.joke}</p>
+					<h2>Joke of the day</h2>
+					<p>{selectedDay.fact}</p>
+					<button onClick={() => setToggleDay(false)}>
+						<i class="fa-solid fa-x close-btn" />
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };

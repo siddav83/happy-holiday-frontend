@@ -139,13 +139,13 @@ const CalenderData = [
 	},
 	{
 		day: 24,
-		fact: "Queen Victoria sent the first official Christmas card",
+		fact: "Norway provides the tree in Trafalgar Square",
 		joke: "What did the gingerbread man put on his bed? A cookie sheet!",
 		past: false,
 	},
 	{
 		day: 25,
-		fact: "Merry Christmas",
+		fact: "Queen Victoria sent the first official Christmas card",
 		joke: "Who is never hungry at Christmas? The turkey—he's always stuffed.",
 		past: false,
 	},
