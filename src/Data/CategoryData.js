@@ -1,11 +1,11 @@
 const CategoryData = [
-    "sweets",
-    "games",
-    "skincare",
-    "perfume",
-    "stuff",
-    "pets",
-    "more stuff",
+    { name: "sweets", symbols: "🍬" },
+    { name: "XTrees", symbols: "🎄" },
+    { name: "phones", symbols: "📱" },
+    { name: "perfume", symbols: "👃" },
+    { name: "pets", symbols: "🐕" },
+    { name: "cars", symbols: "🏎️" },
+    { name: "planes", symbols: "✈️" },
 ];
 
 export default CategoryData;
