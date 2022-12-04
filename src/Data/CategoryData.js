@@ -1,4 +1,4 @@
-const data = [
+const CategoryData = [
     "sweets",
     "games",
     "skincare",
@@ -8,4 +8,4 @@ const data = [
     "more stuff",
 ];
 
-export default data;
+export default CategoryData;

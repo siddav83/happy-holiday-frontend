@@ -1,9 +1,14 @@
 import React from "react";
-import data from "./data";
+import CategoryData from "../../Data/CategoryData";
 import CategoryCard from "../CategoryCard/CategoryCard";
 
 export default function CategoryList() {
-    data.map((cat) => {
-        return <CategoryCard data={data} />;
+    CategoryData.map((cat) => {
+        console.log(cat);
+        return (
+            <div className="card-container">
+                <CategoryCard data={cat} />
+            </div>
+        );
     });
 }
