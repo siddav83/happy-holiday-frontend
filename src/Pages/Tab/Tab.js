@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CategoryContext } from "../../Context/CategoryContext";
 import {
     TabNav,
     AddNav,
     HolidaysNavbarAdd,
-    CategoryList,
+    CategoryCard,
 } from "../../Components";
 import "./style.css";
 
-export default function Tab() {
+export default function Tab(data) {
+    const { category } = useContext(CategoryContext);
     return (
-        <div className="tab-container">
-            <h1>Heading - Want, Dislike, Love </h1>
+        <div>
+            <h1>Wants</h1>
             <TabNav />
-            <CategoryList />
+            <div className="card-container ">
+                {category.map((cat) => {
+                    return (
+                        <div className="">
+                            <CategoryCard data={cat} />
+                        </div>
+                    );
+                })}
+            </div>
             <HolidaysNavbarAdd />
-            <div className="card-container"></div>
         </div>
     );
 }

@@ -1,7 +1,11 @@
 import React from "react";
 import "./style.css";
 
-export default function CategoryCard(data) {
-    // console.log(data);
-    return <div className="card"></div>;
+export default function CategoryCard({ data }) {
+    return (
+        <div className="card">
+            <p className="symbols">{data.symbols}</p>
+            <p>{data.name}</p>
+        </div>
+    );
 }
