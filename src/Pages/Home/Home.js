@@ -11,6 +11,7 @@ const Home = () => {
 	const [nextEvent, setNextEvent] = useState({
 		name: "Christmas",
 		date: new Date(2022, 11, 25),
+		icon: '🎄'
 	});
 	const [countdown, setCountdown] = useState(null);
 	const countdownLimit = 99;
@@ -74,39 +75,51 @@ const Home = () => {
 	}, [nextEvent]);
 
 	return (
-		<div className="main-container Home">
+		// <div className="main-container Home">
+		<div className="Home">
 			<header>
-				<h1>Happy Holidays!</h1>
-				<p>Celebrate holidays and special moments with your friends and family! <a href="#">Share a new holiday event</a> or <a href="#">make your wishlist</a> now.</p>
+				<span className='logo'>Happy Holidays!</span>
+				<button><i className='menu-icon'></i></button>
 			</header>
 
 			<main>
-				{
-					countdown < countdownLimit && <div>
-						<div>
-							<h2>{countdown}</h2>
-							<p>days until {nextEvent.name}</p>
-						</div>
-						<div>
-							<h2>My Wishlist</h2>
-							<div>
-							{
-								loggedIn ? <>Nothing in your wishlist. <a href="#">Add items</a></> : <><a href="#" onClick={() => setDisplayModal('Login')}>Sign in to create a wishlist.</a></>
-							}
-							</div>
-						</div>
-						<div>
-							<h2>Custom gift ideas</h2>
-							<div></div>
-						</div>
-						<div>
-							<h2>Most popular gifts</h2>
-							<div></div>
-						</div>
+				<div className="heading">
+					<h2>Celebrate {nextEvent?.icon} <span className='eventName'>{nextEvent ? nextEvent.name : 'holidays'}</span> with friends and family!</h2>
+				</div>
+				<div className='card-default'>
+					<div className='countdown'>
+						<div className='counter'>{countdown}</div>
+						<div className='text'>days until {nextEvent.name}</div>
 					</div>
-				}
+					<p><a href="#">Hosting an event?</a></p>
+				</div>
+				<div className='card-default'>
+					<h2>My Wishlist</h2>
+					<div className='list'>
+					{
+						loggedIn ? <>Nothing in your wishlist. <a href="#">Add items</a></> : <><a href="#" onClick={() => setDisplayModal('Login')}>Sign in to create a wishlist.</a></>
+					}
+					</div>
+				</div>
+				<div className='card-default'>
+					<h2>Popular Gifts</h2>
+					<div className='list'>
+						{
+							new Array(6).fill().map((item, index) => <div key={index} className='placeholder'></div>)
+						}
+					</div>
+				</div>
+				<div className='card-default'>
+					<h2>{nextEvent.name} Cards</h2>
+					<div className='list'>
+						{
+							new Array(6).fill().map((item, index) => <div key={index} className='placeholder'></div>)
+						}
+					</div>
+				</div>
 			</main>
-			<div>
+
+			<div className='navbar-default'>
 				{
 					loggedIn ?
 					<div>

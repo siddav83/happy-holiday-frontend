@@ -6,27 +6,39 @@ import "./style.css";
 export default function Tab(data) {
     const {
         category,
+        setCategory,
         visible,
-        like,
-        setLike,
-        dislike,
-        setDislike,
-        want,
-        setWant,
+        setVisible,
+        type,
+        setType,
+        nameItem,
+        setNameItem,
     } = useContext(CategoryContext);
     return (
         <div className="main-container">
             <h1>Wants</h1>
             {!visible ? (
                 <form className="likeAndDislikeForm">
-                    <input type="radio" id="like" value="like" />
-                    <label for="like">LIKE</label>
-                    <input type="text" id="category-like" />
-                    <label htmlFor="category-like"></label>
-                    <input type="radio" id="dislike" value="dislike" />
-                    <label for="dislike">DISLIKE</label>
-                    <input type="radio" id="want" value="wanty" />
-                    <label for="want">WANT</label>
+                    <label for="type">Likes / Dislikes / Wishlist:</label>
+                    <select id="type" name="type" size="3">
+                        <option value="">phone</option>
+                        <option value="like">like</option>
+                        <option value="dislike">dislike</option>
+                        <option value="dreams">dreams</option>
+                    </select>
+                    <label for="category">Choose a category:</label>
+                    <select id="category" name="category" size="10">
+                        <option value="">phone</option>
+                        <option value="computers">computers</option>
+                        <option value="laptop">laptop</option>
+                        <option value="confectionary">confectionary</option>
+                        <option value="vouchers">vouchers</option>
+                        <option value="clothes">clothes</option>
+                        <option value="money">money</option>
+                    </select>
+                    <label for="item">item description</label>
+                    <input type="text" id="item" name="item" />
+                    <button>Add</button>
                 </form>
             ) : (
                 visible
