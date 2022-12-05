@@ -11,10 +11,10 @@ import "./style.css";
 export default function Tab(data) {
     const { category } = useContext(CategoryContext);
     return (
-        <div>
+        <div className="main-container">
             <h1>Wants</h1>
             <TabNav />
-            <div className="card-container ">
+            <div className="card-container">
                 {category.map((cat) => {
                     return (
                         <div className="">
