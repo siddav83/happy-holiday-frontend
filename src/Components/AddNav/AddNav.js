@@ -37,7 +37,6 @@ const AddNav = () => {
 			</svg>
 			{/* Swirly Pattern END */}
 
-
             <NavLink to="/">
                 <i className="fa-solid fa-right-from-bracket"></i>
             </NavLink>

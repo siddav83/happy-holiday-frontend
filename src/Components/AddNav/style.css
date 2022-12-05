@@ -11,6 +11,10 @@
 }
 
 .holidays-navbar i {
+	margin: 0 1rem;
+}
+
+.holidays-navbar i {
 	color: black;
 	font-size: 34px;
 	text-shadow: -2px 2px 0 var(--grey-shadow);
@@ -20,7 +24,7 @@
 .holidays-navbar i:hover {
 	color: white;
 	text-shadow: -2px 2px 0px black;
-	scale: 1.1;
+	scale: 1.05;
 }
 
 /* -- SVG CSS -- */
@@ -40,18 +44,24 @@
 
 .add-btn {
 	z-index: 200;
-	position: absolute;
-	bottom: 25px;
-	min-height: 125px;
-	min-width: 125px;
+	height: 120px;
+	height: min(160px, 25vw);
+	width: min(160px, 25vw);
 	border-radius: 50%;
+	background-color: white;
+	border: 6px solid #f17e86;
+	margin-bottom: 3rem;
+	background-color: var(--green);
+	transition: 0.3s ease-in-out;
 }
 
 .add-btn i {
-	font-size: 125px;
-	min-height: inherit;
-	min-width: inherit;
-	border-radius: 50%;
+	font-size: 60px;
+	color: black;
+}
+
+.add-item-form {
+	position: absolute;
 }
 
 .likeAndDislikeForm {
