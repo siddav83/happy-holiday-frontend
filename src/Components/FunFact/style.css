@@ -1,12 +1,23 @@
-.fun-fact {
+.fun-fact-container {
 	font-weight: 600;
 	font-size: 20px;
 	text-align: center;
-	color: var(--green);
-	text-shadow: -1px 1px 0 black;
-	border-top: 2px solid var(--green);
-	border-bottom: 2px solid var(--green);
-	padding: 0.5rem 0;
 	width: 100%;
 	max-width: 700px;
+	background-color: white;
+	border-radius: 12px;
+	box-shadow: var(--shadow);
+	max-width: 600px;
+}
+
+.fun-fact-heading {
+	background-color: var(--text-color);
+	color: white;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	padding: 0.5rem;
+}
+
+.fun-fact {
+	padding: 0.5rem;
 }

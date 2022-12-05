@@ -1,8 +1,8 @@
 .Home {
-	--red: #FA0F39;
+	--red: #fa0f39;
 	--blue: #0e54ec;
-	--pale-blue: #EFF5FF;
-	--dark-blue: #0E2332;
+	--pale-blue: #eff5ff;
+	--dark-blue: #0e2332;
 	--drop-shadow: 0px 0px 16px #7695c240;
 
 	/* background: var(--pale-blue); */
@@ -12,13 +12,15 @@
 	min-height: 100vh;
 }
 
-.Home, .Home * {
+.Home,
+.Home * {
 	font-size: 1.3rem;
-	font-family: 'Bree Serif', serif;
+	font-family: "Bree Serif", serif;
 	text-decoration: none;
 }
 
-.Home h2, .Home h2 * {
+.Home h2,
+.Home h2 * {
 	font-size: 1.8rem;
 }
 
@@ -85,7 +87,7 @@
 }
 
 .Home .logo {
-	font-family: 'Averia Serif Libre', cursive;
+	font-family: "Averia Serif Libre", cursive;
 	color: var(--red);
 	display: block;
 	width: 0px;

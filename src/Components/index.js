@@ -7,3 +7,4 @@ export { default as Countdown } from "./Countdown/Countdown";
 export { default as FunFact } from "./FunFact/FunFact";
 export { default as Calender } from "./Calender/Calender";
 export { default as Profile } from "./Profile/Profile";
+export { default as AddFriend } from "./AddFriend/AddFriend";

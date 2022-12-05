@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
-import { CalenderContext } from "../../Context/CalenderContext";
+import { ToggleContext } from "../../Context/ToggleContext";
 
 const HolidaysNavbar = () => {
-	const { setToggleDay, setCalenderToggle } = useContext(CalenderContext);
+	const { setToggleDay, setCalenderToggle, setToggleAddFriend } =
+		useContext(ToggleContext);
 
-	const toggleToMain = () => {
+	const toggleAllFalse = () => {
 		setToggleDay(false);
 		setCalenderToggle(false);
+		setToggleAddFriend(false);
 	};
 
 	return (
@@ -39,17 +41,17 @@ const HolidaysNavbar = () => {
 			<NavLink to="/">
 				<i
 					className="fa-solid fa-right-from-bracket"
-					onClick={toggleToMain}
+					onClick={toggleAllFalse}
 				></i>
 			</NavLink>
 			<NavLink to="/community">
-				<i className="fa-solid fa-earth-europe" onClick={toggleToMain}></i>
+				<i className="fa-solid fa-earth-europe" onClick={toggleAllFalse}></i>
 			</NavLink>
-			<NavLink to="/holidays" onClick={toggleToMain}>
-				<i class="fa-regular fa-calendar"></i>
+			<NavLink to="/holidays" onClick={toggleAllFalse}>
+				<i className="fa-regular fa-calendar"></i>
 			</NavLink>
 			<NavLink to="/friends">
-				<i className="fa-solid fa-user-group" onClick={toggleToMain}></i>
+				<i className="fa-solid fa-user-group" onClick={toggleAllFalse}></i>
 			</NavLink>
 		</nav>
 	);
