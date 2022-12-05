@@ -17,6 +17,7 @@
 	border-bottom-left-radius: 6px;
 	border: 2px solid black;
 	overflow: hidden;
+	background-color: var(--green);
 }
 
 .profile-avatar img {
@@ -38,6 +39,17 @@
 	background-color: var(--red);
 	box-shadow: -5px 5px 0 black;
 	border: 2px solid black;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+}
+
+.profile-username:hover {
+	background-color: var(--green);
+	text-shadow: -2px 2px 0 rgba(255, 255, 255, 0.486);
+}
+
+.profile-username:hover .profile-leaf {
+	rotate: 10deg;
 }
 
 .profile-leaf {
@@ -45,4 +57,5 @@
 	top: 0%;
 	right: 0%;
 	width: min(120px, 10vw);
+	transition: 0.3s ease-in-out;
 }
