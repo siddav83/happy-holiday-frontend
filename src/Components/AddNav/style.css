@@ -53,3 +53,11 @@
     min-width: inherit;
     border-radius: 50%;
 }
+
+.likeAndDislikeForm {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    z-index: 1000;
+    background-color: blue;
+}
