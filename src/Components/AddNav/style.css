@@ -1,0 +1,55 @@
+.holidays-navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 8vh;
+    background-color: var(--red);
+}
+
+.holidays-navbar i {
+    color: black;
+    font-size: 34px;
+    text-shadow: -2px 2px 0 var(--grey-shadow);
+    transition: 0.3s ease-in-out;
+}
+
+.holidays-navbar i:hover {
+    color: white;
+    text-shadow: -2px 2px 0px black;
+    scale: 1.1;
+}
+
+/* -- SVG CSS -- */
+
+.svg-separator {
+    display: block;
+    background: 0 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
+    -webkit-transform: translateY(-100%) translateY(2px);
+    transform: translateY(-100%) translateY(2px);
+    width: 100%;
+}
+
+.add-btn {
+    z-index: 200;
+    position: absolute;
+    bottom: 25px;
+    min-height: 125px;
+    min-width: 125px;
+    border-radius: 50%;
+}
+
+.add-btn i {
+    font-size: 125px;
+    min-height: inherit;
+    min-width: inherit;
+    border-radius: 50%;
+}
