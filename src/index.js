@@ -10,25 +10,28 @@ import { CalenderProvider } from "./Context/CalenderContext";
 import { StatsProvider } from "./Context/StatsContext";
 import { FestivityProvider } from "./Context/FestivityContext";
 import { CategoryProvider } from "./Context/CategoryContext";
+import { ToggleProvider } from "./Context/ToggleContext";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        <UserProvider>
-            <FestivityProvider>
-                <CalenderProvider>
-                    <StatsProvider>
-                        <CategoryProvider>
-                            <Router>
-                                <App />
-                            </Router>
-                        </CategoryProvider>
-                    </StatsProvider>
-                </CalenderProvider>
-            </FestivityProvider>
-        </UserProvider>
-    </React.StrictMode>
+	<React.StrictMode>
+		<ToggleProvider>
+			<UserProvider>
+				<FestivityProvider>
+					<CalenderProvider>
+						<StatsProvider>
+							<CategoryProvider>
+								<Router>
+									<App />
+								</Router>
+							</CategoryProvider>
+						</StatsProvider>
+					</CalenderProvider>
+				</FestivityProvider>
+			</UserProvider>
+		</ToggleProvider>
+	</React.StrictMode>
 );

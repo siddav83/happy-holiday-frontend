@@ -9,7 +9,7 @@
 
 .calender-day-crossed {
 	position: relative;
-	background-color: rgb(75, 75, 75);
+	background-color: var(--text-color);
 	color: white;
 }
 
@@ -45,11 +45,18 @@
 	border: 2px solid white;
 }
 
-.calender-day:hover,
+.calender-day:hover {
+	color: white;
+	text-shadow: -3px 3px 0 black;
+	border: 2px solid black;
+	rotate: 3deg;
+}
+
 .calender-day-crossed:hover {
 	color: white;
-	text-shadow: -5px 5px 0 black;
-	border: 2px solid black;
+	text-shadow: -3px 3px 0 black;
+	border: 2px solid var(--red);
+	rotate: -3deg;
 }
 
 /* Calender Colors */

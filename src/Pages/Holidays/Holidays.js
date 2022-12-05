@@ -2,15 +2,14 @@ import React, { useContext } from "react";
 import "./style.css";
 import { Countdown, HolidaysNavbar, FunFact } from "../../Components";
 import { Calender } from "../../Components";
-import { CalenderContext } from "../../Context/CalenderContext";
+import { ToggleContext } from "../../Context/ToggleContext";
 
 const Holidays = () => {
-	const { calenderToggle, setCalenderToggle } = useContext(CalenderContext);
+	const { calenderToggle, setCalenderToggle } = useContext(ToggleContext);
 
 	const toggleCalender = () => {
 		setCalenderToggle((prev) => !prev);
 	};
-	console.log(calenderToggle);
 
 	return (
 		<>

@@ -5,7 +5,12 @@ import { CalenderContext } from "../../Context/CalenderContext";
 const FunFact = () => {
 	const { calender, daysLeft } = useContext(CalenderContext);
 
-	return <p className="fun-fact">{calender[daysLeft]?.fact}</p>;
+	return (
+		<div className="fun-fact-container">
+			<p className="fun-fact-heading">Fact of the day!</p>
+			<p className="fun-fact">{calender[daysLeft]?.fact}</p>
+		</div>
+	);
 };
 
 export default FunFact;

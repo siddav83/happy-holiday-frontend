@@ -12,6 +12,7 @@ font-family: 'Pacifico', cursive;
 	--purple: rgb(121, 80, 242);
 	--blue: rgb(34, 139, 230);
 	--grey-shadow: rgba(255, 255, 255, 0.3);
+	--shadow: 0px 0px 16px rgba(118, 149, 194, 0.25);
 	--main-font: "Pacifico", sans-serif;
 	--normal-font: "Bree Serif", serif;
 	--text-color: #0e2332;
@@ -19,23 +20,22 @@ font-family: 'Pacifico', cursive;
 }
 
 /* General */
-* :not(i),
+*,
 *::before,
 *::after {
 	box-sizing: border-box;
-	color: #0e2332;
 }
 
-*:not(i) {
+* {
 	margin: 0;
 	padding: 0;
-	font: inherit;
 }
 
 body {
 	background-color: #eff5ff;
 	min-height: 100vh;
 	overflow-x: hidden;
+	color: var(--text-color);
 }
 
 img,
@@ -67,14 +67,18 @@ h5 {
 p,
 a,
 button,
-input {
+input,
+label {
 	font-family: "Bree Serif", serif;
+	color: var(--text-color);
 }
 
 button,
-input {
+input[type="button"],
+input[type="submit"] {
 	border: none;
 	cursor: pointer;
+	color: var(--text-color);
 }
 
 /* Reusable main container*/
@@ -83,7 +87,7 @@ input {
 	width: 90%;
 	max-width: 1000px;
 	margin: 0 auto;
-	padding: 2.5rem 0;
+	padding: 0.5rem 0;
 	height: 92vh;
 	display: flex;
 	flex-direction: column;

@@ -7,9 +7,14 @@ function App() {
 	return (
 		<div className="App">
 			{/* Snowflakes START*/}
-            {
-                new Array(12).fill().map((snowflake, index) => <img key={index} src={Snowflake} alt="snowflake" className={`snowflake s-${index + 1}`} />)
-            }
+			{new Array(12).fill().map((snowflake, index) => (
+				<img
+					key={index}
+					src={Snowflake}
+					alt="snowflake"
+					className={`snowflake s-${index + 1}`}
+				/>
+			))}
 			{/* Snowflakes END*/}
 			<Routes>
 				{/* Pages */}
@@ -36,7 +41,6 @@ function App() {
 			</Routes>
 		</div>
 	);
-
 }
 
 export default App;

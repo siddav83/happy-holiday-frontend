@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./style.css";
 import { CalenderContext } from "../../Context/CalenderContext";
+import { ToggleContext } from "../../Context/ToggleContext";
 
 const Calender = ({ setCalenderToggle }) => {
-	const { calender, today, toggleDay, setToggleDay } =
-		useContext(CalenderContext);
+	const { calender, today } = useContext(CalenderContext);
+
+	const { toggleDay, setToggleDay } = useContext(ToggleContext);
 	const [selectedDay, setSelectedDay] = useState({});
 
 	const openDay = (day) => {
