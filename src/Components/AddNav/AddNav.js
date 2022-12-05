@@ -46,7 +46,7 @@ const AddNav = () => {
 				<i className="fa-regular fa-plus btn-big"></i>
 			</button>
 			<NavLink to="/holidays">
-				<i className="fa-solid fa-clock"></i>
+				<i class="fa-regular fa-calendar"></i>
 			</NavLink>
 			<NavLink to="/friends">
 				<i className="fa-solid fa-user-group"></i>

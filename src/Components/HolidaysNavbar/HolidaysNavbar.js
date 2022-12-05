@@ -46,7 +46,7 @@ const HolidaysNavbar = () => {
 				<i className="fa-solid fa-earth-europe" onClick={toggleToMain}></i>
 			</NavLink>
 			<NavLink to="/holidays" onClick={toggleToMain}>
-				<i className="fa-solid fa-clock"></i>
+				<i class="fa-regular fa-calendar"></i>
 			</NavLink>
 			<NavLink to="/friends">
 				<i className="fa-solid fa-user-group" onClick={toggleToMain}></i>

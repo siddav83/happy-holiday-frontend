@@ -1,7 +1,7 @@
 /* Google Fonts 
 
-font-family: 'Pacifico', cursive; / Main Heading
-font-family: 'Poppins', sans-serif;  // Normal
+font-family: 'Bree Serif', serif;
+font-family: 'Pacifico', cursive;
 
 */
 
@@ -13,23 +13,27 @@ font-family: 'Poppins', sans-serif;  // Normal
 	--blue: rgb(34, 139, 230);
 	--grey-shadow: rgba(255, 255, 255, 0.3);
 	--main-font: "Pacifico", sans-serif;
-	--normal-font: "Poppins", sans-serif;
+	--normal-font: "Bree Serif", serif;
+	--text-color: #0e2332;
+	--background-color: #eff5ff;
 }
 
 /* General */
-*,
+* :not(i),
 *::before,
 *::after {
 	box-sizing: border-box;
+	color: #0e2332;
 }
 
-* {
+*:not(i) {
 	margin: 0;
 	padding: 0;
 	font: inherit;
 }
 
 body {
+	background-color: #eff5ff;
 	min-height: 100vh;
 	overflow-x: hidden;
 }
@@ -56,7 +60,7 @@ h2 {
 h3,
 h4,
 h5 {
-	font-family: "Poppins", sans-serif;
+	font-family: "Bree Serif", serif;
 	font-weight: 600;
 }
 
@@ -64,8 +68,7 @@ p,
 a,
 button,
 input {
-	font-family: "Poppins", sans-serif;
-	font-weight: 300;
+	font-family: "Bree Serif", serif;
 }
 
 button,

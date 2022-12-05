@@ -1,8 +1,15 @@
 .countdown-container {
+	position: relative;
 	display: grid;
 	justify-content: center;
 	align-items: center;
 	grid-template-columns: 1fr 1fr;
+	background-color: white;
+	box-shadow: 0px 0px 16px rgba(118, 149, 194, 0.25);
+	border-radius: 32px;
+	margin: 1rem 0 2rem;
+	width: 100%;
+	max-width: 450px;
 }
 
 .countdown-left {
@@ -11,12 +18,51 @@
 	margin: 0;
 	padding: 0;
 	font-weight: 600;
-	text-shadow: -5px 5px 0 var(--green);
 }
 
 .countdown-right {
 	display: flex;
 	flex-direction: column;
+	font-family: "Bree Serif";
+	font-size: 30px;
+	line-height: 100%;
+}
 
-	font-size: 40px;
+/* */
+
+.calender-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: -12%;
+	right: 0%;
+	background-color: var(--text-color);
+	border-radius: 20px;
+	padding: 0.5rem 2rem;
+	color: white;
+}
+
+.calender-icon img {
+	color: white;
+	width: 25px;
+	margin-right: 0.5rem;
+}
+
+.calender-icon p {
+	color: white;
+}
+
+.countdown-container .santa-hat {
+	position: absolute;
+	top: -55%;
+	right: -18%;
+	width: 180px;
+	rotate: 10deg;
+}
+
+@media only screen and (min-width: 550px) {
+	.countdown-container .santa-hat {
+		display: none;
+	}
 }
