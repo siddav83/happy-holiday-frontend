@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import "./style.css";
 import { CalenderContext } from "../../Context/CalenderContext";
-import SantaHat from "../../Assets/images/hat.png";
+import SantaHat from "../../assets/images/hat.png";
 
 const Countdown = () => {
 	const { daysLeft, setDaysLeft, setToday } = useContext(CalenderContext);
