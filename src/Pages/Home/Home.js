@@ -129,8 +129,7 @@ const Home = () => {
 						<button>Events</button>
 						<button onClick={logout}>Logout</button>
 					</div> : 
-					// <button onClick={() => setDisplayModal("Login")}>
-					<button>
+					<button onClick={() => setDisplayModal("Login")}>
 						Login or sign up
 					</button>
 				}
