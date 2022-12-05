@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { CategoryContext } from "../../Context/CategoryContext";
 import "./style.css";
 
 const AddNav = () => {
-	const [visible, setVisible] = useState(false);
+	const { visible, setVisible } = useContext(CategoryContext);
 
 	const handleEvent = (e) => {
 		e.preventDefault();
@@ -41,7 +42,6 @@ const AddNav = () => {
 			<NavLink to="/community">
 				<i className="fa-solid fa-earth-europe"></i>
 			</NavLink>
-			{!visible ? <form className="add-item-form"></form> : visible}
 			<button className="add-btn" onClick={handleEvent}>
 				<i className="fa-regular fa-plus btn-big"></i>
 			</button>
