@@ -2,7 +2,7 @@
 	position: relative;
 	display: grid;
 	grid-template-columns: 20% 80%;
-	margin: 1.5rem auto;
+	margin: 0.75rem auto;
 	width: 100%;
 }
 

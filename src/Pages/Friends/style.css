@@ -1,3 +1,7 @@
+.friends-container {
+	padding: 1rem 0 2rem 0 !important;
+}
+
 .friends-container h2 {
 	font-size: 30px;
 }
@@ -12,10 +16,16 @@
 	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
+	margin: 0.5rem 0 0;
 }
 
-.friends-heading i {
+/* .friends-heading i {
 	font-size: 30px;
+	margin-right: 1rem;
+} */
+
+.friends-heading img {
+	height: 40px;
 	margin-right: 1rem;
 }
 

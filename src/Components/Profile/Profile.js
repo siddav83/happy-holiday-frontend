@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import Leaf from "../../Assets/images/leaf.png";
 import AvatarData from "../../Data/AvatarData";
 
 const Profile = () => {
