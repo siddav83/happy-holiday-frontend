@@ -19,6 +19,7 @@ const friends = () => {
 				<Profile />
 				<Profile />
 			</div>
+			<AddNav />
 		</div>
 	);
 };
