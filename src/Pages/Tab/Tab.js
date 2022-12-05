@@ -1,11 +1,6 @@
 import React, { useContext } from "react";
 import { CategoryContext } from "../../Context/CategoryContext";
-import {
-    TabNav,
-    AddNav,
-    HolidaysNavbarAdd,
-    CategoryCard,
-} from "../../Components";
+import { TabNav, AddNav, CategoryCard } from "../../Components";
 import "./style.css";
 
 export default function Tab(data) {
@@ -23,7 +18,7 @@ export default function Tab(data) {
                     );
                 })}
             </div>
-            <HolidaysNavbarAdd />
+            <AddNav />
         </div>
     );
 }
