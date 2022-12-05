@@ -1,3 +1,179 @@
-.Home h1 {
+.Home {
+	--red: #FA0F39;
+	--blue: #0e54ec;
+	--pale-blue: #EFF5FF;
+	--dark-blue: #0E2332;
+	--drop-shadow: 0px 0px 16px #7695c240;
+
+	/* background: var(--pale-blue); */
+	background: #ffffffad;
+	color: var(--dark-blue);
+	width: 100vw;
+	min-height: 100vh;
+}
+
+.Home, .Home * {
+	font-size: 1.3rem;
+	font-family: 'Bree Serif', serif;
+	text-decoration: none;
+}
+
+.Home h2, .Home h2 * {
+	font-size: 1.8rem;
+}
+
+.Home a {
+	color: var(--blue);
+}
+
+.Home a:hover {
+	text-decoration: underline;
+}
+
+.Home button {
+	background: var(--dark-blue);
+	color: var(--pale-blue);
+	padding: 8px 32px;
+	border: none;
+	border-radius: 100px;
+	box-shadow: var(--drop-shadow);
+}
+
+.Home header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 32px 5%;
+}
+
+.Home header button {
+	background: transparent;
+	color: var(--dark-blue);
+	box-shadow: none;
+	padding: 8px;
+}
+
+.Home .menu-icon {
+	background: transparent url(../../assets/images/menu-icon.png);
+	background-size: cover;
+	width: 32px;
+	height: 32px;
+	transform: scaleX(-1);
+	display: block;
+}
+
+.Home main {
+	margin: 0 auto;
+	padding: 0 5% 96px;
+	max-width: 768px;
+}
+
+.Home .heading {
+	margin-bottom: 32px;
+}
+
+.Home .navbar-default {
+	background: transparent;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border: none;
+	text-align: right;
+	padding: 16px;
+	background: linear-gradient(transparent 10%, #cbd8ec);
+}
+
+.Home .logo {
+	font-family: 'Averia Serif Libre', cursive;
 	color: var(--red);
+	display: block;
+	width: 0px;
+}
+
+.Home .eventName {
+	color: var(--red);
+	position: relative;
+}
+
+/* .Home .eventName::after {
+	content: '';
+	position: absolute;
+	width: 144px;
+	height: 8px;
+	background: #12be4b;
+	z-index: -1;
+	left: -4px;
+	bottom: -4px;
+} */
+
+.Home p {
+	margin-top: 32px;
+}
+
+.Home .card-default {
+	width: 100%;
+	padding: 16px;
+	margin-top: 16px;
+	background: white;
+	box-shadow: var(--drop-shadow);
+	border-radius: 12px;
+}
+
+.Home .card-default p {
+	margin: 0;
+}
+
+.Home .list {
+	display: flex;
+	flex-direction: row;
+	max-height: 128px;
+	overflow-x: auto;
+	margin-top: 8px;
+	overflow-y: hidden;
+}
+
+.Home .placeholder {
+	background: linear-gradient(#dbe8ff, #d1ddff);
+	display: inline-block;
+	width: 128px;
+	height: 128px;
+	flex-shrink: 0;
+	margin-left: 8px;
+	border-radius: 8px;
+}
+
+.Home .countdown {
+	display: flex;
+	flex-direction: row;
+	height: 96px;
+	align-items: flex-end;
+	/* justify-content: center; */
+}
+
+.Home .countdown .text {
+	width: 0px;
+	margin-left: 8px;
+	margin-bottom: 8px;
+}
+
+/* .Home .countdown div {
+	width: 50%;
+} */
+
+.Home .countdown .counter {
+	font-size: 120px;
+	line-height: 100%;
+	text-align: right;
+}
+
+@media screen and (min-width: 769px) {
+	.Home main {
+		padding: 0 0 96px;
+		margin: 0 auto;
+	}
+
+	.Home .menu-icon {
+		display: none;
+	}
 }

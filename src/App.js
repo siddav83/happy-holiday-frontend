@@ -10,19 +10,10 @@ function App() {
         <div className="App">
             {/* <img className="background" src={Background} alt="snowfall" /> */}
             {/* Snowflakes START*/}
-            <img src={Snowflake} alt="snowflake" className="snowflake s-1" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-2" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-3" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-4" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-5" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-6" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-7" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-8" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-9" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-10" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-11" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-12" />
-            <img src={Snowflake} alt="snowflake" className="snowflake s-13" />
+
+            {
+                new Array(12).fill().map((snowflake, index) => <img key={index} src={Snowflake} alt="snowflake" className={`snowflake s-${index + 1}`} />)
+            }
 
             {/* Snowflakes END*/}
             <Routes>
