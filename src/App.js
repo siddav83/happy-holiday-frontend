@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home, User, Tab, Holidays, Friends } from "./Pages";
+import { Home, User, Tab, Holidays, Friends, Community } from "./Pages";
 import Snowflake from "./assets/images/snowflake.png";
 import "./app.css";
 function App() {
@@ -32,6 +32,7 @@ function App() {
 				/>
 				<Route path="/holidays" element={<Holidays />} />
 				<Route path="/friends" element={<Friends />} />
+				<Route path="/community" element={<Community />} />
 			</Routes>
 		</div>
 	);
