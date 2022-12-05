@@ -1,4 +1,4 @@
-const CategoryData = [
+const CategoryDatas = [
     { name: "sweets", symbols: "🍬" },
     { name: "XTrees", symbols: "🎄" },
     { name: "phones", symbols: "📱" },
@@ -8,4 +8,4 @@ const CategoryData = [
     { name: "planes", symbols: "✈️" },
 ];
 
-export default CategoryData;
+export default CategoryDatas;
