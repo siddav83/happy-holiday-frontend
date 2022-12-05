@@ -16,8 +16,6 @@ const friends = () => {
 			<div className="friends-list">
 				<Profile />
 				<Profile />
-				<Profile />
-				<Profile />
 			</div>
 			<AddNav />
 		</div>
