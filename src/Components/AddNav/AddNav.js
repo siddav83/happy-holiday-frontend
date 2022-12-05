@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { CategoryContext } from "../../Context/CategoryContext";
 import "./style.css";
 
 const AddNav = () => {
-	const [visible, setVisible] = useState(false);
+
+    const { visible, setVisible } = useContext(CategoryContext);
 
 	const handleEvent = (e) => {
 		e.preventDefault();
@@ -35,24 +37,24 @@ const AddNav = () => {
 			</svg>
 			{/* Swirly Pattern END */}
 
-			<NavLink to="/">
-				<i className="fa-solid fa-right-from-bracket"></i>
-			</NavLink>
-			<NavLink to="/community">
-				<i className="fa-solid fa-earth-europe"></i>
-			</NavLink>
-			{!visible ? <form></form> : visible}
-			<button className="add-btn" onClick={handleEvent}>
-				<i className="fa-regular fa-plus btn-big"></i>
-			</button>
-			<NavLink to="/holidays">
-				<i className="fa-solid fa-clock"></i>
-			</NavLink>
-			<NavLink to="/friends">
-				<i className="fa-solid fa-user-group"></i>
-			</NavLink>
-		</nav>
-	);
+
+            <NavLink to="/">
+                <i className="fa-solid fa-right-from-bracket"></i>
+            </NavLink>
+            <NavLink to="/community">
+                <i className="fa-solid fa-earth-europe"></i>
+            </NavLink>
+            <button className="add-btn" onClick={handleEvent}>
+                <i className="fa-regular fa-plus btn-big"></i>
+            </button>
+            <NavLink to="/holidays">
+                <i className="fa-solid fa-clock"></i>
+            </NavLink>
+            <NavLink to="/friends">
+                <i className="fa-solid fa-user-group"></i>
+            </NavLink>
+        </nav>
+    );
 };
 
 export default AddNav;
