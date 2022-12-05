@@ -56,14 +56,14 @@
 }
 
 .add-btn i {
-	font-size: 60px;
+	font-size: min(90px, 14vw);
 	color: black;
 }
 
 .likeAndDislikeForm {
-    position: absolute;
-    width: 80%;
-    height: 100%;
-    z-index: 1000;
-    background-color: blue;
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	z-index: 1000;
+	background-color: blue;
 }

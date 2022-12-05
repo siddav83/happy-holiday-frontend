@@ -13,6 +13,8 @@ export const UserProvider = (props) => {
 		dislikes: [],
 		brands: [],
 		buying: [],
+		budget: "",
+		token: "",
 	});
 
 	return (
