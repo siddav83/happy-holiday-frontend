@@ -1,5 +1,29 @@
-.container-card {
-    background-color: aqua;
+.card {
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border: solid black 1px;
+    padding: 10px;
+    box-shadow: -10px 10px;
     border-radius: 25%;
-    border: 2px black solid;
+    max-width: 150px;
+    min-height: 50px;
+}
+.card p {
+    position: relative;
+    text-align: center;
+}
+
+.card:hover {
+    border: none;
+}
+
+.card .symbols {
+    font-size: 70px;
+    padding: 0;
+    margin: 0;
+}
+
+.tab-container h1 {
+    text-align: center;
 }
