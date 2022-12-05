@@ -2,11 +2,10 @@ import React, { createContext, useState } from "react";
 import CategoryData from "../Data/CategoryData";
 
 export const CategoryContext = createContext();
-
+const dataType = ["like", "dislike", "wants"];
 export const CategoryProvider = (props) => {
-    const [like, setLike] = useState(null);
-    const [dislike, setDislike] = useState(null);
-    const [want, setWant] = useState(null);
+    const [type, setType] = useState(dataType);
+    const [nameItem, setNameItem] = useState("");
     const [visible, setVisible] = useState(false);
     const [category, setCategory] = useState(CategoryData);
 
@@ -17,12 +16,10 @@ export const CategoryProvider = (props) => {
                 setCategory,
                 visible,
                 setVisible,
-                like,
-                setLike,
-                dislike,
-                setDislike,
-                want,
-                setWant,
+                type,
+                setType,
+                nameItem,
+                setNameItem,
             }}
         >
             {props.children}
