@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import CategoryData from "../Data/CategoryData";
+import CategoryDatas from "../Data/CategoryData";
 
 export const CategoryContext = createContext();
 const dataType = ["like", "dislike", "wants"];
@@ -7,11 +7,17 @@ export const CategoryProvider = (props) => {
     const [type, setType] = useState(dataType);
     const [nameItem, setNameItem] = useState("");
     const [visible, setVisible] = useState(false);
-    const [category, setCategory] = useState(CategoryData);
+    const [categoryData, setCategoryData] = useState(CategoryDatas);
+    const [category, setCategory] = useState("");
+    const [categoryList, setCategoryList] = useState([]);
 
     return (
         <CategoryContext.Provider
             value={{
+                categoryList,
+                setCategoryList,
+                categoryData,
+                setCategoryData,
                 category,
                 setCategory,
                 visible,
