@@ -1,20 +1,38 @@
 import React, { useContext } from "react";
 import { CategoryContext } from "../../Context/CategoryContext";
-import {
-    TabNav,
-    AddNav,
-    HolidaysNavbarAdd,
-    CategoryCard,
-} from "../../Components";
+import { TabNav, AddNav, CategoryCard } from "../../Components";
 import "./style.css";
 
 export default function Tab(data) {
-    const { category } = useContext(CategoryContext);
+    const {
+        category,
+        visible,
+        like,
+        setLike,
+        dislike,
+        setDislike,
+        want,
+        setWant,
+    } = useContext(CategoryContext);
     return (
-        <div>
+        <div className="main-container">
             <h1>Wants</h1>
+            {!visible ? (
+                <form className="likeAndDislikeForm">
+                    <input type="radio" id="like" value="like" />
+                    <label for="like">LIKE</label>
+                    <input type="text" id="category-like" />
+                    <label htmlFor="category-like"></label>
+                    <input type="radio" id="dislike" value="dislike" />
+                    <label for="dislike">DISLIKE</label>
+                    <input type="radio" id="want" value="wanty" />
+                    <label for="want">WANT</label>
+                </form>
+            ) : (
+                visible
+            )}
             <TabNav />
-            <div className="card-container ">
+            <div className="card-container">
                 {category.map((cat) => {
                     return (
                         <div className="">
@@ -23,7 +41,7 @@ export default function Tab(data) {
                     );
                 })}
             </div>
-            <HolidaysNavbarAdd />
+            <AddNav />
         </div>
     );
 }
