@@ -14,13 +14,14 @@ const Holidays = () => {
 	return (
 		<>
 			<div className="main-container">
-				<h1>Happy Holidays!</h1>
+				{!calenderToggle && <h1 className="main-heading">Happy Holidays!</h1>}
+
 				{!calenderToggle ? (
 					<>
 						<Countdown />
 						<FunFact />
 						<button className="calender-btn" onClick={toggleCalender}>
-							Calender
+							Open Calender
 						</button>
 					</>
 				) : (

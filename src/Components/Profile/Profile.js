@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import "./style.css";
-import AvatarData from "../../Data/AvatarData";
+import { UserContext } from "../../Context/UserContext";
 
-const Profile = () => {
-	const openProfile = () => {
-		console.log("Open profile");
-	};
+const Profile = ({ username, type }) => {
+	const { userData } = useContext(UserContext);
 	return (
 		<div className="profile">
 			<div className="profile-avatar">
-				<img src={AvatarData[1]} alt="avatar" />
-			</div>
-
-			<div className="profile-username" onClick={openProfile}>
-				<h3>Username</h3>
 				<img
-					src="https://cdn-icons-png.flaticon.com/512/892/892817.png"
-					alt="leaf"
-					className="profile-leaf"
+					src={
+						type === "user"
+							? userData.avatar
+							: "https://cdn-icons-png.flaticon.com/512/621/621913.png"
+					}
+					alt="avatar"
 				/>
 			</div>
+			<NavLink
+				to={type === "user" ? "/tab" : "/friends-page"}
+				className="profile-username"
+			>
+				<div>
+					<h3>{username ? username : "Test"}</h3>
+					<img
+						src="https://cdn-icons-png.flaticon.com/512/892/892817.png"
+						alt="leaf"
+						className="profile-leaf"
+					/>
+				</div>
+			</NavLink>
 		</div>
 	);
 };

@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import "./style.css";
 import { Profile, HolidaysNavbar, AddFriend } from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
-
+import { UserContext } from "../../Context/UserContext";
 const Friends = () => {
 	const { toggleAddFriend, setToggleAddFriend } = useContext(ToggleContext);
+	const { userData } = useContext(UserContext);
+	console.log(userData.friends);
 
 	return (
 		<div className="main-container friends-container">
@@ -15,7 +17,7 @@ const Friends = () => {
 				/>
 				<h2>Your Profile</h2>
 			</div>
-			<Profile />
+			<Profile username={userData?.username} type="user" />
 			<div className="friends-heading">
 				<img
 					src="https://cdn-icons-png.flaticon.com/512/3695/3695380.png"
@@ -29,6 +31,9 @@ const Friends = () => {
 
 			<hr />
 			<div className="friends-list">
+				{userData.friends?.map((friend) => (
+					<Profile username={friend} type="friend" />
+				))}
 				<Profile />
 				<Profile />
 			</div>
