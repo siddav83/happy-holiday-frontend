@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, User, Tab, Holidays, Friends } from "./Pages";
-import Snowflake from "./Assets/images/snowflake.png";
+import Snowflake from "./assets/images/snowflake.png";
 import "./app.css";
 function App() {
 	return (
