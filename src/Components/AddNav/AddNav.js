@@ -41,7 +41,7 @@ const AddNav = () => {
 			<NavLink to="/community">
 				<i className="fa-solid fa-earth-europe"></i>
 			</NavLink>
-			{!visible ? <form></form> : visible}
+			{!visible ? <form className="add-item-form"></form> : visible}
 			<button className="add-btn" onClick={handleEvent}>
 				<i className="fa-regular fa-plus btn-big"></i>
 			</button>
