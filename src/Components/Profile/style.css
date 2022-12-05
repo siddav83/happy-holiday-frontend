@@ -2,9 +2,8 @@
 	position: relative;
 	display: grid;
 	grid-template-columns: 20% 80%;
-	margin: 1.5rem 0;
+	margin: 1.5rem auto;
 	width: 100%;
-	max-width: 800px;
 }
 
 .profile-avatar {

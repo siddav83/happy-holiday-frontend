@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 
 const AddNav = () => {
+	const [visible, setVisible] = useState(false);
+
+	const handleEvent = (e) => {
+		e.preventDefault();
+		setVisible(!visible);
+		console.log(visible);
+	};
 	return (
 		<nav className="holidays-navbar">
 			{/* Swirly Pattern START */}
@@ -34,7 +41,8 @@ const AddNav = () => {
 			<NavLink to="/community">
 				<i className="fa-solid fa-earth-europe"></i>
 			</NavLink>
-			<button className="add-btn">
+			{!visible ? <form></form> : visible}
+			<button className="add-btn" onClick={handleEvent}>
 				<i className="fa-regular fa-plus btn-big"></i>
 			</button>
 			<NavLink to="/holidays">
