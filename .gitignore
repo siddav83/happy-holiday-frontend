@@ -8,6 +8,8 @@ package-lock.json
 
 # testing
 /coverage
+/.nyc_output
+/instrumented
 
 # production
 /build
