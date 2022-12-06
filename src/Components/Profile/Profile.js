@@ -4,7 +4,18 @@ import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 
 const Profile = ({ username, type }) => {
-	const { userData } = useContext(UserContext);
+	const { userData, setUserData } = useContext(UserContext);
+
+	const checkFriend = () => {
+		if (type === "friend") {
+			setUserData((prev) => {
+				return {
+					...prev,
+					friendViewing: username,
+				};
+			});
+		}
+	};
 	return (
 		<div className="profile">
 			<div className="profile-avatar">
@@ -18,11 +29,12 @@ const Profile = ({ username, type }) => {
 				/>
 			</div>
 			<NavLink
-				to={type === "user" ? "/tab" : "/friends-page"}
+				onClick={checkFriend}
+				to={type === "user" ? "/tab" : "/friends/tab"}
 				className="profile-username"
 			>
 				<div>
-					<h3>{username ? username : "Test"}</h3>
+					<h3>{username}</h3>
 					<img
 						src="https://cdn-icons-png.flaticon.com/512/892/892817.png"
 						alt="leaf"

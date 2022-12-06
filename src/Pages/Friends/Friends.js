@@ -9,6 +9,7 @@ const Friends = () => {
 
 	return (
 		<div className="main-container friends-container">
+			<h1>friends</h1>
 			<div className="friends-heading">
 				<img
 					src="https://cdn-icons-png.flaticon.com/512/2531/2531564.png"
