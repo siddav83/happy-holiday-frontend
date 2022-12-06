@@ -7,7 +7,9 @@ import { UserContext } from "../../Context/UserContext";
 import axios from "axios";
 
 const Holidays = () => {
+	const { calenderToggle } = useContext(ToggleContext);
 	const { userData, setUserData } = useContext(UserContext);
+
 	useEffect(() => {
 		axios.get(`http://127.0.0.1:5000/users/${userData.id}`).then((res) => {
 			const data = res.data;
@@ -21,12 +23,6 @@ const Holidays = () => {
 		});
 	}, []);
 
-	const { calenderToggle, setCalenderToggle } = useContext(ToggleContext);
-
-	const toggleCalender = () => {
-		setCalenderToggle((prev) => !prev);
-	};
-
 	return (
 		<>
 			<div className="main-container">
@@ -35,13 +31,11 @@ const Holidays = () => {
 				{!calenderToggle ? (
 					<>
 						<Countdown />
-						<FunFact />
-						<button className="calender-btn" onClick={toggleCalender}>
-							Open Calender
-						</button>
+						<FunFact type="fact" />
+						<FunFact type="joke" />
 					</>
 				) : (
-					<Calender setCalenderToggle={setCalenderToggle} />
+					<Calender />
 				)}
 			</div>
 			<HolidaysNavbar />

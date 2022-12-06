@@ -10,6 +10,17 @@
 	margin: 1rem 0 2rem;
 	width: 100%;
 	max-width: 450px;
+	transition: 0.3s ease-in-out;
+}
+
+.countdown-container:hover {
+	cursor: pointer;
+	background-color: var(--red);
+	box-shadow: 0px 0px 4px rgba(118, 149, 194, 1);
+}
+
+.countdown-container:hover .santa-hat {
+	rotate: 5deg;
 }
 
 .countdown-left {
@@ -55,10 +66,11 @@
 
 .countdown-container .santa-hat {
 	position: absolute;
-	top: -55%;
-	right: -18%;
-	width: 180px;
-	rotate: 10deg;
+	top: -50%;
+	right: -10%;
+	width: 120px;
+	/* rotate: 10deg; */
+	transition: 0.3s ease-in-out;
 }
 
 @media only screen and (min-width: 550px) {

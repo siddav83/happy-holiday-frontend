@@ -1,8 +1,6 @@
 /* Google Fonts 
-
 font-family: 'Bree Serif', serif;
 font-family: 'Pacifico', cursive;
-
 */
 
 /* Root */
@@ -35,9 +33,8 @@ font-family: 'Pacifico', cursive;
 body {
 	background-color: white;
 	min-height: 100vh;
-	overflow-x: hidden;
-	overflow-y: hidden;
 	color: var(--text-color);
+	padding: 1rem 0;
 }
 
 ::-webkit-scrollbar {
@@ -63,8 +60,9 @@ h1 {
 	font-family: "Pacifico", sans-serif;
 	color: var(--red);
 	text-shadow: -2px 2px 0 black;
-	letter-spacing: 4px;
-	font-size: min(70px, 12vw);
+	letter-spacing: 1px;
+	font-size: min(70px, 10vw);
+	z-index: 100;
 }
 
 h2,
@@ -96,12 +94,11 @@ input[type="submit"] {
 .main-container {
 	width: 90%;
 	max-width: 1000px;
-	margin: 1rem auto 0;
-	padding: 0.5rem;
-	padding: 0.5rem 1rem !important;
-	height: 88vh;
-	overflow-x: hidden;
-	overflow-y: scroll;
+	margin: 0 auto;
+	padding: 0.5rem !important;
+	height: 90vh;
+	/* overflow-x: hidden; */
+	/* overflow-y: scroll; */
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
