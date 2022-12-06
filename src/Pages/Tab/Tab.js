@@ -26,27 +26,29 @@ export default function Tab(data) {
 		setVisible(visible);
 	};
 
-	return (
-		<div className="main-container">
-			<h1>Wants</h1>
-			{visible ? (
-				<div className="like-dislike-container">
-					<AddCategory />
-				</div>
-			) : (
-				visible
-			)}
-			<TabNav />
-			<div className="card-container">
-				{categoryData.map((cat, idx) => {
-					return (
-						<div className="">
-							<CategoryCard data={cat} index={idx} />
-						</div>
-					);
-				})}
-			</div>
-			<AddNav />
-		</div>
-	);
+    console.log(userData);
+
+    return (
+        <div className="main-container">
+            <h1>Wants</h1>
+            {!visible ? (
+                <div className="like-dislike-container">
+                    <AddCategory onSubmitHandler={onSubmitHandler} />
+                </div>
+            ) : (
+                visible
+            )}
+            <TabNav />
+            <div className="card-container">
+                {categoryData.map((cat, idx) => {
+                    return (
+                        <div className="">
+                            <CategoryCard data={cat} index={idx} />
+                        </div>
+                    );
+                })}
+            </div>
+            <AddNav />
+        </div>
+    );
 }
