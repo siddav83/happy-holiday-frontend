@@ -8,21 +8,17 @@ import axios from "axios";
 
 const Holidays = () => {
 	const { userData, setUserData } = useContext(UserContext);
-	console.log(userData);
 	useEffect(() => {
-		const data = axios
-			.get(`http://127.0.0.1:5000/users/${userData.id}`)
-			.then((res) => {
-				const data = res.data;
-				setUserData((prev) => {
-					return {
-						...prev,
-						friends: data.friends.friends_list,
-						username: data.username,
-					};
-				});
+		axios.get(`http://127.0.0.1:5000/users/${userData.id}`).then((res) => {
+			const data = res.data;
+			setUserData((prev) => {
+				return {
+					...prev,
+					friends: data.friends.friends_list,
+					username: data.username,
+				};
 			});
-		console.log(userData);
+		});
 	}, []);
 
 	const { calenderToggle, setCalenderToggle } = useContext(ToggleContext);
