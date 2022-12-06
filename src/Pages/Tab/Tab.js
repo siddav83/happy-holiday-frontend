@@ -39,7 +39,6 @@ export default function Tab(data) {
 
 		setVisible(visible);
 	};
-
 	return (
 		<div className="main-container">
 			<h1>Wants</h1>

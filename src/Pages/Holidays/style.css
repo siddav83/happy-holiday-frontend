@@ -2,7 +2,7 @@
 	margin-bottom: 3rem;
 }
 
-.calender-btn {
+.calendar-btn {
 	margin: 2rem 0;
 	padding: 1rem 3rem;
 	border: none;
@@ -15,7 +15,7 @@
 	cursor: pointer;
 }
 
-.calender-btn:hover {
+.calendar-btn:hover {
 	background-color: var(--green);
 	transform: translateY(4px);
 }

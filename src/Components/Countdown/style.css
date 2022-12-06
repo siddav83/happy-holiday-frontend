@@ -41,7 +41,7 @@
 
 /* */
 
-.calender-icon {
+.calendar-icon {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -54,13 +54,13 @@
 	color: white;
 }
 
-.calender-icon img {
+.calendar-icon img {
 	color: white;
 	width: 25px;
 	margin-right: 0.5rem;
 }
 
-.calender-icon p {
+.calendar-icon p {
 	color: white;
 }
 
