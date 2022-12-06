@@ -10,6 +10,9 @@
 	color: var(--dark-blue);
 	width: 100vw;
 	min-height: 100vh;
+
+	position: relative;
+	overflow-x: hidden;
 }
 
 .Home,
@@ -39,6 +42,10 @@
 	border: none;
 	border-radius: 100px;
 	box-shadow: var(--drop-shadow);
+}
+
+.no-overflow {
+	overflow: hidden;
 }
 
 .Home header {
@@ -81,9 +88,17 @@
 	left: 0;
 	width: 100%;
 	border: none;
-	text-align: right;
 	padding: 16px;
 	background: linear-gradient(transparent 10%, #cbd8ec);
+	display: flex;
+	flex-direction: row;
+}
+
+.Home .navbar-default button {
+	display: inline-block;
+	margin: auto;
+	border-radius: 4px;
+	flex: 1;
 }
 
 .Home .logo {
@@ -167,6 +182,28 @@
 	font-size: 120px;
 	line-height: 100%;
 	text-align: right;
+}
+
+.Home .sideMenu {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background: var(--dark-blue);
+	color: white;
+	padding: 16px;
+}
+
+.Home .sideMenu a {
+	display: block;
+	margin-top: 4px;
+}
+
+.Home .sideMenu.open {
+	left: 0;
+}
+
+.Home .alert {
+	color: #fa0f39;
 }
 
 @media screen and (min-width: 769px) {
