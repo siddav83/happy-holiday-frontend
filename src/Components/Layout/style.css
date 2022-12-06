@@ -2,18 +2,11 @@
 	width: 90%;
 	max-width: 1000px;
 	margin: 0 auto;
-	padding: 0.5rem 0;
 	height: 92vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-
-    background: red;
-}
-
-.Layout::before {
-    content: 'Layout';
 }
 
 @media screen and (min-width: 600px) {

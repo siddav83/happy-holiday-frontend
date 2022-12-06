@@ -17,6 +17,7 @@ const Home = () => {
 	const countdownLimit = 99;
 	const [displayModal, setDisplayModal] = useState(null);
 	const [showSideMenu, setShowSideMenu] = useState(false)
+	const [output, setOutput] = useState('')
 
 	function daysLeft(target) {
 		const timeLeft = target.getTime() - new Date().getTime();
@@ -35,8 +36,8 @@ const Home = () => {
 		axios
 			.post("http://127.0.0.1:5000/login", formData)
 			.then((res) => {
-				console.log(res.data, "POST RESPONSE");
-				if (res.data.message === "Logged In.") {
+				console.log(res, "POST RESPONSE");
+				if (res.status === 200) {
 					console.log("LOGIN AS", formData["email"]);
 					setLoggedIn(formData);
 					closeModal();
@@ -44,7 +45,10 @@ const Home = () => {
 					console.log("FAILED");
 				}
 			})
-			.catch((err) => console.error(err));
+			.catch((err) => {
+				console.error(err)
+				setOutput('Incorrect email or password')
+			});
 	}
 
 	function submitRegister(e) {
@@ -56,8 +60,9 @@ const Home = () => {
 			.post("http://127.0.0.1:5000/register", formData)
 			.then((res) => {
 				console.log(res, "POST RESPONSE");
-				if (res.data.message === "") {
+				if (res.status === 201) {
 					console.log("REGISTERED");
+					closeModal()
 				} else {
 					console.log("FAILED");
 				}
@@ -75,10 +80,14 @@ const Home = () => {
 		setCountdown(daysLeft(nextEvent.date));
 	}, [nextEvent]);
 
+	useEffect(() => {
+		console.log("UPDATE", loggedIn)
+	}, [loggedIn])
+
 	return (
 		// <div className="main-container Home">
 		<Layout>
-		<div className="Home">
+		<div className={`Home ${displayModal ? 'no-overflow' : ''}`}>
 			<header>
 				<Logo/>
 				{/* <span className='logo'>Happy Holidays!</span> */}
@@ -96,14 +105,14 @@ const Home = () => {
 					</div>
 				</div>
 				<Countdown/>
-				<div className='card-default'>
+				{/* <div className='card-default'>
 					<h2>My Wishlist</h2>
 					<div className='list'>
 					{
 						loggedIn ? <>Nothing in your wishlist. <a href="#">Add items</a></> : <><a href="#" onClick={() => setDisplayModal('Login')}>Sign in to create a wishlist.</a></>
 					}
 					</div>
-				</div>
+				</div> */}
 				<div className='card-default'>
 					<h2>Popular Gifts</h2>
 					<div className='list'>
@@ -113,7 +122,7 @@ const Home = () => {
 					</div>
 				</div>
 				<div className='card-default'>
-					<h2>{nextEvent.name} Cards</h2>
+					<h2>Community Posts</h2>
 					<div className='list'>
 						{
 							new Array(6).fill().map((item, index) => <div key={index} className='placeholder'></div>)
@@ -121,6 +130,8 @@ const Home = () => {
 					</div>
 				</div>
 			</main>
+
+			{/* <Navb */}
 
 			<div className='navbar-default'>
 				{
@@ -162,6 +173,9 @@ const Home = () => {
 						</label>
 						<input type="submit" value="Login"></input>
 					</form>
+					{
+						output && <p className='alert'>{output}</p>
+					}
 					<a
 						href="#"
 						onClick={(e) => {
