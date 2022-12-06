@@ -6,7 +6,7 @@ import "./app.css";
 
 const Snowflakes = ({count}) => {
 	return (
-		<div>
+		<div className="snowflake-container">
 			{
 				new Array(count).fill().map((snowflake, index) => {
 					const size = 16 + Math.random() * 32

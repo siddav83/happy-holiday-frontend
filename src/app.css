@@ -1,11 +1,19 @@
 .snowflake {
 	position: absolute;
-	z-index: -100;
 	opacity: 0.3;
 	top: -50px;
 	background-image: url(./assets/images/snowflake.png);
 	background-size: cover;
 	animation: fall infinite linear;
+}
+
+.snowflake-container {
+	position: fixed;
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: -100;
 }
 
 @keyframes fall {
@@ -17,82 +25,4 @@
 		top: 100vh;
 		rotate: 360deg;
 	}
-}
-
-.s-1 {
-	top: 20px;
-	right: 30px;
-	width: min(100px, 14vw);
-}
-
-.s-2 {
-	top: 10px;
-	left: 35%;
-	width: min(100px, 10vw);
-}
-
-.s-3 {
-	top: 50px;
-	left: 5%;
-	width: min(100px, 20vw);
-}
-
-.s-4 {
-	top: 30%;
-	right: 10%;
-	width: min(100px, 16vw);
-}
-
-.s-5 {
-	top: 22%;
-	right: 50%;
-	width: min(100px, 20vw);
-}
-
-.s-6 {
-	top: 32%;
-	left: 10%;
-	width: min(100px, 10vw);
-}
-
-.s-7 {
-	top: 52%;
-	left: 0;
-	width: min(100px, 12vw);
-}
-
-.s-8 {
-	top: 50%;
-	left: 40%;
-	width: min(100px, 25vw);
-}
-
-.s-9 {
-	top: 45%;
-	right: 5%;
-	width: min(100px, 12vw);
-}
-
-.s-10 {
-	top: 72%;
-	left: 10%;
-	width: min(100px, 16vw);
-}
-
-.s-11 {
-	top: 85%;
-	left: 30%;
-	width: min(100px, 25vw);
-}
-
-.s-12 {
-	top: 72%;
-	right: 30%;
-	width: min(100px, 14vw);
-}
-
-.s-13 {
-	top: 75%;
-	right: -8%;
-	width: min(100px, 20vw);
 }
