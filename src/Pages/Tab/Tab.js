@@ -33,7 +33,7 @@ export default function Tab(data) {
             <h1>Wants</h1>
             {!visible ? (
                 <div className="like-dislike-container">
-                    <AddCategory />
+                    <AddCategory onSubmitHandler={onSubmitHandler} />
                 </div>
             ) : (
                 visible
