@@ -1,0 +1,28 @@
+.Layout {
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+	height: 92vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+    .Layout {
+        background: green;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .Layout {
+        background: blue;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Layout {
+        background: yellow;
+    }
+}

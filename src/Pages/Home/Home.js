@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Modal } from "../../Components";
+import { Countdown, Layout, Logo, Modal } from "../../Components";
 import "./style.css";
 
 const msToDays = 1000 * 60 * 60 * 24;
@@ -16,6 +16,8 @@ const Home = () => {
 	const [countdown, setCountdown] = useState(null);
 	const countdownLimit = 99;
 	const [displayModal, setDisplayModal] = useState(null);
+	const [showSideMenu, setShowSideMenu] = useState(false)
+	const [output, setOutput] = useState('')
 
 	function daysLeft(target) {
 		const timeLeft = target.getTime() - new Date().getTime();
@@ -34,8 +36,8 @@ const Home = () => {
 		axios
 			.post("http://127.0.0.1:5000/login", formData)
 			.then((res) => {
-				console.log(res.data, "POST RESPONSE");
-				if (res.data.message === "Logged In.") {
+				console.log(res, "POST RESPONSE");
+				if (res.status === 200) {
 					console.log("LOGIN AS", formData["email"]);
 					setLoggedIn(formData);
 					closeModal();
@@ -43,7 +45,10 @@ const Home = () => {
 					console.log("FAILED");
 				}
 			})
-			.catch((err) => console.error(err));
+			.catch((err) => {
+				console.error(err)
+				setOutput('Incorrect email or password')
+			});
 	}
 
 	function submitRegister(e) {
@@ -55,8 +60,9 @@ const Home = () => {
 			.post("http://127.0.0.1:5000/register", formData)
 			.then((res) => {
 				console.log(res, "POST RESPONSE");
-				if (res.data.message === "") {
+				if (res.status === 201) {
 					console.log("REGISTERED");
+					closeModal()
 				} else {
 					console.log("FAILED");
 				}
@@ -74,12 +80,18 @@ const Home = () => {
 		setCountdown(daysLeft(nextEvent.date));
 	}, [nextEvent]);
 
+	useEffect(() => {
+		console.log("UPDATE", loggedIn)
+	}, [loggedIn])
+
 	return (
 		// <div className="main-container Home">
-		<div className="Home">
+		<Layout>
+		<div className={`Home ${displayModal ? 'no-overflow' : ''}`}>
 			<header>
-				<span className='logo'>Happy Holidays!</span>
-				<button><i className='menu-icon'></i></button>
+				<Logo/>
+				{/* <span className='logo'>Happy Holidays!</span> */}
+				{/* <button title='For development purposes only' onClick={() => setShowSideMenu(val => !val)}><i className='menu-icon'></i></button> */}
 			</header>
 
 			<main>
@@ -91,16 +103,16 @@ const Home = () => {
 						<div className='counter'>{countdown}</div>
 						<div className='text'>days until {nextEvent.name}</div>
 					</div>
-					<p><a href="#">Hosting an event?</a></p>
 				</div>
-				<div className='card-default'>
+				<Countdown/>
+				{/* <div className='card-default'>
 					<h2>My Wishlist</h2>
 					<div className='list'>
 					{
 						loggedIn ? <>Nothing in your wishlist. <a href="#">Add items</a></> : <><a href="#" onClick={() => setDisplayModal('Login')}>Sign in to create a wishlist.</a></>
 					}
 					</div>
-				</div>
+				</div> */}
 				<div className='card-default'>
 					<h2>Popular Gifts</h2>
 					<div className='list'>
@@ -110,7 +122,7 @@ const Home = () => {
 					</div>
 				</div>
 				<div className='card-default'>
-					<h2>{nextEvent.name} Cards</h2>
+					<h2>Community Posts</h2>
 					<div className='list'>
 						{
 							new Array(6).fill().map((item, index) => <div key={index} className='placeholder'></div>)
@@ -118,6 +130,8 @@ const Home = () => {
 					</div>
 				</div>
 			</main>
+
+			{/* <Navb */}
 
 			<div className='navbar-default'>
 				{
@@ -159,6 +173,9 @@ const Home = () => {
 						</label>
 						<input type="submit" value="Login"></input>
 					</form>
+					{
+						output && <p className='alert'>{output}</p>
+					}
 					<a
 						href="#"
 						onClick={(e) => {
@@ -224,7 +241,23 @@ const Home = () => {
 					</a>
 				</Modal>
 			)}
+
+			{/* For dev purposes only */}
+			<div className={`sideMenu ${showSideMenu ? 'open' : ''}`}>
+				<a>{loggedIn ? 'Logout' : 'Login'}</a>
+				<a>Register</a>
+
+				<div>
+					<h2>Pages</h2>
+					<a>Community</a>
+					<a>Friends</a>
+					<a>Holidays</a>
+					<a>Tab</a>
+					<a>User</a>
+				</div>
+			</div>
 		</div>
+		</Layout>
 	);
 };
 
