@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Countdown, Layout, Logo, Modal } from "../../Components";
+import { Card, Countdown, Layout, Logo, Modal } from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 
@@ -94,13 +94,10 @@ const Home = () => {
 	}, [loggedIn]);
 
 	return (
-		// <div className="main-container Home">
 		<Layout>
 			<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
 				<header>
 					<Logo />
-					{/* <span className='logo'>Happy Holidays!</span> */}
-					{/* <button title='For development purposes only' onClick={() => setShowSideMenu(val => !val)}><i className='menu-icon'></i></button> */}
 				</header>
 
 				<main>
@@ -113,39 +110,32 @@ const Home = () => {
 							with friends and family!
 						</h2>
 					</div>
-					<div className="card-default">
+					<Card>
 						<div className="countdown">
 							<div className="counter">{countdown}</div>
 							<div className="text">days until {nextEvent.name}</div>
 						</div>
-					</div>
+					</Card>
 					<Countdown />
-					{/* <div className='card-default'>
-					<h2>My Wishlist</h2>
-					<div className='list'>
-					{
-						loggedIn ? <>Nothing in your wishlist. <a href="#">Add items</a></> : <><a href="#" onClick={() => setDisplayModal('Login')}>Sign in to create a wishlist.</a></>
-					}
-					</div>
-				</div> */}
-					<div className="card-default">
+					<Card>
 						<h2>Popular Gifts</h2>
 						<div className="list">
 							{new Array(6).fill().map((item, index) => (
 								<div key={index} className="placeholder"></div>
 							))}
 						</div>
-					</div>
-					<div className="card-default">
+					</Card>
+					<Card>
 						<h2>Community Posts</h2>
 						<div className="list">
 							{new Array(6).fill().map((item, index) => (
 								<div key={index} className="placeholder"></div>
 							))}
 						</div>
-					</div>
+					</Card>
 				</main>
-				<div className="navbar-default">
+
+				<footer className="navbar-default">
 					{loggedIn ? (
 						<p>
 							Not {loggedIn.email}?{" "}
@@ -158,7 +148,7 @@ const Home = () => {
 							Login or sign up
 						</button>
 					)}
-				</div>
+				</footer>
 
 				{/* <div className='navbar-default'>
 				{
@@ -266,21 +256,6 @@ const Home = () => {
 						</a>
 					</Modal>
 				)}
-
-				{/* For dev purposes only */}
-				<div className={`sideMenu ${showSideMenu ? "open" : ""}`}>
-					<a>{loggedIn ? "Logout" : "Login"}</a>
-					<a>Register</a>
-
-					<div>
-						<h2>Pages</h2>
-						<a>Community</a>
-						<a>Friends</a>
-						<a>Holidays</a>
-						<a>Tab</a>
-						<a>User</a>
-					</div>
-				</div>
 			</div>
 		</Layout>
 	);
