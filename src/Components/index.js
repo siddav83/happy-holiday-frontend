@@ -8,7 +8,9 @@ export { default as FunFact } from "./FunFact/FunFact";
 export { default as Calender } from "./Calender/Calender";
 export { default as Profile } from "./Profile/Profile";
 export { default as AddFriend } from "./AddFriend/AddFriend";
+export { default as AddCategory } from "./AddCategory/AddCategory";
 export { default as Layout } from "./Layout";
 export { default as Logo } from "./Logo";
 export { default as Card } from "./Card";
 export { default as Button } from "./Button";
+
