@@ -17,12 +17,12 @@ describe("empty spec", () => {
 		cy.get('[type="submit"]').click();
 	});
 
-	it("User Opens Calender", () => {
-		cy.get(".calender-btn").click();
+	it("User Opens Calendar", () => {
+		cy.get(".calendar-btn").click();
 
 		// Clicks on a day
 
-		cy.get(".calender-container > :nth-child(2)").click();
+		cy.get(".calendar-container > :nth-child(2)").click();
 
 		cy.get(".show-day > button > .fa-solid").click();
 
@@ -30,9 +30,9 @@ describe("empty spec", () => {
 
 		cy.get(".back-btn").click();
 
-		// Goes back to calender
+		// Goes back to calendar
 
-		cy.get(".calender-btn").click();
+		cy.get(".calendar-btn").click();
 
 		// Nav button to go to Holidays main page
 

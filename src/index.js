@@ -6,7 +6,7 @@ import App from "./App";
 import "./main.css";
 // Context
 import { UserProvider } from "./Context/UserContext";
-import { CalenderProvider } from "./Context/CalenderContext";
+import { CalendarProvider } from "./Context/CalendarContext";
 import { StatsProvider } from "./Context/StatsContext";
 import { FestivityProvider } from "./Context/FestivityContext";
 import { CategoryProvider } from "./Context/CategoryContext";
@@ -21,7 +21,7 @@ root.render(
 		<ToggleProvider>
 			<UserProvider>
 				<FestivityProvider>
-					<CalenderProvider>
+					<CalendarProvider>
 						<StatsProvider>
 							<CategoryProvider>
 								<Router>
@@ -29,7 +29,7 @@ root.render(
 								</Router>
 							</CategoryProvider>
 						</StatsProvider>
-					</CalenderProvider>
+					</CalendarProvider>
 				</FestivityProvider>
 			</UserProvider>
 		</ToggleProvider>

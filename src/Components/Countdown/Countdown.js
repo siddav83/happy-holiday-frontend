@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import "./style.css";
 import { ToggleContext } from "../../Context/ToggleContext";
-import { CalenderContext } from "../../Context/CalenderContext";
+import { CalendarContext } from "../../Context/CalendarContext";
 import SantaHat from "../../assets/images/hat.png";
 
 const Countdown = () => {
-	const { daysLeft, setDaysLeft, setToday } = useContext(CalenderContext);
+	const { daysLeft, setDaysLeft, setToday } = useContext(CalendarContext);
 
 	useEffect(() => {
 		// Get Todays Date
@@ -16,14 +16,14 @@ const Countdown = () => {
 		setDaysLeft(25 - day);
 	});
 
-	const { setCalenderToggle } = useContext(ToggleContext);
+	const { setCalendarToggle } = useContext(ToggleContext);
 
-	const toggleCalender = () => {
-		setCalenderToggle((prev) => !prev);
+	const toggleCalendar = () => {
+		setCalendarToggle((prev) => !prev);
 	};
 
 	return (
-		<div className="countdown-container" onClick={toggleCalender}>
+		<div className="countdown-container" onClick={toggleCalendar}>
 			<div className="santa-hat">
 				<img
 					src="https://cdn-icons-png.flaticon.com/512/744/744546.png"
@@ -37,12 +37,12 @@ const Countdown = () => {
 				<span>until</span>
 				<span>Christmas</span>
 			</div>
-			<div className="calender-icon">
+			<div className="calendar-icon">
 				<img
 					src="https://cdn-icons-png.flaticon.com/512/3652/3652267.png"
-					alt="calender"
+					alt="calendar"
 				/>
-				<p>Calender</p>
+				<p>Calendar</p>
 			</div>
 		</div>
 	);
