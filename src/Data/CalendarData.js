@@ -1,4 +1,4 @@
-const CalenderData = [
+const CalendarData = [
 	{
 		day: 1,
 		fact: "Christmas wasn't always on December 25",
@@ -151,4 +151,4 @@ const CalenderData = [
 	},
 ];
 
-export default CalenderData;
+export default CalendarData;

@@ -3,7 +3,7 @@
 	font-size: min(80px, 10vw);
 }
 
-.calender-container {
+.calendar-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 8px;
@@ -12,14 +12,14 @@
 	margin-top: 2rem;
 }
 
-.calender-day-crossed {
+.calendar-day-crossed {
 	position: relative;
 	background-color: var(--text-color);
 	color: white;
 }
 
-.calender-day-crossed::before,
-.calender-day-crossed::after {
+.calendar-day-crossed::before,
+.calendar-day-crossed::after {
 	content: "";
 	position: absolute;
 	left: 0;
@@ -30,12 +30,12 @@
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 	border-radius: 50px;
 }
-.calender-day-crossed::after {
+.calendar-day-crossed::after {
 	transform: rotate(130deg);
 }
 
-.calender-day,
-.calender-day-crossed {
+.calendar-day,
+.calendar-day-crossed {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -50,29 +50,29 @@
 	border: 2px solid white;
 }
 
-.calender-day:hover {
+.calendar-day:hover {
 	color: white;
 	text-shadow: -3px 3px 0 black;
 	border: 2px solid black;
 	rotate: 3deg;
 }
 
-.calender-day-crossed:hover {
+.calendar-day-crossed:hover {
 	color: white;
 	text-shadow: -3px 3px 0 black;
 	border: 2px solid var(--red);
 	rotate: -3deg;
 }
 
-/* Calender Colors */
-.calender-day:nth-child(3n + 0) {
+/* Calendar Colors */
+.calendar-day:nth-child(3n + 0) {
 	background-color: var(--green);
 }
-.calender-day:nth-child(3n + 1) {
+.calendar-day:nth-child(3n + 1) {
 	background-color: var(--blue);
 }
 
-.calender-day:nth-child(3n + 2) {
+.calendar-day:nth-child(3n + 2) {
 	background-color: var(--red);
 }
 

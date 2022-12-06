@@ -4,12 +4,12 @@ import "./style.css";
 import { ToggleContext } from "../../Context/ToggleContext";
 
 const HolidaysNavbar = () => {
-	const { setToggleDay, setCalenderToggle, setToggleAddFriend } =
+	const { setToggleDay, setCalendarToggle, setToggleAddFriend } =
 		useContext(ToggleContext);
 
 	const toggleAllFalse = () => {
 		setToggleDay(false);
-		setCalenderToggle(false);
+		setCalendarToggle(false);
 		setToggleAddFriend(false);
 	};
 

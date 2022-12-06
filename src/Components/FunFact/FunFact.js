@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "./style.css";
-import { CalenderContext } from "../../Context/CalenderContext";
+import { CalendarContext } from "../../Context/CalendarContext";
 
 const FunFact = ({ type }) => {
-	const { calender, daysLeft } = useContext(CalenderContext);
+	const { calendar, daysLeft } = useContext(CalendarContext);
 
 	return (
 		<div className="fun-fact-container">
@@ -11,7 +11,7 @@ const FunFact = ({ type }) => {
 				{type === "fact" ? "Fact" : "Joke"} of the day!
 			</p>
 			<p className="fun-fact">
-				{type === "fact" ? calender[daysLeft]?.fact : calender[daysLeft]?.joke}
+				{type === "fact" ? calendar[daysLeft]?.fact : calendar[daysLeft]?.joke}
 				{}
 			</p>
 		</div>
