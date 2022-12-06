@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Layout, Modal } from "../../Components";
+import { Countdown, Layout, Logo, Modal } from "../../Components";
 import "./style.css";
 
 const msToDays = 1000 * 60 * 60 * 24;
@@ -80,7 +80,8 @@ const Home = () => {
 		<Layout>
 		<div className="Home">
 			<header>
-				<span className='logo'>Happy Holidays!</span>
+				<Logo/>
+				{/* <span className='logo'>Happy Holidays!</span> */}
 				{/* <button title='For development purposes only' onClick={() => setShowSideMenu(val => !val)}><i className='menu-icon'></i></button> */}
 			</header>
 
@@ -93,8 +94,8 @@ const Home = () => {
 						<div className='counter'>{countdown}</div>
 						<div className='text'>days until {nextEvent.name}</div>
 					</div>
-					<p><a href="#">Hosting an event?</a></p>
 				</div>
+				<Countdown/>
 				<div className='card-default'>
 					<h2>My Wishlist</h2>
 					<div className='list'>
