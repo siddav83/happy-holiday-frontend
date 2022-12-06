@@ -1,17 +1,17 @@
 import React, { createContext, useState } from "react";
-import Calender from "../Data/CalenderData";
-export const CalenderContext = createContext();
+import Calendar from "../Data/CalendarData";
+export const CalendarContext = createContext();
 
-export const CalenderProvider = (props) => {
-	const [calender, setCalender] = useState(Calender);
+export const CalendarProvider = (props) => {
+	const [calendar, setCalendar] = useState(Calendar);
 	const [daysLeft, setDaysLeft] = useState(25);
 	const [today, setToday] = useState(25);
 
 	return (
-		<CalenderContext.Provider
+		<CalendarContext.Provider
 			value={{
-				calender,
-				setCalender,
+				calendar,
+				setCalendar,
 				daysLeft,
 				setDaysLeft,
 				today,
@@ -19,6 +19,6 @@ export const CalenderProvider = (props) => {
 			}}
 		>
 			{props.children}
-		</CalenderContext.Provider>
+		</CalendarContext.Provider>
 	);
 };

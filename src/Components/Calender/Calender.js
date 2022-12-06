@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./style.css";
-import { CalenderContext } from "../../Context/CalenderContext";
+import { CalendarContext } from "../../Context/CalendarContext";
 import { ToggleContext } from "../../Context/ToggleContext";
 
-const Calender = () => {
-	const { calender, today } = useContext(CalenderContext);
+const Calendar = () => {
+	const { calendar, today } = useContext(CalendarContext);
 
-	const { toggleDay, setToggleDay, setCalenderToggle } =
+	const { toggleDay, setToggleDay, setCalendarToggle } =
 		useContext(ToggleContext);
 	const [selectedDay, setSelectedDay] = useState({});
 
@@ -22,21 +22,21 @@ const Calender = () => {
 
 	return (
 		<>
-			<h2 className="sub-heading">Calender</h2>
-			<div className="calender-container">
+			<h2 className="sub-heading">Calendar</h2>
+			<div className="calendar-container">
 				<button
 					className="back-btn"
-					onClick={() => setCalenderToggle((prev) => !prev)}
+					onClick={() => setCalendarToggle((prev) => !prev)}
 				>
 					<i className="fa-solid fa-backward" />
 				</button>
 				{!toggleDay ? (
-					calender?.map((day, i) => {
+					calendar?.map((day, i) => {
 						return (
 							<div
 								onClick={() => openDay(day)}
 								className={
-									today < day.day ? "calender-day" : "calender-day-crossed"
+									today < day.day ? "calendar-day" : "calendar-day-crossed"
 								}
 								key={i}
 							>
@@ -61,4 +61,4 @@ const Calender = () => {
 	);
 };
 
-export default Calender;
+export default Calendar;

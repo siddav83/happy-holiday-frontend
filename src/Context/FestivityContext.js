@@ -5,7 +5,7 @@ export const FestivityType = createContext();
 export const FestivityProvider = (props) => {
 	const [festive, setFestive] = useState({
 		festivity: "Christmas",
-		calender: true,
+		calendar: true,
 	});
 
 	return (
