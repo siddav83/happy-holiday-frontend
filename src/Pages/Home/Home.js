@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, Countdown, Layout, Logo, Modal } from "../../Components";
+import { Card, Countdown, Layout, Logo, Modal, Button } from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 
@@ -144,9 +144,7 @@ const Home = () => {
 							</a>
 						</p>
 					) : (
-						<button onClick={() => setDisplayModal("Login")}>
-							Login or sign up
-						</button>
+						<Button colour='dark'>Login or sign up</Button>
 					)}
 				</footer>
 
