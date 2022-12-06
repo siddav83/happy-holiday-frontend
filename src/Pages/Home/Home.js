@@ -130,10 +130,17 @@ const Home = () => {
 					</div>
 				</div>
 			</main>
-
-			{/* <Navb */}
-
 			<div className='navbar-default'>
+				{
+					loggedIn ?
+					<p>Not {loggedIn.email}? <a href="#" onClick={logout}>Log out</a></p> :
+					<button onClick={() => setDisplayModal("Login")}>
+						Login or sign up
+					</button>
+				}
+			</div>
+
+			{/* <div className='navbar-default'>
 				{
 					loggedIn ?
 					<div>
@@ -147,7 +154,7 @@ const Home = () => {
 						Login or sign up
 					</button>
 				}
-			</div>
+			</div> */}
 
 			{displayModal === "Login" && (
 				<Modal show={true} close={closeModal}>
