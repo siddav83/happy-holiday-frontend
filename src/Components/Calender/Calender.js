@@ -3,10 +3,11 @@ import "./style.css";
 import { CalenderContext } from "../../Context/CalenderContext";
 import { ToggleContext } from "../../Context/ToggleContext";
 
-const Calender = ({ setCalenderToggle }) => {
+const Calender = () => {
 	const { calender, today } = useContext(CalenderContext);
 
-	const { toggleDay, setToggleDay } = useContext(ToggleContext);
+	const { toggleDay, setToggleDay, setCalenderToggle } =
+		useContext(ToggleContext);
 	const [selectedDay, setSelectedDay] = useState({});
 
 	const openDay = (day) => {
