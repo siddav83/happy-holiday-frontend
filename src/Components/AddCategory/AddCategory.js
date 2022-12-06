@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { CategoryContext } from "../../Context/CategoryContext";
+import axios from "axios";
 
 export default function AddCategory() {
     const { visible, setVisible } = useContext(CategoryContext);
 
-    const { setUserData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -17,12 +18,26 @@ export default function AddCategory() {
             category,
             item,
         };
-        setUserData((prev) => {
-            return { ...prev, [type]: [...prev[type], { obj }] };
-        });
-
-        setVisible(visible);
+        // Add User (POST)
+        axios
+            .post(`http://127.0.0.1:5000/users/${userData.id}/${type}`, { obj })
+            .then((res) => {
+                console.log(res, "POST RESPONSE");
+                if (res.status === 201) {
+                    console.log("Friend added.");
+                    // setToggleAddFriend(false);
+                    // ! need friends ID im adding
+                    setUserData((prev) => {
+                        return { ...prev, [type]: [...prev[type], { obj }] };
+                    });
+                } else {
+                    alert.log("Friend not added, username doesn't exist.");
+                }
+            })
+            .catch((err) => console.error(err));
     };
+    setVisible(visible);
+
     return (
         <form className="add-or-dislike" onSubmit={onSubmitHandler}>
             <label htmlFor="type">Wants / Dislikes / Wishlist:</label>
