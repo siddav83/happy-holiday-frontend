@@ -36,9 +36,11 @@ export default function Tab(data) {
 		setUserData((prev) => {
 			return { ...prev, [type]: [...prev[type], { obj }] };
 		});
+		// !
 
 		setVisible(visible);
 	};
+
 	return (
 		<div className="main-container">
 			<h1>Wants</h1>
@@ -51,10 +53,10 @@ export default function Tab(data) {
 			)}
 			<TabNav />
 			<div className="card-container">
-				{userData.wants.map((cat, idx) => {
+				{userData.wants.map((cat, i) => {
 					return (
 						<div className="">
-							<CategoryCard data={cat} index={idx} />
+							<CategoryCard data={cat} index={i} key={i} />
 						</div>
 					);
 				})}

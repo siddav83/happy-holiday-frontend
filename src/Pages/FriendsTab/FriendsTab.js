@@ -7,11 +7,8 @@ import axios from "axios";
 
 export default function Tab() {
 	const [friendData, setFriendData] = useState();
-
 	const { categoryData, visible, setVisible } = useContext(CategoryContext);
-
 	const { userData, setUserData } = useContext(UserContext);
-	console.log(userData);
 
 	useEffect(() => {
 		// ! Get Friends Data (API)
@@ -20,7 +17,6 @@ export default function Tab() {
 			.then((res) => {
 				const data = res.data;
 				setFriendData(data);
-
 				console.log(data);
 			});
 	}, []);
@@ -56,7 +52,7 @@ export default function Tab() {
 				{friendData?.map((card, i) => {
 					return (
 						<div className="">
-							<CategoryCard data={card} index={i} />
+							<CategoryCard data={card} index={i} key={i} />
 						</div>
 					);
 				})}

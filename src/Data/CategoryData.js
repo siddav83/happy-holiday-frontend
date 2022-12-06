@@ -6,6 +6,7 @@ const CategoryDatas = [
 	{ name: "pets", symbols: "🐕" },
 	{ name: "cars", symbols: "🏎️" },
 	{ name: "planes", symbols: "✈️" },
+	{ name: "game", symbols: "🎮" },
 ];
 
 export default CategoryDatas;
