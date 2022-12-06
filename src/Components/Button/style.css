@@ -1,0 +1,18 @@
+[class ^= 'btn-'] {
+	display: block;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 100px;
+	box-shadow: var(--drop-shadow);
+	margin: auto;
+}
+
+.btn-dark {
+    background: var(--text-color);
+    color: var(--background-color);
+}
+
+.btn-light {
+    background: var(--background-color);
+    color: var(--text-color);
+}

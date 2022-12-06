@@ -1,11 +1,14 @@
-.Home {
+.no-overflow {
+	overflow: hidden;
+}
+
+/* .Home {
 	--red: #fa0f39;
 	--blue: #0e54ec;
 	--pale-blue: #eff5ff;
 	--dark-blue: #0e2332;
 	--drop-shadow: 0px 0px 16px #7695c240;
 
-	/* background: var(--pale-blue); */
 	background: #ffffffad;
 	color: var(--dark-blue);
 	width: 100vw;
@@ -44,9 +47,7 @@
 	box-shadow: var(--drop-shadow);
 }
 
-.no-overflow {
-	overflow: hidden;
-}
+
 
 .Home header {
 	display: flex;
@@ -90,15 +91,12 @@
 	border: none;
 	padding: 16px;
 	background: linear-gradient(transparent 10%, #cbd8ec);
-	display: flex;
-	flex-direction: row;
 }
 
 .Home .navbar-default button {
-	display: inline-block;
+	display: block;
 	margin: auto;
-	border-radius: 4px;
-	flex: 1;
+	border-radius: 100px;
 }
 
 .Home .logo {
@@ -113,32 +111,8 @@
 	position: relative;
 }
 
-/* .Home .eventName::after {
-	content: '';
-	position: absolute;
-	width: 144px;
-	height: 8px;
-	background: #12be4b;
-	z-index: -1;
-	left: -4px;
-	bottom: -4px;
-} */
-
 .Home p {
 	margin-top: 32px;
-}
-
-.Home .card-default {
-	width: 100%;
-	padding: 16px;
-	margin-top: 16px;
-	background: white;
-	box-shadow: var(--drop-shadow);
-	border-radius: 12px;
-}
-
-.Home .card-default p {
-	margin: 0;
 }
 
 .Home .list {
@@ -165,7 +139,6 @@
 	flex-direction: row;
 	height: 96px;
 	align-items: flex-end;
-	/* justify-content: center; */
 }
 
 .Home .countdown .text {
@@ -173,10 +146,6 @@
 	margin-left: 8px;
 	margin-bottom: 8px;
 }
-
-/* .Home .countdown div {
-	width: 50%;
-} */
 
 .Home .countdown .counter {
 	font-size: 120px;
@@ -215,4 +184,4 @@
 	.Home .menu-icon {
 		display: none;
 	}
-}
+} */
