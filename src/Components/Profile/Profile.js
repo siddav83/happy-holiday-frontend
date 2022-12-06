@@ -11,7 +11,7 @@ const Profile = ({ username, type }) => {
 			setUserData((prev) => {
 				return {
 					...prev,
-					friendViewing: username,
+					friendViewing: { ...prev, username },
 				};
 			});
 		}
