@@ -5,19 +5,7 @@ import { TabNav, AddNav, CategoryCard } from "../../Components";
 import "./style.css";
 
 export default function Tab(data) {
-	const {
-		categoryList,
-		setCategoryList,
-		categoryData,
-		category,
-		setCategory,
-		visible,
-		setVisible,
-		type,
-		setType,
-		nameItem,
-		setNameItem,
-	} = useContext(CategoryContext);
+	const { categoryData, visible, setVisible } = useContext(CategoryContext);
 
 	const { userData, setUserData } = useContext(UserContext);
 

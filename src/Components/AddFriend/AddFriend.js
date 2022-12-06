@@ -8,10 +8,6 @@ const AddFriend = () => {
 	const { setToggleAddFriend } = useContext(ToggleContext);
 	const { userData, setUserData } = useContext(UserContext);
 
-	// useEffect(() => {
-
-	// })
-
 	function addNewFriend(e) {
 		e.preventDefault();
 		const friend = e.target.username.value;
