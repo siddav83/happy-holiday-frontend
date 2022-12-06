@@ -31,7 +31,29 @@
 }
 
 .add-or-dislike label {
+    font-size: inherit;
+    padding: 5px;
     color: white;
+    font-family: "Bree Serif", serif;
+}
+
+.add-or-dislike select {
+    font-size: 80%;
+}
+
+.add-or-dislike option {
+    font-size: 30%;
+}
+
+.add-cat-btn {
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    font-size: 40px;
+    /* background-color: transparent; */
+    transition: 0.3s ease-in-out;
 }
 
 .add-or-dislike input {
@@ -73,12 +95,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-/* .tabnav-navbar nav {
-    display: flex;
-    justify-content: space-around;
-} */
-.tabnav-navbar button {
-    padding: 15p;
 }
