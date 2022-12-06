@@ -1,7 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CategoryContext } from "../../Context/CategoryContext";
 import { UserContext } from "../../Context/UserContext";
-import { TabNav, AddNav, CategoryCard, AddCategory } from "../../Components";
+import {
+	TabNav,
+	CategoryCard,
+	AddCategory,
+	HolidaysNavbar,
+} from "../../Components";
 import "./style.css";
 import axios from "axios";
 
@@ -17,9 +22,9 @@ export default function Tab() {
 			.then((res) => {
 				const data = res.data;
 				setFriendData(data);
-				console.log(data);
 			});
 	}, []);
+
 	// const onSubmitHandler = (e) => {
 	// 	e.preventDefault();
 	// 	const type = e.target.type.value;
@@ -36,10 +41,11 @@ export default function Tab() {
 
 	// 	setVisible(visible);
 	// };
+	const { username, tab } = userData.friendViewing;
 
 	return (
 		<div className="main-container">
-			<h1>{userData.friendViewing && userData.friendViewing} Wants</h1>
+			<h1>{username + tab}</h1>
 			{visible ? (
 				<div className="like-dislike-container">
 					<AddCategory />
@@ -47,17 +53,17 @@ export default function Tab() {
 			) : (
 				visible
 			)}
-			<TabNav />
+			<TabNav type="friends" />
 			<div className="card-container">
 				{friendData?.map((card, i) => {
 					return (
-						<div className="">
-							<CategoryCard data={card} index={i} key={i} />
+						<div key={i}>
+							<CategoryCard data={card} index={i} />
 						</div>
 					);
 				})}
 			</div>
-			<AddNav />
+			<HolidaysNavbar />
 		</div>
 	);
 }

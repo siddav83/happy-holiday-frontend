@@ -18,8 +18,6 @@ export default function Tab(data) {
 				setUserData((prev) => {
 					return { ...prev, wants: data };
 				});
-
-				console.log(data);
 			});
 	}, []);
 
@@ -51,12 +49,12 @@ export default function Tab(data) {
 			) : (
 				visible
 			)}
-			<TabNav />
+			<TabNav type="user" />
 			<div className="card-container">
 				{userData.wants.map((cat, i) => {
 					return (
-						<div className="">
-							<CategoryCard data={cat} index={i} key={i} />
+						<div key={i}>
+							<CategoryCard data={cat} />
 						</div>
 					);
 				})}
