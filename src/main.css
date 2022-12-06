@@ -36,7 +36,19 @@ body {
 	background-color: white;
 	min-height: 100vh;
 	overflow-x: hidden;
+	overflow-y: hidden;
 	color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	/* background-image: linear-gradient(to top, var(--red) 0%, var(--green) 100%); */
+	background: var(--red);
+	margin-left: 2rem;
 }
 
 img,
@@ -84,8 +96,9 @@ input[type="submit"] {
 .main-container {
 	width: 90%;
 	max-width: 1000px;
-	margin: 0 auto;
-	padding: 0.5rem 0;
+	margin: 1rem auto 0;
+	padding: 0.5rem;
+	padding: 0.5rem 1rem !important;
 	height: 88vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -93,5 +106,4 @@ input[type="submit"] {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	/* background-color: red; */
 }

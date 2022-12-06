@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./style.css";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
@@ -18,7 +18,6 @@ const AddFriend = () => {
 				console.log(res, "POST RESPONSE");
 				if (res.status === 201) {
 					console.log("Friend added.");
-					console.log(res.data);
 					setToggleAddFriend(false);
 					// ! need friends ID im adding
 					setUserData((prev) => {
@@ -36,13 +35,17 @@ const AddFriend = () => {
 		const email = e.target.email.value;
 		// Send Invite Email (POST)
 		axios
-			.post("http://127.0.0.1:5000/share", email)
+			.post("http://127.0.0.1:5000/share", {
+				email,
+				from: userData.username,
+			})
 			.then((res) => {
 				console.log(res, "POST RESPONSE");
 				if (res.status === 200) {
 					console.log("Added");
+					setToggleAddFriend(false);
 				} else {
-					console.log("Oops but couldn't invite...");
+					alert.log("Oops but couldn't invite...");
 				}
 			})
 			.catch((err) => console.error(err));
