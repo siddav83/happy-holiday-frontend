@@ -1,15 +1,15 @@
 .sub-heading {
-	margin-top: 1rem;
-	/* font-size: 40px; */
+	margin-top: 2rem;
+	font-size: min(80px, 10vw);
 }
 
 .calender-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 8px;
-	height: 0%;
+	height: 70%;
 	width: 100%;
-	margin-top: 1rem;
+	margin-top: 2rem;
 }
 
 .calender-day-crossed {
