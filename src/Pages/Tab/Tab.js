@@ -36,13 +36,13 @@ export default function Tab(data) {
         <div className="main-container">
             <h1>Wants</h1>
             {!visible ? (
-                <div className="add-or-invite-container">
-                    <form className="add-or-invite" onSubmit={onSubmitHandler}>
+                <div className="like-dislike-container">
+                    <form className="add-or-dislike" onSubmit={onSubmitHandler}>
                         <label htmlFor="type">
                             Likes / Dislikes / Wishlist:
                         </label>
                         <select id="type" name="type">
-                            <option value="wants">likes</option>
+                            <option value="likes">likes</option>
                             <option value="dislikes">dislikes</option>
                             <option value="dreams">dreams</option>
                             <option value="brands">brands</option>
