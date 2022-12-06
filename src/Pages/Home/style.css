@@ -10,6 +10,9 @@
 	color: var(--dark-blue);
 	width: 100vw;
 	min-height: 100vh;
+
+	position: relative;
+	overflow-x: hidden;
 }
 
 .Home,
@@ -167,6 +170,24 @@
 	font-size: 120px;
 	line-height: 100%;
 	text-align: right;
+}
+
+.Home .sideMenu {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background: var(--dark-blue);
+	color: white;
+	padding: 16px;
+}
+
+.Home .sideMenu a {
+	display: block;
+	margin-top: 4px;
+}
+
+.Home .sideMenu.open {
+	left: 0;
 }
 
 @media screen and (min-width: 769px) {

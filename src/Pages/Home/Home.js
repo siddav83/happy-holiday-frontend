@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Modal } from "../../Components";
+import { Layout, Modal } from "../../Components";
 import "./style.css";
 
 const msToDays = 1000 * 60 * 60 * 24;
@@ -16,6 +16,7 @@ const Home = () => {
 	const [countdown, setCountdown] = useState(null);
 	const countdownLimit = 99;
 	const [displayModal, setDisplayModal] = useState(null);
+	const [showSideMenu, setShowSideMenu] = useState(false)
 
 	function daysLeft(target) {
 		const timeLeft = target.getTime() - new Date().getTime();
@@ -76,10 +77,11 @@ const Home = () => {
 
 	return (
 		// <div className="main-container Home">
+		<Layout>
 		<div className="Home">
 			<header>
 				<span className='logo'>Happy Holidays!</span>
-				<button><i className='menu-icon'></i></button>
+				{/* <button title='For development purposes only' onClick={() => setShowSideMenu(val => !val)}><i className='menu-icon'></i></button> */}
 			</header>
 
 			<main>
@@ -224,7 +226,23 @@ const Home = () => {
 					</a>
 				</Modal>
 			)}
+
+			{/* For dev purposes only */}
+			<div className={`sideMenu ${showSideMenu ? 'open' : ''}`}>
+				<a>{loggedIn ? 'Logout' : 'Login'}</a>
+				<a>Register</a>
+
+				<div>
+					<h2>Pages</h2>
+					<a>Community</a>
+					<a>Friends</a>
+					<a>Holidays</a>
+					<a>Tab</a>
+					<a>User</a>
+				</div>
+			</div>
 		</div>
+		</Layout>
 	);
 };
 

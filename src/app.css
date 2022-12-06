@@ -45,31 +45,37 @@
 	left: 0;
 	width: min(100px, 12vw);
 }
+
 .s-8 {
 	top: 50%;
 	left: 40%;
 	width: min(100px, 25vw);
 }
+
 .s-9 {
 	top: 45%;
 	right: 5%;
 	width: min(100px, 12vw);
 }
+
 .s-10 {
 	top: 72%;
 	left: 10%;
 	width: min(100px, 16vw);
 }
+
 .s-11 {
 	top: 85%;
 	left: 30%;
 	width: min(100px, 25vw);
 }
+
 .s-12 {
 	top: 72%;
 	right: 30%;
 	width: min(100px, 14vw);
 }
+
 .s-13 {
 	top: 75%;
 	right: -8%;
