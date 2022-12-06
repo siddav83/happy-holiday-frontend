@@ -74,3 +74,11 @@
     justify-content: center;
     align-items: center;
 }
+
+/* .tabnav-navbar nav {
+    display: flex;
+    justify-content: space-around;
+} */
+.tabnav-navbar button {
+    padding: 15p;
+}
