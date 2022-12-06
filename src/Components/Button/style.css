@@ -1,4 +1,4 @@
-[class *= 'btn-'] {
+[class ^= 'btn-'] {
 	display: block;
 	padding: 8px 16px;
 	border: none;

@@ -110,12 +110,12 @@ const Home = () => {
 							with friends and family!
 						</h2>
 					</div>
-					<Card>
+					{/* <Card>
 						<div className="countdown">
 							<div className="counter">{countdown}</div>
 							<div className="text">days until {nextEvent.name}</div>
 						</div>
-					</Card>
+					</Card> */}
 					<Countdown />
 					<Card>
 						<h2>Popular Gifts</h2>
@@ -144,7 +144,7 @@ const Home = () => {
 							</a>
 						</p>
 					) : (
-						<Button colour='dark'>Login or sign up</Button>
+						<Button colour='dark' click={() => setDisplayModal("Login")}>Login or sign up</Button>
 					)}
 				</footer>
 
@@ -158,7 +158,7 @@ const Home = () => {
 						<button>Events</button>
 						<button onClick={logout}>Logout</button>
 					</div> : 
-					<button onClick={() => setDisplayModal("Login")}>
+					<button onClick={}>
 						Login or sign up
 					</button>
 				}

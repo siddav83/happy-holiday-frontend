@@ -1,3 +1,7 @@
+.no-overflow {
+	overflow: hidden;
+}
+
 /* .Home {
 	--red: #fa0f39;
 	--blue: #0e54ec;
@@ -43,9 +47,7 @@
 	box-shadow: var(--drop-shadow);
 }
 
-.no-overflow {
-	overflow: hidden;
-}
+
 
 .Home header {
 	display: flex;
