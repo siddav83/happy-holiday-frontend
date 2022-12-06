@@ -20,22 +20,8 @@ function App() {
 			<Routes>
 				{/* Pages */}
 				<Route path="/" element={<Home />} />
-				<Route
-					path="/user"
-					element={
-						<>
-							<User />
-						</>
-					}
-				/>
-				<Route
-					path="/tab"
-					element={
-						<>
-							<Tab />
-						</>
-					}
-				/>
+				<Route path="/user" element={<User />}/>
+				<Route path="/tab" element={<Tab />}/>
 				<Route path="/holidays" element={<Holidays />} />
 				<Route path="/friends" element={<Friends />} />
 				<Route path="/community" element={<Community />} />
