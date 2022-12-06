@@ -26,8 +26,6 @@ export default function Tab(data) {
 		setVisible(visible);
 	};
 
-	console.log(userData);
-
 	return (
 		<div className="main-container">
 			<h1>Wants</h1>
