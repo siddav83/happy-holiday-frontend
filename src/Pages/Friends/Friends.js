@@ -6,7 +6,6 @@ import { UserContext } from "../../Context/UserContext";
 const Friends = () => {
 	const { toggleAddFriend, setToggleAddFriend } = useContext(ToggleContext);
 	const { userData } = useContext(UserContext);
-	console.log(userData.friends);
 
 	return (
 		<div className="main-container friends-container">
@@ -31,11 +30,9 @@ const Friends = () => {
 
 			<hr />
 			<div className="friends-list">
-				{userData.friends?.map((friend) => (
-					<Profile username={friend} type="friend" />
+				{userData.friends?.map((friend, i) => (
+					<Profile username={friend} type="friend" key={i} />
 				))}
-				<Profile />
-				<Profile />
 			</div>
 			{toggleAddFriend && <AddFriend />}
 

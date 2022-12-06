@@ -5,30 +5,27 @@ import { TabNav, AddNav, CategoryCard } from "../../Components";
 import "./style.css";
 
 export default function Tab(data) {
-    const { categoryData, visible, setVisible } = useContext(CategoryContext);
+	const { categoryData, visible, setVisible } = useContext(CategoryContext);
 
-    const { userData, setUserData } = useContext(UserContext);
+	const { userData, setUserData } = useContext(UserContext);
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
-        const type = e.target.type.value;
-        const category = e.target.category.value;
-        const item = e.target.item.value;
+	const onSubmitHandler = (e) => {
+		e.preventDefault();
+		const type = e.target.type.value;
+		const category = e.target.category.value;
+		const item = e.target.item.value;
 
-        const obj = {
-            category,
-            item,
-        };
-        setUserData((prev) => {
-            return { ...prev, [type]: [...prev[type], { obj }] };
-        });
-        //  reference
-        // const newVariable = userData;
-        // newVariable[type] = [...userData[type], obj];
-        // setUserData(newVariable);
+		const obj = {
+			category,
+			item,
+		};
+		setUserData((prev) => {
+			return { ...prev, [type]: [...prev[type], { obj }] };
+		});
+		setVisible(!visible);
+	};
 
-        setVisible(!visible);
-    };
+	console.log(userData);
 
     console.log(userData);
 
