@@ -24,7 +24,7 @@
 }
 
 .content a {
-    color: aqua;
+    color: white;
 }
 
 .content {
@@ -39,6 +39,10 @@
 
 .content, .content p, .content input {
     font-size: 1.2rem;
+}
+
+.content .alert {
+    color: var(--red);
 }
 
 .hidden {
