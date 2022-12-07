@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { CategoryContext } from "../../Context/CategoryContext";
 import "./style.css";
 
-const AddNav = ({click}) => {
+const AddNav = ({ click }) => {
 	const { visible, setVisible } = useContext(CategoryContext);
 
 	return (
@@ -34,8 +34,8 @@ const AddNav = ({click}) => {
 			<NavLink to="/">
 				<i className="fa-solid fa-right-from-bracket"></i>
 			</NavLink>
-			<NavLink to="/community">
-				<i className="fa-solid fa-earth-europe"></i>
+			<NavLink to="/events">
+				<i class="fa-solid fa-champagne-glasses"></i>
 			</NavLink>
 			<button className="add-btn" onClick={click}>
 				<i className="fa-regular fa-plus btn-big"></i>
