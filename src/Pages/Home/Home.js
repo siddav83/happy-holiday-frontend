@@ -33,6 +33,7 @@ const Home = () => {
 	const [displayModal, setDisplayModal] = useState(null);
 	const [showSideMenu, setShowSideMenu] = useState(false);
 	const [output, setOutput] = useState("");
+	const [topDeals, setTopDeals] = useState([])
 
 	function daysLeft(target) {
 		const timeLeft = target.getTime() - new Date().getTime();
@@ -106,6 +107,10 @@ const Home = () => {
 		if (hash) {
 			setDisplayModal(hash.toLowerCase());
 		}
+
+		axios.get('http://localhost:3002/compare/items/top-deals')
+			.then(res => setTopDeals(res.data))
+			.catch(err => console.error(err))
 	}, []);
 
 	useEffect(() => {
@@ -138,21 +143,24 @@ const Home = () => {
 					</Card> */}
 					<Countdown />
 					<Card>
-						<h2>Popular Gifts</h2>
+						<h2>Top 10 Deals</h2>
 						<div className="list">
-							{new Array(6).fill().map((item, index) => (
-								<div key={index} className="placeholder"></div>
-							))}
+							{
+								new Array(10).fill().map((item, index) => (topDeals.length > index ? <a key={index} href={topDeals[index].link} target='_blank'><div className='list-item'>
+									<img src={topDeals[index].img} alt={topDeals[index].title}/>
+									<span>{index + 1}. {topDeals[index].title}</span>
+								</div></a> : null))
+							}
 						</div>
 					</Card>
-					<Card>
+					{/* <Card>
 						<h2>Community Posts</h2>
 						<div className="list">
 							{new Array(6).fill().map((item, index) => (
 								<div key={index} className="placeholder"></div>
 							))}
 						</div>
-					</Card>
+					</Card> */}
 				</main>
 			</Content>
 			<Shortcuts>
