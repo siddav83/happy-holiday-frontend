@@ -9,7 +9,6 @@ import {
 	Community,
 	FriendsTab,
 } from "./Pages";
-import Snowflake from "./assets/images/snowflake.png";
 import "./app.css";
 
 const Snowflakes = ({count}) => {

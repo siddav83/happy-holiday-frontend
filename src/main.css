@@ -31,8 +31,9 @@ font-family: 'Pacifico', cursive;
 }
 
 body {
-	background-color: white;
+	width: 100vw;
 	min-height: 100vh;
+	background: #f9fdff;
 	color: var(--text-color);
 }
 
@@ -89,17 +90,23 @@ input[type="submit"] {
 	color: var(--text-color);
 }
 
+#root {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
 /* Reusable main container*/
-.main-container {
+/* .main-container {
 	width: 90%;
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 0.5rem !important;
-	height: 90vh;
+	height: 90vh; */
 	/* overflow-x: hidden; */
 	/* overflow-y: scroll; */
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-}
+} */

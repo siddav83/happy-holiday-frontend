@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, Countdown, Layout, Logo, Modal, Button } from "../../Components";
+import { Card, Countdown, Layout, Logo, Modal, Button, Navbar, Shortcuts, Content } from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 
@@ -94,12 +94,9 @@ const Home = () => {
 	}, [loggedIn]);
 
 	return (
-		<Layout>
-			<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
-				<header>
-					<Logo />
-				</header>
-
+		<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
+			<Navbar/>
+			<Content>
 				<main>
 					<div className="heading">
 						<h2>
@@ -134,128 +131,111 @@ const Home = () => {
 						</div>
 					</Card>
 				</main>
-
-				<footer className="navbar-default">
-					{loggedIn ? (
-						<p>
-							Not {loggedIn.email}?{" "}
-							<a href="#" onClick={logout}>
-								Log out
-							</a>
-						</p>
-					) : (
-						<Button colour='dark' click={() => setDisplayModal("Login")}>Login or sign up</Button>
-					)}
-				</footer>
-
-				{/* <div className='navbar-default'>
-				{
-					loggedIn ?
-					<div>
-						<button>Home</button>
-						<button>Wishlist</button>
-						<button>Friends</button>
-						<button>Events</button>
-						<button onClick={logout}>Logout</button>
-					</div> : 
-					<button onClick={}>
-						Login or sign up
-					</button>
-				}
-			</div> */}
-
-				{displayModal === "Login" && (
-					<Modal show={true} close={closeModal}>
-						<h2>Login</h2>
-						<form onSubmit={submitLogin}>
-							<label>
-								Email{" "}
-								<input
-									type="email"
-									name="email"
-									placeholder="Email address"
-									required
-								></input>
-							</label>
-							<label>
-								Password{" "}
-								<input
-									type="password"
-									name="password"
-									placeholder="Password"
-									required
-								></input>
-							</label>
-							<input type="submit" value="Login"></input>
-						</form>
-						{output && <p className="alert">{output}</p>}
-						<a
-							href="#"
-							onClick={(e) => {
-								e.preventDefault();
-								setDisplayModal("Register");
-							}}
-						>
-							Register
+			</Content>
+			<Shortcuts>
+				{loggedIn ? (
+					<p>
+						Not {loggedIn.email}?{" "}
+						<a href="#" onClick={logout}>
+							Log out
 						</a>
-					</Modal>
+					</p>
+				) : (
+					<Button colour='dark' click={() => setDisplayModal("Login")}>Login or sign up</Button>
 				)}
+			</Shortcuts>
 
-				{displayModal === "Register" && (
-					<Modal show={true} close={closeModal}>
-						<h2>Register</h2>
-						<form onSubmit={submitRegister}>
-							<label>
-								Email{" "}
-								<input
-									type="email"
-									name="email"
-									placeholder="Email address"
-									required
-								></input>
-							</label>
-							<label>
-								Username{" "}
-								<input
-									type="text"
-									name="username"
-									placeholder="Username"
-									required
-								></input>
-							</label>
-							<label>
-								Password{" "}
-								<input
-									type="password"
-									name="password1"
-									placeholder="Password"
-									required
-								></input>
-							</label>
-							<label>
-								Confirm password{" "}
-								<input
-									type="password"
-									name="password2"
-									placeholder="Confirm password"
-									required
-								></input>
-							</label>
-							<input type="submit" value="Register"></input>
-						</form>
-						<a
-							href="#"
-							onClick={(e) => {
-								e.preventDefault();
-								setDisplayModal("Login");
-							}}
-						>
-							Login
-						</a>
-					</Modal>
-				)}
-			</div>
-		</Layout>
+			{displayModal === "Login" && (
+				<Modal show={true} close={closeModal}>
+					<h2>Login</h2>
+					<form onSubmit={submitLogin}>
+						<label>
+							Email{" "}
+							<input
+								type="email"
+								name="email"
+								placeholder="Email address"
+								required
+							></input>
+						</label>
+						<label>
+							Password{" "}
+							<input
+								type="password"
+								name="password"
+								placeholder="Password"
+								required
+							></input>
+						</label>
+						<input type="submit" value="Login"></input>
+					</form>
+					{output && <p className="alert">{output}</p>}
+					<a
+						href="#"
+						onClick={(e) => {
+							e.preventDefault();
+							setDisplayModal("Register");
+						}}
+					>
+						Register
+					</a>
+				</Modal>
+			)}
+
+			{displayModal === "Register" && (
+				<Modal show={true} close={closeModal}>
+					<h2>Register</h2>
+					<form onSubmit={submitRegister}>
+						<label>
+							Email{" "}
+							<input
+								type="email"
+								name="email"
+								placeholder="Email address"
+								required
+							></input>
+						</label>
+						<label>
+							Username{" "}
+							<input
+								type="text"
+								name="username"
+								placeholder="Username"
+								required
+							></input>
+						</label>
+						<label>
+							Password{" "}
+							<input
+								type="password"
+								name="password1"
+								placeholder="Password"
+								required
+							></input>
+						</label>
+						<label>
+							Confirm password{" "}
+							<input
+								type="password"
+								name="password2"
+								placeholder="Confirm password"
+								required
+							></input>
+						</label>
+						<input type="submit" value="Register"></input>
+					</form>
+					<a
+						href="#"
+						onClick={(e) => {
+							e.preventDefault();
+							setDisplayModal("Login");
+						}}
+					>
+						Login
+					</a>
+				</Modal>
+			)}
+		</div>
 	);
 };
 
