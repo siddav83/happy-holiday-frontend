@@ -17,3 +17,8 @@
     background: var(--background-color);
     color: var(--text-color);
 }
+
+.btn-red {
+    background: var(--red);
+    color: var(--text-color);
+}
