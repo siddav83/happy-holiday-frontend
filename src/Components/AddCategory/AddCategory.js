@@ -26,7 +26,7 @@ export default function AddCategory() {
         console.log(obj, "POST ITEM");
         // Add User (POST)
         axios
-            .post(`http://127.0.0.1:5000/wants`, obj)
+            .post(`http://127.0.0.1:5000/${type}`, obj)
             // .post(`http://127.0.0.1:5000/users/${userData.id}/${type}`, { obj })
             .then((res) => {
                 console.log(res, "POST RESPONSE");
@@ -35,7 +35,9 @@ export default function AddCategory() {
                     setToggleAddCategory(false);
                     // ! need friends ID im adding
                     setUserData((prev) => {
-                        return { ...prev, [type]: [...prev[type], obj] };
+                        console.log("PREV", prev.wishlist[type]);
+                        // return { ...prev, [type]: [...prev[type], obj] };
+                        return {...prev, wishlist: {...prev.wishlist, [type]: [...prev.wishlist[type], obj]}}
                     });
                 } else {
                     alert.log("Friend not added, username doesn't exist.");
@@ -54,14 +56,14 @@ export default function AddCategory() {
             />
             <label htmlFor="type">Types</label>
             <select id="type" name="type" required>
-                <option disabled>Select Type</option>
+                <option value="">Select type</option>
                 <option value="wants">Wants</option>
                 <option value="dislikes">Dislikes</option>
                 <option value="dreams">Dreams</option>
             </select>
             <label htmlFor="category">Choose a category:</label>
             <select id="category" name="category" required>
-                <option disabled>Select category</option>
+                <option value="">Select category</option>
                 {categoryData.map((item) => {
                     return (
                         <option key={item.name} value={item.name}>
