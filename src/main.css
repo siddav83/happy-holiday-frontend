@@ -65,7 +65,7 @@ h1 {
 	text-shadow: -2px 2px 0 black;
 	letter-spacing: 1px;
 	font-size: min(70px, 10vw);
-	z-index: 100;
+	/* z-index: 100; */
 }
 
 h2,
