@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, Countdown, Layout, Logo, Modal, Button, Navbar, Shortcuts, Content } from "../../Components";
+import { Card, Countdown, Layout, Logo, Modal, Button, Navbar, Shortcuts, Content, Form } from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 
@@ -95,7 +95,9 @@ const Home = () => {
 
 	return (
 		<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
-			<Navbar/>
+			<Navbar>
+				<Button colour='dark' click={() => setDisplayModal("Login")}>Login or sign up</Button>
+			</Navbar>
 			<Content>
 				<main>
 					<div className="heading">
@@ -148,7 +150,28 @@ const Home = () => {
 			{displayModal === "Login" && (
 				<Modal show={true} close={closeModal}>
 					<h2>Login</h2>
-					<form onSubmit={submitLogin}>
+					<Form submit={submitLogin}>
+						<label>
+							Email{" "}
+							<input
+								type="email"
+								name="email"
+								placeholder="Email"
+								required
+							></input>
+						</label>
+						<label>
+							Password{" "}
+							<input
+								type="password"
+								name="password"
+								placeholder="Password"
+								required
+							></input>
+						</label>
+						<input type="submit" value="Login"></input>
+					</Form>
+					{/* <form className="form" onSubmit={submitLogin}>
 						<label>
 							Email{" "}
 							<input
@@ -168,7 +191,7 @@ const Home = () => {
 							></input>
 						</label>
 						<input type="submit" value="Login"></input>
-					</form>
+					</form> */}
 					{output && <p className="alert">{output}</p>}
 					<a
 						href="#"
@@ -185,7 +208,46 @@ const Home = () => {
 			{displayModal === "Register" && (
 				<Modal show={true} close={closeModal}>
 					<h2>Register</h2>
-					<form onSubmit={submitRegister}>
+					<Form submit={submitRegister}>
+						<label>
+							Email{" "}
+							<input
+								type="email"
+								name="email"
+								placeholder="Email"
+								required
+							></input>
+						</label>
+						<label>
+							Username{" "}
+							<input
+								type="text"
+								name="username"
+								placeholder="Username"
+								required
+							></input>
+						</label>
+						<label>
+							Password{" "}
+							<input
+								type="password"
+								name="password1"
+								placeholder="Password"
+								required
+							></input>
+						</label>
+						<label>
+							Confirm password{" "}
+							<input
+								type="password"
+								name="password2"
+								placeholder="Confirm password"
+								required
+							></input>
+						</label>
+						<input type="submit" value="Register"></input>
+					</Form>
+					{/* <form onSubmit={submitRegister}>
 						<label>
 							Email{" "}
 							<input
@@ -223,7 +285,7 @@ const Home = () => {
 							></input>
 						</label>
 						<input type="submit" value="Register"></input>
-					</form>
+					</form> */}
 					<a
 						href="#"
 						onClick={(e) => {
