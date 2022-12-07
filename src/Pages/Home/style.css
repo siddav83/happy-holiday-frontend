@@ -2,6 +2,10 @@
 	overflow: hidden;
 }
 
+.Home h2 {
+	text-align: center;
+}
+
 /* .Home {
 	--red: #fa0f39;
 	--blue: #0e54ec;
