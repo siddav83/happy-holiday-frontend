@@ -21,37 +21,45 @@ export default function Tab(data) {
 			});
 	}, []);
 
-	const onSubmitHandler = (e) => {
-		e.preventDefault();
-		const type = e.target.type.value;
-		const category = e.target.category.value;
-		const item = e.target.item.value;
+	useEffect(() => {
+		// ! Get Friends Data (API)
+		axios
+			.get(`http://127.0.0.1:5000/users/${userData.id}/wishlist`)
+			.then((res) => {
+				const data = res.data;
+				setUserData((prev) => {
+					return { ...prev, wishlist: data };
+				});
+			});
+	}, []);
 
-		const obj = {
-			category,
-			item,
-		};
-		setUserData((prev) => {
-			return { ...prev, [type]: [...prev[type], { obj }] };
-		});
-		// !
-
-		setVisible(visible);
+	const deleteCategory = async () => {
+		const id = await axios.get(
+			`http://127.0.0.1:5000/users/${userData.id}/wants`
+		);
+		axios
+			.get(`http://127.0.0.1:5000/users/${updateTab}/${`:id`}`)
+			.then((res) => {
+				const data = res.data;
+				setUserData((prev) => {
+					return { ...prev, wishlist: data };
+				});
+			});
 	};
 
+	const updateTab = userData.tab.toLowerCase();
+	console.log(updateTab);
 	return (
 		<div className="main-container">
-			<h1>Wants</h1>
-			{visible ? (
+			<h1>{userData.tab}</h1>
+			{toggleAddCategory ? (
 				<div className="like-dislike-container">
 					<AddCategory />
 				</div>
-			) : (
-				visible
-			)}
+			) : undefined}
 			<TabNav type="user" />
 			<div className="card-container">
-				{userData.wants.map((cat, i) => {
+				{userData?.wishlist[updateTab].map((cat, i) => {
 					return (
 						<div key={i}>
 							<CategoryCard data={cat} />
@@ -59,7 +67,7 @@ export default function Tab(data) {
 					);
 				})}
 			</div>
-			<AddNav />
+			<AddNav click={handleEvent} />
 		</div>
 	);
 }

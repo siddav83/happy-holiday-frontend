@@ -6,7 +6,7 @@ import { ToggleContext } from "../../Context/ToggleContext";
 import axios from "axios";
 
 export default function AddCategory() {
-    const { visible, setVisible } = useContext(CategoryContext);
+    const { visible, setVisible, categoryData } = useContext(CategoryContext);
     const { setToggleAddCategory } = useContext(ToggleContext);
 
     const { userData, setUserData } = useContext(UserContext);
@@ -31,11 +31,11 @@ export default function AddCategory() {
             .then((res) => {
                 console.log(res, "POST RESPONSE");
                 if (res.status === 201) {
-                    console.log("Friend added.");
+                    console.log("Category added.");
                     setToggleAddCategory(false);
                     // ! need friends ID im adding
                     setUserData((prev) => {
-                        return { ...prev, [type]: [...prev[type], { obj }] };
+                        return { ...prev, [type]: [...prev[type], obj] };
                     });
                 } else {
                     alert.log("Friend not added, username doesn't exist.");
@@ -44,6 +44,7 @@ export default function AddCategory() {
             .catch((err) => console.error(err));
     };
     setVisible(visible);
+    console.log(categoryData);
 
     return (
         <form className="add-or-dislike" onSubmit={onSubmitHandler}>
@@ -51,25 +52,31 @@ export default function AddCategory() {
                 className="fa-solid fa-circle-xmark"
                 onClick={() => setToggleAddCategory(false)}
             />
-            <label htmlFor="type">Wants / Dislikes / Wishlist:</label>
-            <select id="type" name="type">
-                <option value="wants">wants</option>
-                <option value="dislikes">dislikes</option>
-                <option value="dreams">dreams</option>
-                <option value="brands">brands</option>
+            <label htmlFor="type">Types</label>
+            <select id="type" name="type" required>
+                <option disabled>Select Type</option>
+                <option value="wants">Wants</option>
+                <option value="dislikes">Dislikes</option>
+                <option value="dreams">Dreams</option>
             </select>
             <label htmlFor="category">Choose a category:</label>
-            <select id="category" name="category">
-                <option value="phone">phone</option>
-                <option value="computers">computers</option>
-                <option value="laptop">laptop</option>
-                <option value="confectionary">confectionary</option>
-                <option value="vouchers">vouchers</option>
-                <option value="clothes">clothes</option>
-                <option value="money">money</option>
+            <select id="category" name="category" required>
+                <option disabled>Select category</option>
+                {categoryData.map((item) => {
+                    return (
+                        <option key={item.name} value={item.name}>
+                            {item.name} {item.symbols}
+                        </option>
+                    );
+                })}
             </select>
             <label htmlFor="item">item description</label>
-            <input type="text" id="item" name="item" />
+            <input
+                type="text"
+                id="item"
+                name="item"
+                placeholder="Optional..."
+            />
             <button className="add-cat-btn">Submit</button>
         </form>
     );
