@@ -86,17 +86,25 @@ const Home = () => {
 	}
 
 	useEffect(() => {
+		const hash = window.location.hash.split('#')[1]
+		
+		if(hash){
+			setDisplayModal(hash.toLowerCase())
+		}
+	}, [])
+
+	useEffect(() => {
 		setCountdown(daysLeft(nextEvent.date));
 	}, [nextEvent]);
 
-	useEffect(() => {
-		console.log("UPDATE", loggedIn);
-	}, [loggedIn]);
+	// useEffect(() => {
+	// 	console.log("UPDATE", loggedIn);
+	// }, [loggedIn]);
 
 	return (
 		<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
 			<Navbar>
-				<Button colour='dark' click={() => setDisplayModal("Login")}>Login or sign up</Button>
+				<Button colour='dark' click={() => setDisplayModal("login")}>Login or sign up</Button>
 			</Navbar>
 			<Content>
 				<main>
@@ -143,11 +151,11 @@ const Home = () => {
 						</a>
 					</p>
 				) : (
-					<Button colour='dark' click={() => setDisplayModal("Login")}>Login or sign up</Button>
+					<Button colour='dark' click={() => setDisplayModal("login")}>Login or sign up</Button>
 				)}
 			</Shortcuts>
 
-			{displayModal === "Login" && (
+			{displayModal === "login" && (
 				<Modal show={true} close={closeModal}>
 					<h2>Login</h2>
 					<Form submit={submitLogin}>
@@ -169,43 +177,22 @@ const Home = () => {
 								required
 							></input>
 						</label>
-						<input type="submit" value="Login"></input>
+						<input type="submit" value="login"></input>
 					</Form>
-					{/* <form className="form" onSubmit={submitLogin}>
-						<label>
-							Email{" "}
-							<input
-								type="email"
-								name="email"
-								placeholder="Email address"
-								required
-							></input>
-						</label>
-						<label>
-							Password{" "}
-							<input
-								type="password"
-								name="password"
-								placeholder="Password"
-								required
-							></input>
-						</label>
-						<input type="submit" value="Login"></input>
-					</form> */}
 					{output && <p className="alert">{output}</p>}
 					<a
 						href="#"
 						onClick={(e) => {
 							e.preventDefault();
-							setDisplayModal("Register");
+							setDisplayModal("register");
 						}}
 					>
-						Register
+						Create a new account
 					</a>
 				</Modal>
 			)}
 
-			{displayModal === "Register" && (
+			{displayModal === "register" && (
 				<Modal show={true} close={closeModal}>
 					<h2>Register</h2>
 					<Form submit={submitRegister}>
@@ -245,55 +232,16 @@ const Home = () => {
 								required
 							></input>
 						</label>
-						<input type="submit" value="Register"></input>
+						<input type="submit" value="register"></input>
 					</Form>
-					{/* <form onSubmit={submitRegister}>
-						<label>
-							Email{" "}
-							<input
-								type="email"
-								name="email"
-								placeholder="Email address"
-								required
-							></input>
-						</label>
-						<label>
-							Username{" "}
-							<input
-								type="text"
-								name="username"
-								placeholder="Username"
-								required
-							></input>
-						</label>
-						<label>
-							Password{" "}
-							<input
-								type="password"
-								name="password1"
-								placeholder="Password"
-								required
-							></input>
-						</label>
-						<label>
-							Confirm password{" "}
-							<input
-								type="password"
-								name="password2"
-								placeholder="Confirm password"
-								required
-							></input>
-						</label>
-						<input type="submit" value="Register"></input>
-					</form> */}
 					<a
 						href="#"
 						onClick={(e) => {
 							e.preventDefault();
-							setDisplayModal("Login");
+							setDisplayModal("login");
 						}}
 					>
-						Login
+						Already have an account?
 					</a>
 				</Modal>
 			)}
