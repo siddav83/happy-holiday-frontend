@@ -1,8 +1,15 @@
 import React, { useContext } from "react";
 import "./style.css";
-import { Profile, HolidaysNavbar, AddFriend, AddNav, Navbar, Content } from "../../Components";
+import {
+	Profile,
+	HolidaysNavbar,
+	AddFriend,
+	Navbar,
+	Content,
+} from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
+
 const Friends = () => {
 	const { toggleAddFriend, setToggleAddFriend } = useContext(ToggleContext);
 	const { userData } = useContext(UserContext);

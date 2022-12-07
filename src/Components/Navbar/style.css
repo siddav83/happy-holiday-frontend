@@ -1,17 +1,25 @@
 .Navbar {
-    width: 100%;
-    background: linear-gradient(white, transparent);
-    padding: 8px 5%;
-    display: flex;
-    justify-content: space-between;
+	width: 100%;
+	background: linear-gradient(white, transparent);
+	padding: 8px 5%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.Navbar-dark {
+	background: var(--text-color);
+	width: 100%;
+	padding: 8px 5%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .Navlinks {
-    display: none;
+	display: none;
 }
 
 @media screen and (min-width: 768px) {
-    .Navlinks {
-        display: inline-block;
-    }
+	.Navlinks {
+		display: inline-block;
+	}
 }

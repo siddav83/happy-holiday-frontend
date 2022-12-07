@@ -3,15 +3,12 @@
 }
 
 @media screen and (min-width: 425px) {
-	
 }
 
 @media screen and (min-width: 768px) {
-	
 }
 
 @media screen and (min-width: 1024px) {
-	
 }
 
 .snowflake {
@@ -34,11 +31,33 @@
 
 @keyframes fall {
 	from {
-		top: -50px
+		top: -50px;
 	}
 
 	to {
 		top: 100vh;
 		rotate: 360deg;
 	}
+}
+
+.dark-mode-btn,
+.dark-mode-btn-light {
+	position: absolute;
+	top: 2%;
+	right: 3%;
+	font-size: 30px;
+	cursor: pointer;
+	background-color: none;
+	border: none;
+	transition: 0.3s ease-in-out;
+}
+
+.dark-mode-btn-light {
+	color: white;
+}
+
+.dark-mode-btn:hover,
+.dark-mode-btn-light:hover {
+	color: var(--red);
+	scale: 1.1;
 }
