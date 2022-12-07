@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, Countdown, Layout, Logo, Modal, Button, Navbar, Shortcuts, Content } from "../../Components";
+import { Card, Countdown, Layout, Logo, Modal, Button, Navbar, Shortcuts, Content, Form } from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 
@@ -86,16 +86,26 @@ const Home = () => {
 	}
 
 	useEffect(() => {
+		const hash = window.location.hash.split('#')[1]
+		
+		if(hash){
+			setDisplayModal(hash.toLowerCase())
+		}
+	}, [])
+
+	useEffect(() => {
 		setCountdown(daysLeft(nextEvent.date));
 	}, [nextEvent]);
 
-	useEffect(() => {
-		console.log("UPDATE", loggedIn);
-	}, [loggedIn]);
+	// useEffect(() => {
+	// 	console.log("UPDATE", loggedIn);
+	// }, [loggedIn]);
 
 	return (
 		<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
-			<Navbar/>
+			<Navbar>
+				<Button colour='dark' click={() => setDisplayModal("login")}>Login or sign up</Button>
+			</Navbar>
 			<Content>
 				<main>
 					<div className="heading">
@@ -141,20 +151,20 @@ const Home = () => {
 						</a>
 					</p>
 				) : (
-					<Button colour='dark' click={() => setDisplayModal("Login")}>Login or sign up</Button>
+					<Button colour='dark' click={() => setDisplayModal("login")}>Login or sign up</Button>
 				)}
 			</Shortcuts>
 
-			{displayModal === "Login" && (
+			{displayModal === "login" && (
 				<Modal show={true} close={closeModal}>
 					<h2>Login</h2>
-					<form onSubmit={submitLogin}>
+					<Form submit={submitLogin}>
 						<label>
 							Email{" "}
 							<input
 								type="email"
 								name="email"
-								placeholder="Email address"
+								placeholder="Email"
 								required
 							></input>
 						</label>
@@ -167,31 +177,31 @@ const Home = () => {
 								required
 							></input>
 						</label>
-						<input type="submit" value="Login"></input>
-					</form>
+						<input type="submit" value="login"></input>
+					</Form>
 					{output && <p className="alert">{output}</p>}
 					<a
 						href="#"
 						onClick={(e) => {
 							e.preventDefault();
-							setDisplayModal("Register");
+							setDisplayModal("register");
 						}}
 					>
-						Register
+						Create a new account
 					</a>
 				</Modal>
 			)}
 
-			{displayModal === "Register" && (
+			{displayModal === "register" && (
 				<Modal show={true} close={closeModal}>
 					<h2>Register</h2>
-					<form onSubmit={submitRegister}>
+					<Form submit={submitRegister}>
 						<label>
 							Email{" "}
 							<input
 								type="email"
 								name="email"
-								placeholder="Email address"
+								placeholder="Email"
 								required
 							></input>
 						</label>
@@ -222,16 +232,16 @@ const Home = () => {
 								required
 							></input>
 						</label>
-						<input type="submit" value="Register"></input>
-					</form>
+						<input type="submit" value="register"></input>
+					</Form>
 					<a
 						href="#"
 						onClick={(e) => {
 							e.preventDefault();
-							setDisplayModal("Login");
+							setDisplayModal("login");
 						}}
 					>
-						Login
+						Already have an account?
 					</a>
 				</Modal>
 			)}

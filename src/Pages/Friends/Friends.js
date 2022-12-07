@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./style.css";
-import { Profile, HolidaysNavbar, AddFriend } from "../../Components";
+import { Profile, HolidaysNavbar, AddFriend, AddNav } from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
 const Friends = () => {
@@ -23,7 +23,7 @@ const Friends = () => {
 					src="https://cdn-icons-png.flaticon.com/512/3695/3695380.png"
 					alt="friends icon"
 				/>
-				<h2>Friends (2)</h2>
+				<h2>Friends ({userData.friends?.length || 0})</h2>
 				<button onClick={() => setToggleAddFriend(true)}>
 					<i className="fa-solid fa-circle-plus"></i>
 				</button>
@@ -38,6 +38,7 @@ const Friends = () => {
 			{toggleAddFriend && <AddFriend />}
 
 			<HolidaysNavbar />
+			{/* <AddNav click={() => setToggleAddFriend(true)}/> */}
 		</div>
 	);
 };

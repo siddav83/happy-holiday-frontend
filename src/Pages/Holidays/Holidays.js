@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "./style.css";
-import { Countdown, HolidaysNavbar, FunFact } from "../../Components";
+import { Countdown, HolidaysNavbar, FunFact, Content, Navbar } from "../../Components";
 import { Calendar } from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
@@ -25,20 +25,22 @@ const Holidays = () => {
 
 	return (
 		<>
-			<div className="main-container">
-				{!calendarToggle && <h1 className="main-heading">Happy Holidays!</h1>}
+			<div>
+				{!calendarToggle && <Navbar/>}
 
-				{!calendarToggle ? (
-					<>
-						<Countdown />
-						<FunFact type="fact" />
-						<FunFact type="joke" />
-					</>
-				) : (
-					<Calendar />
-				)}
+				<Content>
+						{!calendarToggle ? (
+							<>
+								<Countdown />
+								<FunFact type="fact" />
+								<FunFact type="joke" />
+							</>
+						) : (
+							<Calendar />
+						)}
+					<HolidaysNavbar />
+				</Content>
 			</div>
-			<HolidaysNavbar />
 		</>
 	);
 };

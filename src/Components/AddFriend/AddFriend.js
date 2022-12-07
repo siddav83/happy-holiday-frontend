@@ -11,6 +11,12 @@ const AddFriend = () => {
 	function addNewFriend(e) {
 		e.preventDefault();
 		const friend = e.target.username.value;
+
+		if(friend === userData.username){
+			console.log("ADDING YOURSELF")
+			return
+		}
+
 		// Add User (POST)
 		axios
 			.post(`http://127.0.0.1:5000/users/${userData.id}/friends`, { friend })

@@ -7,7 +7,7 @@ export default function CategoryCard({ data }) {
 
 	return (
 		<div className="card">
-			<p className="symbols">{emoji.symbols}</p>
+			<p className="symbols">{emoji?.symbols}</p>
 			<p>{data.item}</p>
 		</div>
 	);

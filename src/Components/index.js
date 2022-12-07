@@ -15,3 +15,4 @@ export { default as Button } from "./Button";
 export { default as Navbar } from "./Navbar";
 export { default as Shortcuts } from "./Shortcuts";
 export { default as Content } from "./Content";
+export { default as Form } from "./Form";

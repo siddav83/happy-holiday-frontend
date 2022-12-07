@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { CategoryContext } from "../../Context/CategoryContext";
+import { ToggleContext } from "../../Context/ToggleContext";
+
 import axios from "axios";
 
 export default function AddCategory() {
     const { visible, setVisible } = useContext(CategoryContext);
+    const { setToggleAddCategory } = useContext(ToggleContext);
 
     const { userData, setUserData } = useContext(UserContext);
 
@@ -15,17 +18,21 @@ export default function AddCategory() {
         const item = e.target.item.value;
 
         const obj = {
+            author: userData.id,
             category,
             item,
         };
+
+        console.log(obj, "POST ITEM");
         // Add User (POST)
         axios
-            .post(`http://127.0.0.1:5000/users/${userData.id}/${type}`, { obj })
+            .post(`http://127.0.0.1:5000/wants`, obj)
+            // .post(`http://127.0.0.1:5000/users/${userData.id}/${type}`, { obj })
             .then((res) => {
                 console.log(res, "POST RESPONSE");
                 if (res.status === 201) {
                     console.log("Friend added.");
-                    // setToggleAddFriend(false);
+                    setToggleAddCategory(false);
                     // ! need friends ID im adding
                     setUserData((prev) => {
                         return { ...prev, [type]: [...prev[type], { obj }] };
@@ -40,6 +47,10 @@ export default function AddCategory() {
 
     return (
         <form className="add-or-dislike" onSubmit={onSubmitHandler}>
+            <i
+                className="fa-solid fa-circle-xmark"
+                onClick={() => setToggleAddCategory(false)}
+            />
             <label htmlFor="type">Wants / Dislikes / Wishlist:</label>
             <select id="type" name="type">
                 <option value="wants">wants</option>

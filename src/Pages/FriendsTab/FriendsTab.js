@@ -45,7 +45,7 @@ export default function Tab() {
 
 	return (
 		<div className="main-container">
-			<h1>{username + tab}</h1>
+			<h1>{username + '\'s ' + tab}</h1>
 			{visible ? (
 				<div className="like-dislike-container">
 					<AddCategory />
