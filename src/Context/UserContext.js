@@ -12,8 +12,8 @@ export const UserProvider = (props) => {
         buying: [],
         budget: "",
         token: "",
-        tab: "Want",
-        friendViewing: { username: "", tab: "Want" },
+        tab: "wants",
+        friendViewing: { username: "", tab: "wants" },
     });
 
     return (
