@@ -52,7 +52,7 @@ const Calendar = () => {
 						<h2>Joke of the day</h2>
 						<p>{selectedDay.fact}</p>
 						<button onClick={closeDay}>
-							<i class="fa-solid fa-x close-btn" />
+							<i className="fa-solid fa-x close-btn" />
 						</button>
 					</div>
 				)}

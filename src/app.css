@@ -1,3 +1,19 @@
+.App {
+	visibility: visible;
+}
+
+@media screen and (min-width: 425px) {
+	
+}
+
+@media screen and (min-width: 768px) {
+	
+}
+
+@media screen and (min-width: 1024px) {
+	
+}
+
 .snowflake {
 	position: absolute;
 	opacity: 0.3;

@@ -7,7 +7,7 @@
 	background-color: white;
 	box-shadow: 0px 0px 16px rgba(118, 149, 194, 0.25);
 	border-radius: 32px;
-	margin: 1rem 0 2rem;
+	margin: 64px auto 2rem;
 	width: 100%;
 	max-width: 450px;
 	transition: 0.3s ease-in-out;
@@ -73,8 +73,8 @@
 	transition: 0.3s ease-in-out;
 }
 
-@media only screen and (min-width: 550px) {
+/* @media only screen and (min-width: 550px) {
 	.countdown-container .santa-hat {
 		display: none;
 	}
-}
+} */
