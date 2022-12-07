@@ -1,0 +1,17 @@
+.Navbar {
+    width: 100%;
+    background: linear-gradient(#e4f5ff, transparent);
+    padding: 8px 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Navlinks {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .Navlinks {
+        display: inline-block;
+    }
+}

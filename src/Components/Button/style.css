@@ -1,10 +1,11 @@
 [class ^= 'btn-'] {
 	display: block;
-	padding: 8px 16px;
+	padding: 16px 32px;
 	border: none;
 	border-radius: 100px;
 	box-shadow: var(--drop-shadow);
 	margin: auto;
+	font-size: 1rem;
 }
 
 .btn-dark {
