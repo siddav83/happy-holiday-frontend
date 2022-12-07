@@ -1,0 +1,14 @@
+.Form {
+    width: 60vw;
+    max-width: 600px;
+}
+
+.Form input {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+}
+
+.Form label, .Form input[type='submit'] {
+    margin-top: 16px;
+}

@@ -19,8 +19,10 @@ export default function Modal({children, show, close}){
 
     return (
         <div className={`Modal ${isVisible ? '' : 'hidden'}`}>
-            <button onClick={closeModal}>X</button>
-            <div className='content'>{children}</div>
+            <div className='content'>
+                <i className="close-btn fa-solid fa-circle-xmark" onClick={closeModal}></i>
+                {children}
+            </div>
         </div>
     )
 }
