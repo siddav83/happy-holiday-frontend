@@ -1,7 +1,7 @@
 const CategoryDatas = [
-
+    { name: "Other", symbols: "🎁" },
     { name: "Sweets", symbols: "🍬" },
-    { name: "Books", symbols: "🎄" },
+    { name: "Books", symbols: "📚" },
     { name: "Phones", symbols: "📱" },
     { name: "Perfume", symbols: "👃" },
     { name: "Pets", symbols: "🐕" },
