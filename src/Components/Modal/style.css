@@ -24,18 +24,25 @@
 }
 
 .content a {
-    color: aqua;
+    color: white;
 }
 
 .content {
     background-color: var(--text-color);
-    padding: 32px 64px;
+    padding: 32px;
     border-radius: 16px;
     position: relative;
+    width: 60%;
+    min-width: 320px;
+    max-width: 496px;
 }
 
 .content, .content p, .content input {
     font-size: 1.2rem;
+}
+
+.content .alert {
+    color: var(--red);
 }
 
 .hidden {

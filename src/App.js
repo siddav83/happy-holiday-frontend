@@ -8,6 +8,7 @@ import {
 	Friends,
 	Community,
 	FriendsTab,
+	Events,
 } from "./Pages";
 import "./app.css";
 
@@ -49,6 +50,7 @@ function App() {
 				<Route path="/holidays" element={<Holidays />} />
 				<Route path="/friends" element={<Friends />} />
 				<Route path="/friends/tab" element={<FriendsTab />} />
+				<Route path="/events" element={<Events />} />
 			</Routes>
 		</div>
 	);
