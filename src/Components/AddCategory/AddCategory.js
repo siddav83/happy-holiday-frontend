@@ -15,12 +15,16 @@ export default function AddCategory() {
         const item = e.target.item.value;
 
         const obj = {
+            author: userData.id,
             category,
             item,
         };
+
+        console.log(obj, "POST ITEM");
         // Add User (POST)
         axios
-            .post(`http://127.0.0.1:5000/users/${userData.id}/${type}`, { obj })
+            .post(`http://127.0.0.1:5000/wants`, obj)
+            // .post(`http://127.0.0.1:5000/users/${userData.id}/${type}`, { obj })
             .then((res) => {
                 console.log(res, "POST RESPONSE");
                 if (res.status === 201) {
