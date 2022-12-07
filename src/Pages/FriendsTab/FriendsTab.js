@@ -12,18 +12,39 @@ import axios from "axios";
 
 export default function Tab() {
 	const [friendData, setFriendData] = useState();
-	const [friendsId, setFriendsId] = useState("test");
 
 	const { categoryData, visible, setVisible } = useContext(CategoryContext);
 	const { userData, setUserData } = useContext(UserContext);
 
 	useEffect(() => {
 		const username = userData.friendViewing.username;
-		// Get Friends ID
-		axios.get(`http://127.0.0.1:5000/users/${username}`).then((res) => {
-			setFriendsId(res.data.id);
-			console.log(friendsId);
-		}, []);
+
+		const fetchPost = async () => {
+			try {
+				// Get Friends ID
+				const friendsData = await axios(
+					`http://127.0.0.1:5000/users/${username}`
+				);
+				const friendsId = friendsData.data.id;
+				// Get User Wishlist
+				const friendsCards = await axios(
+					`http://127.0.0.1:5000/users/${friendsId}/wishlist`
+				);
+				setUserData((prev) => {
+					return {
+						...prev,
+						friendViewing: {
+							...prev.friendViewing,
+							wishlist: friendsCards.data,
+						},
+					};
+				});
+			} catch (err) {
+				console.error(err);
+			}
+		};
+
+		fetchPost();
 
 		// axios
 		// 	.get(`http://127.0.0.1:5000/users/${userData.friendsViewing.id}/wishlist`)
@@ -52,7 +73,7 @@ export default function Tab() {
 	// 	setVisible(visible);
 	// };
 	const { username, tab } = userData.friendViewing;
-
+	const currentTab = userData.friendViewing.tab.toLowerCase();
 	return (
 		<div className="main-container">
 			<h1>{username + "'s " + tab}</h1>
@@ -65,10 +86,10 @@ export default function Tab() {
 			)}
 			<TabNav type="friends" />
 			<div className="card-container">
-				{friendData?.map((card, i) => {
+				{userData.friendViewing.wishlist[currentTab].map((cat, i) => {
 					return (
 						<div key={i}>
-							<CategoryCard data={card} index={i} />
+							<CategoryCard data={cat} type="friend" />
 						</div>
 					);
 				})}
