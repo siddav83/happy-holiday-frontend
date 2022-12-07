@@ -1,7 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, Countdown, Layout, Logo, Modal, Button, Navbar, Shortcuts, Content, Form } from "../../Components";
+import {
+	Card,
+	Countdown,
+	Layout,
+	Logo,
+	Modal,
+	Button,
+	Navbar,
+	Shortcuts,
+	Content,
+	Form,
+} from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 
@@ -35,14 +46,11 @@ const Home = () => {
 	function submitLogin(e) {
 		e.preventDefault();
 		const formData = getFormData(e.target);
-		console.log(formData, "LOGIN");
-
+		// User Login
 		axios
 			.post("http://127.0.0.1:5000/login", formData)
 			.then((res) => {
-				console.log(res, "POST RESPONSE");
 				if (res.status === 201) {
-					console.log("LOGIN AS", formData["email"]);
 					setLoggedIn(formData);
 					closeModal();
 					setUserData((prev) => {
@@ -58,19 +66,25 @@ const Home = () => {
 				console.error(err);
 				setOutput("Incorrect email or password");
 			});
+		// Get User Username
+		axios.get("http://127.0.0.1:5000/users").then((res) => {
+			const foundUser = res.data.filter(
+				(user) => user.email === formData.email
+			)[0];
+			setUserData((prev) => {
+				return { ...prev, username: foundUser.username };
+			});
+		});
 	}
 
 	function submitRegister(e) {
 		e.preventDefault();
 		const formData = getFormData(e.target);
-		console.log(formData, "REGISTER");
 
 		axios
 			.post("http://127.0.0.1:5000/register", formData)
 			.then((res) => {
-				console.log(res, "POST RESPONSE");
 				if (res.status === 201) {
-					console.log("REGISTERED");
 					closeModal();
 				} else {
 					console.log("FAILED");
@@ -86,25 +100,23 @@ const Home = () => {
 	}
 
 	useEffect(() => {
-		const hash = window.location.hash.split('#')[1]
-		
-		if(hash){
-			setDisplayModal(hash.toLowerCase())
+		const hash = window.location.hash.split("#")[1];
+
+		if (hash) {
+			setDisplayModal(hash.toLowerCase());
 		}
-	}, [])
+	}, []);
 
 	useEffect(() => {
 		setCountdown(daysLeft(nextEvent.date));
 	}, [nextEvent]);
 
-	// useEffect(() => {
-	// 	console.log("UPDATE", loggedIn);
-	// }, [loggedIn]);
-
 	return (
 		<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
 			<Navbar>
-				<Button colour='dark' click={() => setDisplayModal("login")}>Login or sign up</Button>
+				<Button colour="dark" click={() => setDisplayModal("login")}>
+					Login or sign up
+				</Button>
 			</Navbar>
 			<Content>
 				<main>
@@ -151,7 +163,9 @@ const Home = () => {
 						</a>
 					</p>
 				) : (
-					<Button colour='dark' click={() => setDisplayModal("login")}>Login or sign up</Button>
+					<Button colour="dark" click={() => setDisplayModal("login")}>
+						Login or sign up
+					</Button>
 				)}
 			</Shortcuts>
 
