@@ -41,6 +41,10 @@
     font-size: 1.2rem;
 }
 
+.content .alert {
+    color: var(--red);
+}
+
 .hidden {
     display: none;
 }
