@@ -3,13 +3,9 @@ import { NavLink } from "react-router-dom";
 import { CategoryContext } from "../../Context/CategoryContext";
 import "./style.css";
 
-const AddNav = () => {
+const AddNav = ({click}) => {
 	const { visible, setVisible } = useContext(CategoryContext);
 
-	const handleEvent = (e) => {
-		e.preventDefault();
-		setVisible(!visible);
-	};
 	return (
 		<nav className="holidays-navbar">
 			{/* Swirly Pattern START */}
@@ -41,7 +37,7 @@ const AddNav = () => {
 			<NavLink to="/community">
 				<i className="fa-solid fa-earth-europe"></i>
 			</NavLink>
-			<button className="add-btn" onClick={handleEvent}>
+			<button className="add-btn" onClick={click}>
 				<i className="fa-regular fa-plus btn-big"></i>
 			</button>
 			<NavLink to="/holidays">

@@ -9,6 +9,12 @@ export default function Tab(data) {
 	const { categoryData, visible, setVisible } = useContext(CategoryContext);
 	const { userData, setUserData } = useContext(UserContext);
 
+	
+	const handleEvent = (e) => {
+		e.preventDefault();
+		setVisible(!visible);
+	};
+
 	useEffect(() => {
 		// ! Get Friends Data (API)
 		axios
@@ -59,7 +65,7 @@ export default function Tab(data) {
 					);
 				})}
 			</div>
-			<AddNav />
+			<AddNav click={handleEvent} />
 		</div>
 	);
 }
