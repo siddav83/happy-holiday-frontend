@@ -44,8 +44,11 @@ body {
 ::-webkit-scrollbar-thumb {
 	border-radius: 6px;
 	/* background-image: linear-gradient(to top, var(--red) 0%, var(--green) 100%); */
-	background: var(--red);
+	background: rgb(255, 174, 174);
 	margin-left: 2rem;
+}
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+	background: var(--red);
 }
 
 img,
@@ -62,7 +65,7 @@ h1 {
 	text-shadow: -2px 2px 0 black;
 	letter-spacing: 1px;
 	font-size: min(70px, 10vw);
-	z-index: 100;
+	/* z-index: 100; */
 }
 
 h2,
