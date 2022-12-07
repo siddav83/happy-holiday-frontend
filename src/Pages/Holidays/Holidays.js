@@ -28,18 +28,18 @@ const Holidays = () => {
 			<div>
 				{!calendarToggle && <Navbar/>}
 
-		<Content>
-				{!calendarToggle ? (
-					<>
-						<Countdown />
-						<FunFact type="fact" />
-						<FunFact type="joke" />
-					</>
-				) : (
-					<Calendar />
-				)}
-			<HolidaysNavbar />
-		</Content>
+				<Content>
+						{!calendarToggle ? (
+							<>
+								<Countdown />
+								<FunFact type="fact" />
+								<FunFact type="joke" />
+							</>
+						) : (
+							<Calendar />
+						)}
+					<HolidaysNavbar />
+				</Content>
 			</div>
 		</>
 	);
