@@ -12,17 +12,27 @@ import axios from "axios";
 
 export default function Tab() {
 	const [friendData, setFriendData] = useState();
+	const [friendsId, setFriendsId] = useState("test");
+
 	const { categoryData, visible, setVisible } = useContext(CategoryContext);
 	const { userData, setUserData } = useContext(UserContext);
 
 	useEffect(() => {
-		// ! Get Friends Data (API)
-		axios
-			.get(`http://127.0.0.1:5000/users/${userData.id}/wants`)
-			.then((res) => {
-				const data = res.data;
-				setFriendData(data);
-			});
+		const username = userData.friendViewing.username;
+		// Get Friends ID
+		axios.get(`http://127.0.0.1:5000/users/${username}`).then((res) => {
+			setFriendsId(res.data.id);
+			console.log(friendsId);
+		}, []);
+
+		// axios
+		// 	.get(`http://127.0.0.1:5000/users/${userData.friendsViewing.id}/wishlist`)
+		// 	.then((res) => {
+		// 		const data = res.data;
+		// 		setUserData((prev) => {
+		// 			return { ...prev, wishlist: data };
+		// 		});
+		// 	});
 	}, []);
 
 	// const onSubmitHandler = (e) => {
@@ -45,7 +55,7 @@ export default function Tab() {
 
 	return (
 		<div className="main-container">
-			<h1>{username + '\'s ' + tab}</h1>
+			<h1>{username + "'s " + tab}</h1>
 			{visible ? (
 				<div className="like-dislike-container">
 					<AddCategory />
