@@ -109,7 +109,7 @@ const Home = () => {
 			<Content>
 				<main>
 					<div className="heading">
-						<h2>
+						<h2 className="tagline">
 							Celebrate {nextEvent?.icon}{" "}
 							<span className="eventName">
 								{nextEvent ? nextEvent.name : "holidays"}
@@ -159,25 +159,24 @@ const Home = () => {
 				<Modal show={true} close={closeModal}>
 					<h2>Login</h2>
 					<Form submit={submitLogin}>
-						<label>
-							Email{" "}
-							<input
-								type="email"
-								name="email"
-								placeholder="Email"
-								required
-							></input>
-						</label>
-						<label>
-							Password{" "}
-							<input
-								type="password"
-								name="password"
-								placeholder="Password"
-								required
-							></input>
-						</label>
-						<input type="submit" value="login"></input>
+						<label htmlFor="email">Email{" "}</label>
+						<input
+							id="email"
+							type="email"
+							name="email"
+							placeholder="Email"
+							required
+						></input>
+						
+						<label htmlFor="password">Password{" "}</label>
+						<input
+							id="password"
+							type="password"
+							name="password"
+							placeholder="Password"
+							required
+						></input>
+						<input type="submit" value="Login"></input>
 					</Form>
 					{output && <p className="alert">{output}</p>}
 					<a
@@ -189,6 +188,8 @@ const Home = () => {
 					>
 						Create a new account
 					</a>
+					<br/>
+					<a href="#" onClick={e => {e.preventDefault()}}>Reset password</a>
 				</Modal>
 			)}
 
@@ -196,43 +197,43 @@ const Home = () => {
 				<Modal show={true} close={closeModal}>
 					<h2>Register</h2>
 					<Form submit={submitRegister}>
-						<label>
-							Email{" "}
-							<input
-								type="email"
-								name="email"
-								placeholder="Email"
-								required
-							></input>
-						</label>
-						<label>
-							Username{" "}
-							<input
-								type="text"
-								name="username"
-								placeholder="Username"
-								required
-							></input>
-						</label>
-						<label>
-							Password{" "}
-							<input
-								type="password"
-								name="password1"
-								placeholder="Password"
-								required
-							></input>
-						</label>
-						<label>
-							Confirm password{" "}
-							<input
-								type="password"
-								name="password2"
-								placeholder="Confirm password"
-								required
-							></input>
-						</label>
-						<input type="submit" value="register"></input>
+						<label htmlFor="email">Email{" "}</label>
+						<input
+							id="email"
+							type="email"
+							name="email"
+							placeholder="Email"
+							required
+						></input>
+
+						<label htmlFor="username">Username{" "}</label>
+						<input
+							id="username"
+							type="text"
+							name="username"
+							placeholder="Username"
+							required
+						></input>
+
+						<label htmlFor="password1">Password{" "}</label>
+						<input
+							id="password1"
+							type="password"
+							name="password1"
+							placeholder="Password"
+							required
+						></input>
+
+						<label htmlFor="password2">Confirm password{" "}</label>
+						<input
+							id="password2"
+							type="password"
+							name="password2"
+							placeholder="Confirm password"
+							required
+						></input>
+
+						<input type="submit" value="Register"></input>
 					</Form>
 					<a
 						href="#"

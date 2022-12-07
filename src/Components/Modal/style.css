@@ -29,9 +29,12 @@
 
 .content {
     background-color: var(--text-color);
-    padding: 32px 64px;
+    padding: 32px;
     border-radius: 16px;
     position: relative;
+    width: 60%;
+    min-width: 320px;
+    max-width: 496px;
 }
 
 .content, .content p, .content input {
