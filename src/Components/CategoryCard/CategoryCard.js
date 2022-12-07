@@ -39,7 +39,6 @@ export default function CategoryCard({ data, type }) {
 			`http://localhost:3002/compare/${compareItem}`
 		);
 		setPriceData(response.data);
-		console.log(response.data);
 		setLoading(false);
 	};
 
