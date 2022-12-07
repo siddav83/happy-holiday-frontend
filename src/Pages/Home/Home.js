@@ -67,14 +67,16 @@ const Home = () => {
 				setOutput("Incorrect email or password");
 			});
 		// Get User Username
-		axios.get("http://127.0.0.1:5000/users").then((res) => {
-			const foundUser = res.data.filter(
-				(user) => user.email === formData.email
-			)[0];
-			setUserData((prev) => {
-				return { ...prev, username: foundUser.username };
-			});
-		});
+		axios.get("http://127.0.0.1:5000/users")
+			.then((res) => {
+				const foundUser = res.data.filter(
+					(user) => user.email === formData.email
+				)[0];
+				setUserData((prev) => {
+					return { ...prev, username: foundUser?.username };
+				});
+			})
+			.catch(err => console.error(err));
 	}
 
 	function submitRegister(e) {
