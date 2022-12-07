@@ -96,7 +96,6 @@ const Home = () => {
 	function logout(e) {
 		e.preventDefault();
 		setLoggedIn(null);
-		console.log("LOGOUT");
 	}
 
 	useEffect(() => {

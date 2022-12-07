@@ -23,17 +23,13 @@ export default function AddCategory() {
 			item,
 		};
 
-		console.log(obj, "POST ITEM");
 		// Add User (POST)
 		axios
 			.post(`http://127.0.0.1:5000/${type}`, obj)
 			.then((res) => {
-				console.log(res, "POST RESPONSE");
 				if (res.status === 201) {
-					console.log("Category added.");
 					setToggleAddCategory(false);
 					setUserData((prev) => {
-						console.log("PREV", prev.wishlist[type]);
 						return {
 							...prev,
 							wishlist: {
@@ -49,7 +45,6 @@ export default function AddCategory() {
 			.catch((err) => console.error(err));
 	};
 	setVisible(visible);
-	console.log(categoryData);
 
 	return (
 		<form className="add-or-dislike" onSubmit={onSubmitHandler}>

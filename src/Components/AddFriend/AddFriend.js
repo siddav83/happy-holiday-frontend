@@ -11,10 +11,8 @@ const AddFriend = () => {
 	function addNewFriend(e) {
 		e.preventDefault();
 		const friend = e.target.username.value;
-		console.log(friend);
 		if (friend === userData.username) {
-			console.log("ADDING YOURSELF");
-			return;
+			return alert("ADDING YOURSELF");
 		}
 
 		// Add User (POST)
@@ -23,11 +21,8 @@ const AddFriend = () => {
 				friend,
 			})
 			.then((res) => {
-				console.log(res, "POST RESPONSE");
 				if (res.status === 201) {
-					console.log("Friend added.");
 					setToggleAddFriend(false);
-					// ! need friends ID im adding
 					setUserData((prev) => {
 						return { ...prev, friends: [...prev.friends, friend] };
 					});
@@ -48,9 +43,7 @@ const AddFriend = () => {
 				from: userData.username,
 			})
 			.then((res) => {
-				console.log(res, "POST RESPONSE");
 				if (res.status === 200) {
-					console.log("Added");
 					setToggleAddFriend(false);
 				} else {
 					alert.log("Oops but couldn't invite...");

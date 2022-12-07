@@ -31,3 +31,32 @@
 	text-align: center;
 	pointer-events: none;
 }
+
+/* Price Compare */
+
+.price-items-container {
+	overflow-y: scroll;
+}
+
+.price-item {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	align-items: center;
+	font-size: 10px;
+	padding: 1rem 0.5rem;
+	border: 2px solid black;
+	border-radius: 20px;
+	margin: 0.5rem 0;
+	background-color: white;
+	box-shadow: var(--drop-shadow);
+}
+
+.price-item img {
+	width: 100%;
+}
+
+.price-details {
+	padding-left: 1rem;
+}

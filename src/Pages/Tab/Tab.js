@@ -45,7 +45,7 @@ export default function Tab(data) {
 				{userData?.wishlist[updateTab].map((cat, i) => {
 					return (
 						<div key={i}>
-							<CategoryCard data={cat} />
+							<CategoryCard data={cat} type="user" />
 						</div>
 					);
 				})}

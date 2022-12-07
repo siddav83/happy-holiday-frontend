@@ -13,7 +13,7 @@ export const UserProvider = (props) => {
 		budget: "",
 		token: "",
 		tab: "wants",
-		friendViewing: { id: "", username: "", tab: "wants" },
+		friendViewing: { id: "", username: "", tab: "wants", wishlist: [] },
 	});
 
 	return (

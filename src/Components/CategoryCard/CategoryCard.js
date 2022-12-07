@@ -1,16 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./style.css";
 import CategoryData from "../../Data/CategoryData";
 import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
+import { Modal } from "../../Components";
 
-export default function CategoryCard({ data }) {
+export default function CategoryCard({ data, type }) {
 	const { userData, setUserData } = useContext(UserContext);
 	const emoji = CategoryData.filter((cat) => cat.name === data.category)[0];
+	const [compareToggle, setCompareToggle] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const [priceData, setPriceData] = useState([]);
 
 	const deleteCategory = async (e) => {
 		const deleteItem = e.target.textContent.slice(2);
-		console.log(deleteItem);
 		const updateTab = userData.tab.toLowerCase();
 		// Delete
 		axios.delete(`http://127.0.0.1:5000/${updateTab}/${data.id}`);
@@ -26,10 +29,60 @@ export default function CategoryCard({ data }) {
 		});
 	};
 
+	const priceComparison = async (e) => {
+		const compareItem = e.target.textContent.slice(2).toLowerCase();
+		console.log(compareItem);
+		// Show modal
+		setCompareToggle(true);
+		// Get Backend data
+		const response = await axios.get(
+			`http://localhost:3002/compare/${compareItem}`
+		);
+		setPriceData(response.data);
+		console.log(response.data);
+		setLoading(false);
+	};
+
 	return (
-		<div className="card" onClick={deleteCategory}>
-			<p className="symbols">{emoji?.symbols}</p>
-			<p>{data.item ? data.item : data.category}</p>
-		</div>
+		<>
+			<div
+				className="card"
+				onClick={type === "user" ? deleteCategory : priceComparison}
+			>
+				<p className="symbols">{emoji?.symbols}</p>
+				<p>{data.item ? data.item : data.category}</p>
+			</div>
+			{compareToggle && (
+				<div className="modal-outer">
+					<div className="modal-inner">
+						<i
+							className="fa-solid fa-circle-xmark"
+							onClick={() => setCompareToggle(false)}
+						/>
+						<div className="price-items-container">
+							{loading ? (
+								<img
+									src="https://media.tenor.com/VVDjzhoCQEUAAAAi/christmas-loading.gif"
+									alt="loading"
+								/>
+							) : (
+								priceData.map((item) => {
+									return (
+										<div className="price-item">
+											<img src={item.img} alt="price compared item" />
+											<div className="price-details">
+												<a href={item.link}>View Now</a>
+												<p>{item.title}</p>
+												<p>{item.price}</p>
+											</div>
+										</div>
+									);
+								})
+							)}
+						</div>
+					</div>
+				</div>
+			)}
+		</>
 	);
 }

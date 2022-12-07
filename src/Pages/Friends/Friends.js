@@ -38,7 +38,6 @@ const Friends = () => {
 			{toggleAddFriend && <AddFriend />}
 
 			<HolidaysNavbar />
-			{/* <AddNav click={() => setToggleAddFriend(true)}/> */}
 		</div>
 	);
 };
