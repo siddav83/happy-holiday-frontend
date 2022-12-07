@@ -5,4 +5,3 @@ export { default as Holidays } from "./Holidays/Holidays";
 export { default as Friends } from "./Friends/Friends";
 export { default as Community } from "./Community";
 export { default as FriendsTab } from "./FriendsTab/FriendsTab";
-export { default as Party } from "./Party/Party";

@@ -34,7 +34,7 @@ const AddNav = ({ click }) => {
 			<NavLink to="/">
 				<i className="fa-solid fa-right-from-bracket"></i>
 			</NavLink>
-			<NavLink to="/party">
+			<NavLink to="/events">
 				<i class="fa-solid fa-champagne-glasses"></i>
 			</NavLink>
 			<button className="add-btn" onClick={click}>

@@ -44,7 +44,7 @@ const HolidaysNavbar = () => {
 					onClick={toggleAllFalse}
 				></i>
 			</NavLink>
-			<NavLink to="/party">
+			<NavLink to="/events">
 				<i class="fa-solid fa-champagne-glasses" onClick={toggleAllFalse}></i>
 			</NavLink>
 			<NavLink to="/holidays" onClick={toggleAllFalse}>
