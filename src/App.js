@@ -8,31 +8,40 @@ import {
 	Friends,
 	Community,
 	FriendsTab,
+	Party,
 } from "./Pages";
 import "./app.css";
 
-const Snowflakes = ({count}) => {
+const Snowflakes = ({ count }) => {
 	return (
 		<div className="snowflake-container">
-			{
-				new Array(count).fill().map((snowflake, index) => {
-					const size = 16 + Math.random() * 32
+			{new Array(count).fill().map((snowflake, index) => {
+				const size = 16 + Math.random() * 32;
 
-					return (<i
+				return (
+					<i
 						key={index}
-						className='snowflake'
-						style={{left: `${5 + index * 90 / (count + 1) + Math.random() * 10 - 5}%`, width: `${size}px`, height: `${size}px`, animationDuration: `${5 + Math.random()*10}s`, animationDelay: `${Math.random()*10}s`}}
-					/>)
-				})
-			}
+						className="snowflake"
+						style={{
+							left: `${
+								5 + (index * 90) / (count + 1) + Math.random() * 10 - 5
+							}%`,
+							width: `${size}px`,
+							height: `${size}px`,
+							animationDuration: `${5 + Math.random() * 10}s`,
+							animationDelay: `${Math.random() * 10}s`,
+						}}
+					/>
+				);
+			})}
 		</div>
-	)
-}
+	);
+};
 
 function App() {
 	return (
 		<div className="App">
-			<Snowflakes count={10}/>
+			<Snowflakes count={10} />
 			<Routes>
 				{/* Pages */}
 				<Route path="/" element={<Home />} />
@@ -40,7 +49,7 @@ function App() {
 				<Route path="/tab" element={<Tab />} />
 				<Route path="/holidays" element={<Holidays />} />
 				<Route path="/friends" element={<Friends />} />
-				<Route path="/community" element={<Community />} />
+				<Route path="/party" element={<Party />} />
 				<Route path="/friends/tab" element={<FriendsTab />} />
 			</Routes>
 		</div>
