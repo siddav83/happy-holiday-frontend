@@ -8,7 +8,7 @@ export default function Events(){
             <Content>
                 <h1>My Events</h1>
             </Content>
-            <Shortcuts/>
+            <Shortcuts back='/holidays'/>
         </div>
     )
 }

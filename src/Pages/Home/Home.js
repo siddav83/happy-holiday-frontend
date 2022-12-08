@@ -18,6 +18,7 @@ import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { FestivityContext } from "../../Context/FestivityContext";
+import TopDeals from "../../Data/TopDeals";
 const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 const msToDays = 1000 * 60 * 60 * 24;
@@ -121,7 +122,11 @@ const Home = () => {
 				"https://price-compare-9sjz.onrender.com/compare/deals/items/default"
 			)
 			.then((res) => setTopDeals(res.data))
-			.catch((err) => console.error(err));
+			.catch((err) => {
+				console.error(err)
+				console.log(TopDeals);
+				setTopDeals(TopDeals)
+			});
 	}, []);
 
 	useEffect(() => {
@@ -196,19 +201,11 @@ const Home = () => {
 									)}
 								</div>
 							</Card>
-							{/* <Card>
-						<h2>Community Posts</h2>
-						<div className="list">
-							{new Array(6).fill().map((item, index) => (
-								<div key={index} className="placeholder"></div>
-							))}
-						</div>
-					</Card> */}
 						</div>
 					)}
 				</main>
 			</Content>
-			<Shortcuts>
+			<Shortcuts type='fade'>
 				{loggedIn ? (
 					<p>
 						Not {loggedIn.email}?{" "}

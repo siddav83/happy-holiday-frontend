@@ -6,6 +6,7 @@ import {
 	AddFriend,
 	Navbar,
 	Content,
+	Shortcuts,
 } from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
@@ -53,7 +54,8 @@ const Friends = () => {
 					{toggleAddFriend && <AddFriend />}
 				</div>
 			</Content>
-			<HolidaysNavbar />
+			{/* <HolidaysNavbar /> */}
+			<Shortcuts back='/holidays'/>
 		</div>
 	);
 };

@@ -6,6 +6,7 @@ import {
     CategoryCard,
     AddCategory,
     HolidaysNavbar,
+	Shortcuts,
 } from "../../Components";
 import "./style.css";
 import axios from "axios";
@@ -94,6 +95,7 @@ export default function Tab() {
                 })}
             </div>
             <HolidaysNavbar />
+			<Shortcuts back='/friends'/>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home, User, Tab, Holidays, Friends, FriendsTab } from "./Pages";
+import { Home, User, Tab, Holidays, Friends, FriendsTab, Events } from "./Pages";
 import "./app.css";
 import { FestivityContext } from "./Context/FestivityContext";
 
@@ -67,6 +67,7 @@ function App() {
 				<Route path="/holidays" element={<Holidays />} />
 				<Route path="/friends" element={<Friends />} />
 				<Route path="/friends/tab" element={<FriendsTab />} />
+				<Route path="/events" element={<Events />} />
 			</Routes>
 		</div>
 	);
