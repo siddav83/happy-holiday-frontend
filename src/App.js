@@ -68,7 +68,6 @@ function App() {
 				<Route path="/friends" element={<Friends />} />
 				<Route path="/friends/tab" element={<FriendsTab />} />
 				<Route path="/events" element={<Events />} />
-				<Route path="/community" element={<Community />} />
 			</Routes>
 		</div>
 	);
