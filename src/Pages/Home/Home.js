@@ -124,7 +124,6 @@ const Home = () => {
 			.catch((err) => console.error(err));
 	}, []);
 
-	console.log(topDeals);
 	useEffect(() => {
 		setCountdown(daysLeft(nextEvent.date));
 	}, [nextEvent]);

@@ -34,7 +34,6 @@ export default function CategoryCard({ data, type }) {
 
 	const priceComparison = async (e) => {
 		const compareItem = e.target.textContent.slice(2).toLowerCase();
-		console.log(compareItem);
 		// Show modal
 		setCompareToggle(true);
 		// Get Backend data
