@@ -196,14 +196,6 @@ const Home = () => {
 									)}
 								</div>
 							</Card>
-							{/* <Card>
-						<h2>Community Posts</h2>
-						<div className="list">
-							{new Array(6).fill().map((item, index) => (
-								<div key={index} className="placeholder"></div>
-							))}
-						</div>
-					</Card> */}
 						</div>
 					)}
 				</main>

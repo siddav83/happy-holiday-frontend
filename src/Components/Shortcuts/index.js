@@ -43,13 +43,6 @@ export default function Shortcuts({children, back, scrollable}){
         //     click: back
         // },
         {
-            name: 'Community',
-            url: '/community',
-            tooltip: 'Community',
-            class: 'fa-solid fa-earth-europe',
-            click: toggleAllFalse
-        },
-        {
             name: 'Holidays',
             url: '/holidays',
             tooltip: 'Holidays',
@@ -61,6 +54,13 @@ export default function Shortcuts({children, back, scrollable}){
             url: '/friends',
             tooltip: 'Friends',
             class: 'fa-solid fa-user-group',
+            click: toggleAllFalse
+        },
+        {
+            name: 'Events',
+            url: '/events',
+            tooltip: 'Events',
+            class: 'fa-solid fa-champagne-glasses',
             click: toggleAllFalse
         }
     ]
