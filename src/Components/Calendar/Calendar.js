@@ -45,15 +45,17 @@ const Calendar = () => {
 						);
 					})
 				) : (
-					<div className="show-day">
-						<h2>Day: {selectedDay.day}</h2>
-						<h2>Todays fact of the day</h2>
-						<p>{selectedDay.joke}</p>
-						<h2>Joke of the day</h2>
-						<p>{selectedDay.fact}</p>
-						<button onClick={closeDay}>
-							<i className="fa-solid fa-x close-btn" />
-						</button>
+					<div className="modal-outer">
+						<div className="show-day">
+							<h2>Day: {selectedDay.day}</h2>
+							<h2>Todays fact of the day</h2>
+							<p>{selectedDay.joke}</p>
+							<h2>Joke of the day</h2>
+							<p>{selectedDay.fact}</p>
+							<button onClick={closeDay}>
+								<i className="fa-solid fa-x close-btn" />
+							</button>
+						</div>
 					</div>
 				)}
 			</div>

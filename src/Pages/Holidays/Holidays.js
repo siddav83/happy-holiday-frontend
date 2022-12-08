@@ -11,24 +11,23 @@ import { Calendar } from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
 import axios from "axios";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 const Holidays = () => {
 	const { calendarToggle } = useContext(ToggleContext);
 	const { userData, setUserData } = useContext(UserContext);
 
 	useEffect(() => {
-		axios
-			.get(`http://127.0.0.1:5000/users/${userData.username}`)
-			.then((res) => {
-				const data = res.data;
-				setUserData((prev) => {
-					return {
-						...prev,
-						friends: data.friends.friends_list,
-						username: data.username,
-					};
-				});
+		axios.get(`${baseUrl}users/${userData.username}`).then((res) => {
+			const data = res.data;
+			setUserData((prev) => {
+				return {
+					...prev,
+					friends: data.friends.friends_list,
+					username: data.username,
+				};
 			});
+		});
 	}, []);
 
 	return (
@@ -39,7 +38,7 @@ const Holidays = () => {
 				<Content>
 					{!calendarToggle ? (
 						<>
-							<Countdown />
+							<Countdown type="users" />
 							<FunFact type="fact" />
 							<FunFact type="joke" />
 						</>

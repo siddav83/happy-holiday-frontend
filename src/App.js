@@ -35,7 +35,6 @@ function App() {
 
 	const updateDarkMode = () => {
 		setDarkMode((prev) => !prev);
-		console.log(darkMode);
 	};
 
 	if (darkMode) {
@@ -53,7 +52,7 @@ function App() {
 	return (
 		<div className="App">
 			<i
-				class={`fa-solid fa-moon ${
+				className={`fa-solid fa-moon ${
 					darkMode ? "dark-mode-btn-light" : "dark-mode-btn"
 				}`}
 				onClick={updateDarkMode}

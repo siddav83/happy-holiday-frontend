@@ -12,9 +12,13 @@ import {
 	Shortcuts,
 	Content,
 	Form,
+	Calendar,
 } from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
+import { ToggleContext } from "../../Context/ToggleContext";
+import { FestivityContext } from "../../Context/FestivityContext";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 const msToDays = 1000 * 60 * 60 * 24;
 const getFormData = (form) => Object.fromEntries(new FormData(form).entries());
@@ -22,6 +26,8 @@ const getFormData = (form) => Object.fromEntries(new FormData(form).entries());
 const Home = () => {
 	const navigate = useNavigate();
 	const { userData, setUserData } = useContext(UserContext);
+	const { calendarToggle, setCalendarToggle } = useContext(ToggleContext);
+	const { darkMode } = useContext(FestivityContext);
 	const [loggedIn, setLoggedIn] = useState(null);
 	const [nextEvent, setNextEvent] = useState({
 		name: "Christmas",
@@ -33,7 +39,7 @@ const Home = () => {
 	const [displayModal, setDisplayModal] = useState(null);
 	const [showSideMenu, setShowSideMenu] = useState(false);
 	const [output, setOutput] = useState("");
-	const [topDeals, setTopDeals] = useState([])
+	const [topDeals, setTopDeals] = useState([]);
 
 	function daysLeft(target) {
 		const timeLeft = target.getTime() - new Date().getTime();
@@ -49,11 +55,12 @@ const Home = () => {
 		const formData = getFormData(e.target);
 		// User Login
 		axios
-			.post("http://127.0.0.1:5000/login", formData)
+			.post(`${baseUrl}login`, formData)
 			.then((res) => {
 				if (res.status === 201) {
 					setLoggedIn(formData);
 					closeModal();
+					setCalendarToggle(false);
 					setUserData((prev) => {
 						return { ...prev, email: formData.email, id: res.data.id };
 					});
@@ -68,7 +75,8 @@ const Home = () => {
 				setOutput("Incorrect email or password");
 			});
 		// Get User Username
-		axios.get("http://127.0.0.1:5000/users")
+		axios
+			.get(`${baseUrl}users`)
 			.then((res) => {
 				const foundUser = res.data.filter(
 					(user) => user.email === formData.email
@@ -77,7 +85,7 @@ const Home = () => {
 					return { ...prev, username: foundUser?.username };
 				});
 			})
-			.catch(err => console.error(err));
+			.catch((err) => console.error(err));
 	}
 
 	function submitRegister(e) {
@@ -85,7 +93,7 @@ const Home = () => {
 		const formData = getFormData(e.target);
 
 		axios
-			.post("http://127.0.0.1:5000/register", formData)
+			.post(`${baseUrl}register`, formData)
 			.then((res) => {
 				if (res.status === 201) {
 					closeModal();
@@ -108,11 +116,15 @@ const Home = () => {
 			setDisplayModal(hash.toLowerCase());
 		}
 
-		axios.get('http://localhost:3002/compare/items/top-deals')
-			.then(res => setTopDeals(res.data))
-			.catch(err => console.error(err))
+		axios
+			.get(
+				"https://price-compare-9sjz.onrender.com/compare/deals/items/default"
+			)
+			.then((res) => setTopDeals(res.data))
+			.catch((err) => console.error(err));
 	}, []);
 
+	console.log(topDeals);
 	useEffect(() => {
 		setCountdown(daysLeft(nextEvent.date));
 	}, [nextEvent]);
@@ -120,40 +132,72 @@ const Home = () => {
 	return (
 		<div className={`Home ${displayModal ? "no-overflow" : ""}`}>
 			<Navbar>
-				<Button colour="dark" click={() => setDisplayModal("login")}>
+				<Button
+					colour={darkMode ? "light" : "dark"}
+					click={() => setDisplayModal("login")}
+				>
 					Login or sign up
 				</Button>
 			</Navbar>
 			<Content>
 				<main>
-					<div className="heading">
-						<h2 className="tagline">
-							Celebrate {nextEvent?.icon}{" "}
-							<span className="eventName">
-								{nextEvent ? nextEvent.name : "holidays"}
-							</span>{" "}
-							with friends and family!
-						</h2>
-					</div>
-					{/* <Card>
+					{calendarToggle ? (
+						<Calendar />
+					) : (
+						<div>
+							<div
+								onClick={() =>
+									setCalendarToggle((prev) => {
+										if (prev) return true;
+										else return false;
+									})
+								}
+							>
+								<Countdown />
+							</div>
+							<div className="heading">
+								<h2 className="tagline">
+									Celebrate {nextEvent?.icon}{" "}
+									<span className="eventName">
+										{nextEvent ? nextEvent.name : "holidays"}
+									</span>{" "}
+									with friends and family!
+								</h2>
+							</div>
+							{/* <Card>
 						<div className="countdown">
 							<div className="counter">{countdown}</div>
 							<div className="text">days until {nextEvent.name}</div>
 						</div>
 					</Card> */}
-					<Countdown />
-					<Card>
-						<h2>Top 10 Deals</h2>
-						<div className="list">
-							{
-								new Array(10).fill().map((item, index) => (topDeals.length > index ? <a key={index} href={topDeals[index].link} target='_blank'><div className='list-item'>
-									<img src={topDeals[index].img} alt={topDeals[index].title}/>
-									<span>{index + 1}. {topDeals[index].title}</span>
-								</div></a> : null))
-							}
-						</div>
-					</Card>
-					{/* <Card>
+							{/* <Calender /> */}
+							<Card>
+								<h2 style={{ color: darkMode ? "black" : "#0e2332" }}>
+									Top 10 Deals
+								</h2>
+								<div className="list">
+									{new Array(10).fill().map((item, index) =>
+										topDeals.length > index ? (
+											<a
+												key={index}
+												href={topDeals[index].link}
+												target="_blank"
+											>
+												<div className="list-item">
+													<img
+														src={topDeals[index].img}
+														alt={topDeals[index].title}
+													/>
+													<span>
+														{index + 1}. {topDeals[index].title}
+													</span>
+												</div>
+											</a>
+										) : null
+									)}
+								</div>
+							</Card>
+							{/* <Card>
 						<h2>Community Posts</h2>
 						<div className="list">
 							{new Array(6).fill().map((item, index) => (
@@ -161,6 +205,8 @@ const Home = () => {
 							))}
 						</div>
 					</Card> */}
+						</div>
+					)}
 				</main>
 			</Content>
 			<Shortcuts>
@@ -182,7 +228,7 @@ const Home = () => {
 				<Modal show={true} close={closeModal}>
 					<h2>Login</h2>
 					<Form submit={submitLogin}>
-						<label htmlFor="email">Email{" "}</label>
+						<label htmlFor="email">Email </label>
 						<input
 							id="email"
 							type="email"
@@ -190,8 +236,8 @@ const Home = () => {
 							placeholder="Email"
 							required
 						></input>
-						
-						<label htmlFor="password">Password{" "}</label>
+
+						<label htmlFor="password">Password </label>
 						<input
 							id="password"
 							type="password"
@@ -211,8 +257,15 @@ const Home = () => {
 					>
 						Create a new account
 					</a>
-					<br/>
-					<a href="#" onClick={e => {e.preventDefault()}}>Reset password</a>
+					<br />
+					<a
+						href="#"
+						onClick={(e) => {
+							e.preventDefault();
+						}}
+					>
+						Reset password
+					</a>
 				</Modal>
 			)}
 
@@ -220,7 +273,7 @@ const Home = () => {
 				<Modal show={true} close={closeModal}>
 					<h2>Register</h2>
 					<Form submit={submitRegister}>
-						<label htmlFor="email">Email{" "}</label>
+						<label htmlFor="email">Email </label>
 						<input
 							id="email"
 							type="email"
@@ -229,7 +282,7 @@ const Home = () => {
 							required
 						></input>
 
-						<label htmlFor="username">Username{" "}</label>
+						<label htmlFor="username">Username </label>
 						<input
 							id="username"
 							type="text"
@@ -238,7 +291,7 @@ const Home = () => {
 							required
 						></input>
 
-						<label htmlFor="password1">Password{" "}</label>
+						<label htmlFor="password1">Password </label>
 						<input
 							id="password1"
 							type="password"
@@ -247,7 +300,7 @@ const Home = () => {
 							required
 						></input>
 
-						<label htmlFor="password2">Confirm password{" "}</label>
+						<label htmlFor="password2">Confirm password </label>
 						<input
 							id="password2"
 							type="password"

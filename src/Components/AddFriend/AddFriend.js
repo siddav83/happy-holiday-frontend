@@ -3,6 +3,7 @@ import "./style.css";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
 import axios from "axios";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 const AddFriend = () => {
 	const { setToggleAddFriend } = useContext(ToggleContext);
@@ -17,7 +18,7 @@ const AddFriend = () => {
 
 		// Add User (POST)
 		axios
-			.post(`http://127.0.0.1:5000/users/${userData.username}/friends`, {
+			.post(`${baseUrl}${userData.username}friends`, {
 				friend,
 			})
 			.then((res) => {
@@ -38,7 +39,7 @@ const AddFriend = () => {
 		const email = e.target.email.value;
 		// Send Invite Email (POST)
 		axios
-			.post("http://127.0.0.1:5000/share", {
+			.post(`${baseUrl}share`, {
 				email,
 				from: userData.username,
 			})

@@ -9,6 +9,7 @@ import {
 } from "../../Components";
 import "./style.css";
 import axios from "axios";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 export default function Tab() {
 	const [friendData, setFriendData] = useState();
@@ -22,13 +23,11 @@ export default function Tab() {
 		const fetchPost = async () => {
 			try {
 				// Get Friends ID
-				const friendsData = await axios(
-					`http://127.0.0.1:5000/users/${username}`
-				);
+				const friendsData = await axios(`${baseUrl}users/${username}`);
 				const friendsId = friendsData.data.id;
 				// Get User Wishlist
 				const friendsCards = await axios(
-					`http://127.0.0.1:5000/users/${friendsId}/wishlist`
+					`${baseUrl}users/${friendsId}/wishlist`
 				);
 				setUserData((prev) => {
 					return {
