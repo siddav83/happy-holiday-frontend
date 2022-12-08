@@ -3,9 +3,10 @@ import "./style.css";
 import CategoryData from "../../Data/CategoryData";
 import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
-import { Modal } from "../../Components";
+import { FestivityContext } from "../../Context/FestivityContext";
 
 export default function CategoryCard({ data, type }) {
+	const { darkMode } = useContext(FestivityContext);
 	const { userData, setUserData } = useContext(UserContext);
 	const emoji = CategoryData.filter((cat) => cat.name === data.category)[0];
 	const [compareToggle, setCompareToggle] = useState(false);
@@ -45,7 +46,7 @@ export default function CategoryCard({ data, type }) {
 	return (
 		<>
 			<div
-				className="card"
+				className={darkMode ? "card-dark" : "card"}
 				onClick={type === "user" ? deleteCategory : priceComparison}
 			>
 				<p className="symbols">{emoji?.symbols}</p>
