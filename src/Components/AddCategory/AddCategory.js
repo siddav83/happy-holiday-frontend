@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { CategoryContext } from "../../Context/CategoryContext";
 import { ToggleContext } from "../../Context/ToggleContext";
+import "./style.css";
 import axios from "axios";
 const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
@@ -52,13 +53,6 @@ export default function AddCategory() {
 				className="fa-solid fa-circle-xmark"
 				onClick={() => setToggleAddCategory(false)}
 			/>
-			{/* <label htmlFor="type">Types</label>
-			<select id="type" name="type" required>
-				<option value="">Select type</option>
-				<option value="wants">Wants</option>
-				<option value="dislikes">Dislikes</option>
-				<option value="dreams">Dreams</option>
-			</select> */}
 			<label htmlFor="category">Choose a category:</label>
 			<select id="category" name="category" required>
 				<option value="">Select category</option>

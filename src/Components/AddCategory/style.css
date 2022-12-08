@@ -1,0 +1,100 @@
+.like-dislike-container {
+	z-index: 200;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(14, 35, 50, 0.7);
+	color: white;
+}
+
+.add-or-dislike {
+	z-index: 100;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+	background-color: var(--text-color);
+	border-radius: 20px;
+	padding: 1rem 3rem;
+	font-size: 24px;
+}
+
+.add-or-dislike label {
+	font-size: inherit;
+	padding: 5px;
+	color: white;
+	font-family: "Bree Serif", serif;
+	margin: 1rem 0 0.25rem;
+}
+
+.add-or-dislike select,
+.add-or-dislike input {
+	width: 100%;
+	padding: 0.75rem 0.5rem;
+	border-radius: 12px;
+}
+
+.add-or-dislike select,
+.add-or-dislike option {
+	font-size: min(30px, 5vw);
+}
+
+.add-cat-btn {
+	border-radius: 5px;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 5px 10px 5px 10px;
+	margin-top: 10px;
+	font-size: min(30px, 5vw);
+	transition: 0.3s ease-in-out;
+}
+
+.add-cat-btn:hover {
+	background-color: var(--red);
+	color: white;
+}
+
+.add-or-dislike input {
+	border-radius: 6px;
+	margin: 0.5rem 0;
+	max-width: 400px;
+	border: none;
+	font-size: 20px;
+	transition: 0.3s ease-in-out;
+}
+
+.add-or-dislike input[type="submit"] {
+	font-weight: 800;
+}
+
+.add-or-dislike input[type="submit"]:hover {
+	background-color: var(--red);
+	color: white;
+}
+
+.add-or-dislike i {
+	position: absolute;
+	top: 2%;
+	right: 2%;
+	color: white;
+	font-size: 30px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+}
+
+.add-or-dislike i:hover {
+	color: var(--red);
+}
+
+.add-or-dislike form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
