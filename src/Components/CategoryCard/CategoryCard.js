@@ -43,7 +43,6 @@ export default function CategoryCard({ data, type }) {
 		setPriceData(response.data);
 		setLoading(false);
 	};
-
 	return (
 		<>
 			<div
