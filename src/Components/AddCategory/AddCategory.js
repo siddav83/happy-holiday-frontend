@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { CategoryContext } from "../../Context/CategoryContext";
 import { ToggleContext } from "../../Context/ToggleContext";
-
 import axios from "axios";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 export default function AddCategory() {
 	const { visible, setVisible, categoryData } = useContext(CategoryContext);
@@ -25,7 +25,7 @@ export default function AddCategory() {
 
 		// Add User (POST)
 		axios
-			.post(`http://127.0.0.1:5000/${type}`, obj)
+			.post(`${baseUrl}${type}`, obj)
 			.then((res) => {
 				if (res.status === 201) {
 					setToggleAddCategory(false);

@@ -1,26 +1,37 @@
-.card {
+.card,
+.card-dark {
 	justify-content: center;
 	align-items: center;
 	margin: 20px;
 	border: solid black 1px;
 	padding: 25px;
-	box-shadow: -7px 7px;
+	box-shadow: -7px 7px 0 black;
 	border-radius: 25%;
 	max-width: 150px;
 	min-height: 50px;
+	transition: 0.3s ease-in-out;
 }
-.card p {
+
+.card-dark {
+	background-color: white;
+	border: solid white 2px;
+	box-shadow: -7px 7px var(--red);
+}
+.card,
+.card-dark p {
 	text-align: center;
 	pointer-events: none;
 }
 
-.card:hover {
+.card:hover,
+.card-dark:hover {
 	box-shadow: none;
 	/* background-color: rebeccapurple; */
 	box-shadow: -5px 5px;
 }
 
-.card .symbols {
+.card .symbols,
+.card-dark .symbols {
 	font-size: 70px;
 	padding: 0;
 	margin: 0;

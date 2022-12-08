@@ -105,7 +105,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--red);
+	background-color: var(--text-color);
+
 	top: 20%;
 	right: 5%;
 	bottom: 20%;
@@ -120,8 +121,13 @@
 }
 
 .show-day h2 {
-	margin: 1rem;
-	font-size: min(50px, 7vw);
+	margin: 1rem 0 0.25rem;
+	font-size: min(50px, 6.5vw);
+	color: var(--red);
+}
+
+.show-day p {
+	color: white;
 }
 
 .show-day .close-btn {
@@ -129,10 +135,10 @@
 	top: 5%;
 	right: 5%;
 	font-size: min(50px, 8vw);
-	color: rgba(0, 0, 0, 0.4);
+	color: rgba(255, 255, 255, 0.5);
 	transition: 0.3s ease-in-out;
 }
 
 .show-day .close-btn:hover {
-	color: black;
+	color: rgba(255, 255, 255, 1);
 }

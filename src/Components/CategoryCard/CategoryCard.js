@@ -3,9 +3,11 @@ import "./style.css";
 import CategoryData from "../../Data/CategoryData";
 import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
-import { Modal } from "../../Components";
+import { FestivityContext } from "../../Context/FestivityContext";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 export default function CategoryCard({ data, type }) {
+	const { darkMode } = useContext(FestivityContext);
 	const { userData, setUserData } = useContext(UserContext);
 	const emoji = CategoryData.filter((cat) => cat.name === data.category)[0];
 	const [compareToggle, setCompareToggle] = useState(false);
@@ -16,7 +18,8 @@ export default function CategoryCard({ data, type }) {
 		const deleteItem = e.target.textContent.slice(2);
 		const updateTab = userData.tab.toLowerCase();
 		// Delete
-		axios.delete(`http://127.0.0.1:5000/${updateTab}/${data.id}`);
+		axios.delete(`
+		${baseUrl}${updateTab}${data.id}`);
 		// Update State
 		setUserData((prev) => {
 			const removeItem = prev.wishlist[updateTab].filter(
@@ -31,12 +34,11 @@ export default function CategoryCard({ data, type }) {
 
 	const priceComparison = async (e) => {
 		const compareItem = e.target.textContent.slice(2).toLowerCase();
-		console.log(compareItem);
 		// Show modal
 		setCompareToggle(true);
 		// Get Backend data
 		const response = await axios.get(
-			`http://localhost:3002/compare/${compareItem}`
+			`https://happy-holidays-backend.onrender.com/compare/alt/${compareItem}`
 		);
 		setPriceData(response.data);
 		setLoading(false);
@@ -45,7 +47,7 @@ export default function CategoryCard({ data, type }) {
 	return (
 		<>
 			<div
-				className="card"
+				className={darkMode ? "card-dark" : "card"}
 				onClick={type === "user" ? deleteCategory : priceComparison}
 			>
 				<p className="symbols">{emoji?.symbols}</p>

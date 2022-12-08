@@ -2,10 +2,11 @@ import React, { useEffect, useContext } from "react";
 import "./style.css";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { CalendarContext } from "../../Context/CalendarContext";
-import SantaHat from "../../assets/images/hat.png";
+import { FestivityContext } from "../../Context/FestivityContext";
 
 const Countdown = () => {
 	const { daysLeft, setDaysLeft, setToday } = useContext(CalendarContext);
+	const { darkMode } = useContext(FestivityContext);
 
 	useEffect(() => {
 		// Get Todays Date
@@ -37,7 +38,12 @@ const Countdown = () => {
 				<span>until</span>
 				<span>Christmas</span>
 			</div>
-			<div className="calendar-icon">
+			<div
+				className="calendar-icon"
+				style={{
+					border: darkMode ? "2px solid #fa5252" : "4px solid transparent",
+				}}
+			>
 				<img
 					src="https://cdn-icons-png.flaticon.com/512/3652/3652267.png"
 					alt="calendar"
