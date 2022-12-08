@@ -11,6 +11,7 @@ export default function Tab(data) {
 	const { visible, setVisible } = useContext(CategoryContext);
 	const { userData, setUserData } = useContext(UserContext);
 	const { toggleAddCategory, setToggleAddCategory } = useContext(ToggleContext);
+	const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 	const handleEvent = (e) => {
 		e.preventDefault();
@@ -20,14 +21,12 @@ export default function Tab(data) {
 
 	useEffect(() => {
 		// ! Get Friends Data (API)
-		axios
-			.get(`http://127.0.0.1:5000/users/${userData.id}/wishlist`)
-			.then((res) => {
-				const data = res.data;
-				setUserData((prev) => {
-					return { ...prev, wishlist: data };
-				});
+		axios.get(`${baseUrl}users/${userData.id}/wishlist`).then((res) => {
+			const data = res.data;
+			setUserData((prev) => {
+				return { ...prev, wishlist: data };
 			});
+		});
 	}, []);
 
 	const updateTab = userData.tab.toLowerCase();

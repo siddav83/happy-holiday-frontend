@@ -18,7 +18,7 @@ const AddFriend = () => {
 
 		// Add User (POST)
 		axios
-			.post(`${baseUrl}${userData.username}/friends`, {
+			.post(`${baseUrl}users/${userData.username}/friends`, {
 				friend,
 			})
 			.then((res) => {
