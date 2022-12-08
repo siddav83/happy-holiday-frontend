@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { ToggleContext } from '../../Context/ToggleContext'
 import './style.css'
 
@@ -25,8 +25,9 @@ const Waves = () =>
     ></path>
 </svg>
 
-export default function Shortcuts({children, back, scrollable}){
+export default function Shortcuts({children, type, back, scrollable}){
 	const { setToggleDay, setCalendarToggle, setToggleAddFriend } = useContext(ToggleContext)
+    const navigate = useNavigate()
 
 	function toggleAllFalse(){
 		setToggleDay(false);
@@ -49,27 +50,36 @@ export default function Shortcuts({children, back, scrollable}){
             class: 'fa-regular fa-calendar',
             click: toggleAllFalse
         },
-        {
-            name: 'Friends',
-            url: '/friends',
-            tooltip: 'Friends',
-            class: 'fa-solid fa-user-group',
-            click: toggleAllFalse
-        },
+        // {
+        //     name: 'Community',
+        //     url: '/community',
+        //     tooltip: 'Community',
+        //     class: 'fa-solid fa-earth-europe',
+        //     click: toggleAllFalse
+        // },
         {
             name: 'Events',
             url: '/events',
             tooltip: 'Events',
             class: 'fa-solid fa-champagne-glasses',
             click: toggleAllFalse
+        },
+        {
+            name: 'Friends',
+            url: '/friends',
+            tooltip: 'Friends',
+            class: 'fa-solid fa-user-group',
+            click: toggleAllFalse
         }
     ]
 
     return (
-        <div className={`Shortcuts ${scrollable ? 'scrollable' : ''}`}>
-            {/* <Waves/> */}
+        <div className={`Shortcuts ${scrollable ? 'scrollable' : ''} ${type === 'fade' ? 'fade' : 'red'}`}>
             {
-                children ? null : <a><i className='fa-solid fa-right-from-bracket' onClick={back ? back : toggleAllFalse} title='Go back'></i></a>
+                type !== 'fade' && <Waves/>
+            }
+            {
+                children ? null : <a><i className='fa-solid fa-right-from-bracket' onClick={back ? () => navigate(back) : toggleAllFalse} title='Go back'></i></a>
             }
             {
                 children || links.map(link => <NavLink key={link.name} to={link.url}><i className={link.class} onClick={link.click} title={link.tooltip}></i></NavLink>)
