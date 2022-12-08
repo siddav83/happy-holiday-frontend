@@ -20,7 +20,6 @@ export default function Tab(data) {
 	};
 
 	useEffect(() => {
-		// ! Get Friends Data (API)
 		axios.get(`${baseUrl}users/${userData.id}/wishlist`).then((res) => {
 			const data = res.data;
 			setUserData((prev) => {
