@@ -1,6 +1,6 @@
 .fun-fact-container {
 	font-weight: 600;
-	font-size: 20px;
+	font-size: min(20px, 4.5vw);
 	text-align: center;
 	width: 100%;
 	max-width: 700px;
@@ -8,7 +8,7 @@
 	border-radius: 12px;
 	box-shadow: var(--shadow);
 	max-width: 600px;
-	margin: 0.5rem auto;
+	margin: 1rem auto;
 }
 
 .fun-fact-heading {

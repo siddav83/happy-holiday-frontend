@@ -4,6 +4,7 @@ import CategoryData from "../../Data/CategoryData";
 import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
 import { FestivityContext } from "../../Context/FestivityContext";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 export default function CategoryCard({ data, type }) {
 	const { darkMode } = useContext(FestivityContext);
@@ -17,7 +18,8 @@ export default function CategoryCard({ data, type }) {
 		const deleteItem = e.target.textContent.slice(2);
 		const updateTab = userData.tab.toLowerCase();
 		// Delete
-		axios.delete(`http://127.0.0.1:5000/${updateTab}/${data.id}`);
+		axios.delete(`
+		${baseUrl}${updateTab}${data.id}`);
 		// Update State
 		setUserData((prev) => {
 			const removeItem = prev.wishlist[updateTab].filter(
@@ -37,7 +39,7 @@ export default function CategoryCard({ data, type }) {
 		setCompareToggle(true);
 		// Get Backend data
 		const response = await axios.get(
-			`http://localhost:3002/compare/${compareItem}`
+			`https://happy-holidays-backend.onrender.com/compare/alt/${compareItem}`
 		);
 		setPriceData(response.data);
 		setLoading(false);

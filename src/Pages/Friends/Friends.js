@@ -9,8 +9,10 @@ import {
 } from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { UserContext } from "../../Context/UserContext";
+import { FestivityContext } from "../../Context/FestivityContext";
 
 const Friends = () => {
+	const { darkMode } = useContext(FestivityContext);
 	const { toggleAddFriend, setToggleAddFriend } = useContext(ToggleContext);
 	const { userData } = useContext(UserContext);
 
@@ -34,7 +36,10 @@ const Friends = () => {
 							alt="friends icon"
 						/>
 						<h2>Friends ({userData.friends?.length || 0})</h2>
-						<button onClick={() => setToggleAddFriend(true)}>
+						<button
+							onClick={() => setToggleAddFriend(true)}
+							className={darkMode ? "add-friend-btn-dark" : "add-friend-btn"}
+						>
 							<i className="fa-solid fa-circle-plus"></i>
 						</button>
 					</div>
