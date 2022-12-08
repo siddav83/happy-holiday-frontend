@@ -36,8 +36,8 @@ const Community = () => {
 					</div>
 				</main>
 			</Content>
-			<HolidaysNavbar/>
-			{/* <Shortcuts/> */}
+			{/* <HolidaysNavbar/> */}
+			<Shortcuts back='/holidays'/>
 		</div>
 	);
 };

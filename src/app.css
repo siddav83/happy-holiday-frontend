@@ -32,6 +32,10 @@
 	z-index: -100;
 }
 
+.snowflake:hover {
+	animation-play-state: paused;
+}
+
 @keyframes fall {
 	from {
 		top: -50px

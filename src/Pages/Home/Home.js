@@ -15,6 +15,7 @@ import {
 } from "../../Components";
 import "./style.css";
 import { UserContext } from "../../Context/UserContext";
+import TopDeals from "../../Data/TopDeals";
 
 const msToDays = 1000 * 60 * 60 * 24;
 const getFormData = (form) => Object.fromEntries(new FormData(form).entries());
@@ -110,7 +111,11 @@ const Home = () => {
 
 		axios.get('http://localhost:3002/compare/items/top-deals')
 			.then(res => setTopDeals(res.data))
-			.catch(err => console.error(err))
+			.catch(err => {
+				console.error(err)
+				console.log(TopDeals);
+				setTopDeals(TopDeals)
+			})
 	}, []);
 
 	useEffect(() => {
@@ -163,7 +168,7 @@ const Home = () => {
 					</Card> */}
 				</main>
 			</Content>
-			<Shortcuts>
+			<Shortcuts type='fade'>
 				{loggedIn ? (
 					<p>
 						Not {loggedIn.email}?{" "}

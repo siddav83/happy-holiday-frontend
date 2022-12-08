@@ -3,13 +3,19 @@
     height: 64px;
     display: flex;
     flex-direction: row;
-    background: linear-gradient(transparent, #e4f5ff);
-    /* background: var(--red); */
     justify-content: space-around;
     align-items: center;
     position: fixed;
     left: 0;
     bottom: 0;
+}
+
+.Shortcuts.fade {
+    background: linear-gradient(transparent, #e4f5ff);
+}
+
+.Shortcuts.red {
+    background: var(--red);
 }
 
 .Shortcuts i {

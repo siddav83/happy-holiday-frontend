@@ -6,6 +6,7 @@ import {
 	FunFact,
 	Content,
 	Navbar,
+	Shortcuts,
 } from "../../Components";
 import { Calendar } from "../../Components";
 import { ToggleContext } from "../../Context/ToggleContext";
@@ -46,7 +47,8 @@ const Holidays = () => {
 					) : (
 						<Calendar />
 					)}
-					<HolidaysNavbar />
+					{/* <HolidaysNavbar /> */}
+					<Shortcuts back='/'/>
 				</Content>
 			</div>
 		</>
