@@ -35,7 +35,7 @@ body {
 	min-height: 100vh;
 	background: #f9fdff;
 	color: var(--text-color);
-	/* overflow-y: hidden; */
+	overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -143,7 +143,7 @@ input[type="submit"] {
 	position: absolute;
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 	flex-direction: column;
 	background-color: var(--text-color);
 	border-radius: 20px;

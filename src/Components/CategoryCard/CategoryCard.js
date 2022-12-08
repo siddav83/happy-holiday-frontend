@@ -38,7 +38,7 @@ export default function CategoryCard({ data, type }) {
 		setCompareToggle(true);
 		// Get Backend data
 		const response = await axios.get(
-			`https://happy-holidays-backend.onrender.com/compare/alt/${compareItem}`
+			`http://localhost:3002/compare/:item${compareItem}`
 		);
 		setPriceData(response.data);
 		setLoading(false);
