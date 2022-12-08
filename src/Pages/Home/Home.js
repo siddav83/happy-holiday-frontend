@@ -18,8 +18,8 @@ import "./style.css";
 import { UserContext } from "../../Context/UserContext";
 import { ToggleContext } from "../../Context/ToggleContext";
 import { FestivityContext } from "../../Context/FestivityContext";
-const baseUrl = "https://happy-holidays-backend.onrender.com/";
 import TopDeals from "../../Data/TopDeals";
+const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 const msToDays = 1000 * 60 * 60 * 24;
 const getFormData = (form) => Object.fromEntries(new FormData(form).entries());

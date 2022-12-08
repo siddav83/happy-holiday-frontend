@@ -70,13 +70,6 @@ export default function Shortcuts({children, type, back, scrollable}){
             tooltip: 'Friends',
             class: 'fa-solid fa-user-group',
             click: toggleAllFalse
-        },
-        {
-            name: 'Events',
-            url: '/events',
-            tooltip: 'Events',
-            class: 'fa-solid fa-champagne-glasses',
-            click: toggleAllFalse
         }
     ]
 
