@@ -35,6 +35,7 @@ body {
 	min-height: 100vh;
 	background: #f9fdff;
 	color: var(--text-color);
+	/* overflow-y: hidden; */
 }
 
 ::-webkit-scrollbar {
