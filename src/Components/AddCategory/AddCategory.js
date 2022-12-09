@@ -45,7 +45,7 @@ export default function AddCategory() {
 			})
 			.catch((err) => console.error(err));
 	};
-	setVisible(visible);
+	// setVisible(visible);
 
 	return (
 		<form className="add-or-dislike" onSubmit={onSubmitHandler}>
@@ -65,7 +65,13 @@ export default function AddCategory() {
 				})}
 			</select>
 			<label htmlFor="item">item description</label>
-			<input type="text" id="item" name="item" placeholder="Optional..." />
+			<input
+				type="text"
+				id="item"
+				name="item"
+				placeholder="Optional..."
+				autoComplete="off"
+			/>
 			<button className="add-cat-btn">Submit</button>
 		</form>
 	);

@@ -9,6 +9,7 @@
 	min-height: 50px;
 	transition: 0.3s ease-in-out;
 	background-color: white;
+	cursor: pointer;
 }
 
 .card-dark {
@@ -19,14 +20,23 @@
 .card,
 .card-dark p {
 	text-align: center;
+}
+
+.card-dark p {
 	pointer-events: none;
 }
 
 .card:hover,
 .card-dark:hover {
 	box-shadow: none;
-	/* background-color: rebeccapurple; */
-	box-shadow: -5px 5px;
+	background-color: var(--red);
+	box-shadow: -2px 2px 4px black;
+	transform: translateY(8px);
+}
+
+.card:hover .symbols,
+.card-dark:hover .symbols {
+	rotate: 20deg;
 }
 
 .card .symbols,
@@ -35,6 +45,7 @@
 	padding: 0;
 	margin: 0;
 	pointer-events: none;
+	transition: 0.3s ease-in-out;
 }
 
 .tab-container h1 {

@@ -8,14 +8,13 @@ import "./style.css";
 import axios from "axios";
 
 export default function Tab(data) {
-	const { visible, setVisible } = useContext(CategoryContext);
 	const { userData, setUserData } = useContext(UserContext);
 	const { toggleAddCategory, setToggleAddCategory } = useContext(ToggleContext);
 	const baseUrl = "https://happy-holidays-backend.onrender.com/";
 
 	const handleEvent = (e) => {
 		e.preventDefault();
-		setVisible(!visible);
+
 		setToggleAddCategory(!toggleAddCategory);
 	};
 

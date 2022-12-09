@@ -1,0 +1,11 @@
+.events-heading {
+    display: flex;
+}
+
+.events h2 {
+    font-size: 30px;
+}
+.events img {
+    width: 40px;
+    margin-right: 8px;
+}

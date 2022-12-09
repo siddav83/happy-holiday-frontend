@@ -8,40 +8,67 @@ describe("empty spec", () => {
 	});
 
 	it("User Logs in", () => {
-		cy.get("button").click();
+		cy.get(".Shortcuts > .btn-dark").click();
 
-		cy.get(":nth-child(1) > input").type("a@a.com");
+		cy.get("#email").type("test@gmail.com");
 
-		cy.get("form > :nth-child(2) > input").type("123");
+		cy.get('[type="submit"]').type("test");
 
 		cy.get('[type="submit"]').click();
 	});
 
 	it("User Opens Calendar", () => {
-		cy.get(".calendar-btn").click();
-
-		// Clicks on a day
-
-		cy.get(".calendar-container > :nth-child(2)").click();
-
-		cy.get(".show-day > button > .fa-solid").click();
-
-		// Back button
-
+		cy.wait(500);
+		cy.get(".countdown-container").click();
+		cy.get(".calendar-container > :nth-child(11)").click();
+		cy.get(".show-day > button > .fa-solid").click({ force: true });
 		cy.get(".back-btn").click();
-
-		// Goes back to calendar
-
-		cy.get(".calendar-btn").click();
-
-		// Nav button to go to Holidays main page
-
-		cy.get(".fa-regular").click();
 	});
 
 	it("User Opens their profile", () => {
-		cy.get('[href="/friends"]').click();
-
-		cy.get(".main-container > :nth-child(2) > .profile-username").click();
+		cy.get('[href="/friends"] > .fa-solid').click();
+		cy.get(":nth-child(3) > .profile-username").click();
 	});
+
+	it("adds a 'Wants' to their profile", () => {
+		cy.get(".add-btn").click();
+		cy.get("#category").select("Sweets").should("have.value", "Sweets");
+		cy.get(".add-cat-btn").click({ force: true });
+	});
+
+	it("delete a 'Wants' from their profile", () => {
+		// cy.get(".add-btn").click();
+	});
+
+	// it("adds a 'Dislikes' to their profile", () => {
+	// 	cy.get(":nth-child(2) > .type").click();
+	// 	cy.get(".add-btn").click();
+	// 	cy.get("#category")
+	// 		.select("Books", { force: true })
+	// 		.should("have.value", "Books");
+	// 	cy.get(".add-cat-btn").click({ force: true });
+	// });
+
+	// it("adds a 'Dislikes' to their profile", () => {
+	// 	cy.get(":nth-child(3) > .type").click();
+	// 	cy.get(".add-btn").click();
+	// 	cy.get("#category")
+	// 		.select("TV", { force: true })
+	// 		.should("have.value", "TV");
+	// 	cy.get("#item").type("Samsung", { force: true });
+	// 	cy.get(".add-cat-btn").click({ force: true });
+	// });
+
+	// it("Go to a party page", () => {
+	// 	cy.get('[href="/events"] > .fa-solid').click();
+	// });
+
+	// it("toggle dark mode", () => {
+	// 	cy.get(".fa-moon").click();
+	// });
+
+	// it("Go to a friends page", () => {
+	// 	cy.get('[href="/friends"] > .fa-solid').click();
+	// 	cy.get(":nth-child(1) > .profile-username").click();
+	// });
 });

@@ -12,7 +12,7 @@ export const UserProvider = (props) => {
 		buying: [],
 		budget: "",
 		token: "",
-		tab: "wants",
+		tab: "Wants",
 		friendViewing: { id: "", username: "", tab: "wants", wishlist: [] },
 	});
 

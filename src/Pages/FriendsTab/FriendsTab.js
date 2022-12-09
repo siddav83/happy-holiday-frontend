@@ -6,7 +6,7 @@ import {
     CategoryCard,
     AddCategory,
     HolidaysNavbar,
-	Shortcuts,
+    Shortcuts,
 } from "../../Components";
 import "./style.css";
 import axios from "axios";
@@ -15,7 +15,7 @@ const baseUrl = "https://happy-holidays-backend.onrender.com/";
 export default function Tab() {
     const [friendData, setFriendData] = useState();
 
-    const { categoryData, visible, setVisible } = useContext(CategoryContext);
+    const { visible } = useContext(CategoryContext);
     const { userData, setUserData } = useContext(UserContext);
 
     useEffect(() => {
@@ -43,40 +43,16 @@ export default function Tab() {
                 console.error(err);
             }
         };
-
         fetchPost();
-
-        // axios
-        // 	.get(`https://happiholidays.netlify.app/users/${userData.friendsViewing.id}/wishlist`)
-        // 	.then((res) => {
-        // 		const data = res.data;
-        // 		setUserData((prev) => {
-        // 			return { ...prev, wishlist: data };
-        // 		});
-        // 	});
     }, []);
 
-    // const onSubmitHandler = (e) => {
-    // 	e.preventDefault();
-    // 	const type = e.target.type.value;
-    // 	const category = e.target.category.value;
-    // 	const item = e.target.item.value;
-
-    // 	const obj = {
-    // 		category,
-    // 		item,
-    // 	};
-    // 	setUserData((prev) => {
-    // 		return { ...prev, [type]: [...prev[type], { obj }] };
-    // 	});
-
-    // 	setVisible(visible);
-    // };
     const { username, tab } = userData.friendViewing;
     const currentTab = userData.friendViewing.tab.toLowerCase();
     return (
         <div className="main-container">
-            <h1>{username + "'s " + tab}</h1>
+            <h1>
+                {username[0].toUpperCase() + username.slice(1) + "'s " + tab}
+            </h1>
             {visible ? (
                 <div className="like-dislike-container">
                     <AddCategory />
@@ -88,14 +64,14 @@ export default function Tab() {
             <div className="card-container">
                 {userData.friendViewing.wishlist[currentTab].map((cat, i) => {
                     return (
-                        <div key={i}>
+                        <div key={i} className="inner-content">
                             <CategoryCard data={cat} type="friend" />
                         </div>
                     );
                 })}
             </div>
             <HolidaysNavbar />
-			<Shortcuts back='/friends'/>
+            <Shortcuts back="/friends" />
         </div>
     );
 }
