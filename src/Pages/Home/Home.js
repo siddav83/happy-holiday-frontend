@@ -123,9 +123,9 @@ const Home = () => {
 			)
 			.then((res) => setTopDeals(res.data))
 			.catch((err) => {
-				console.error(err)
+				console.error(err);
 				console.log(TopDeals);
-				setTopDeals(TopDeals)
+				setTopDeals(TopDeals);
 			});
 	}, []);
 
@@ -205,7 +205,7 @@ const Home = () => {
 					)}
 				</main>
 			</Content>
-			<Shortcuts type='fade'>
+			<Shortcuts type="fade">
 				{loggedIn ? (
 					<p>
 						Not {loggedIn.email}?{" "}
@@ -231,6 +231,7 @@ const Home = () => {
 							name="email"
 							placeholder="Email"
 							required
+							autoComplete="off"
 						></input>
 
 						<label htmlFor="password">Password </label>
@@ -239,6 +240,7 @@ const Home = () => {
 							type="password"
 							name="password"
 							placeholder="Password"
+							autoComplete="off"
 							required
 						></input>
 						<input type="submit" value="Login"></input>
@@ -276,6 +278,7 @@ const Home = () => {
 							name="email"
 							placeholder="Email"
 							required
+							autoComplete="off"
 						></input>
 
 						<label htmlFor="username">Username </label>
@@ -285,6 +288,7 @@ const Home = () => {
 							name="username"
 							placeholder="Username"
 							required
+							autoComplete="off"
 						></input>
 
 						<label htmlFor="password1">Password </label>
@@ -294,6 +298,7 @@ const Home = () => {
 							name="password1"
 							placeholder="Password"
 							required
+							autoComplete="off"
 						></input>
 
 						<label htmlFor="password2">Confirm password </label>
@@ -303,6 +308,7 @@ const Home = () => {
 							name="password2"
 							placeholder="Confirm password"
 							required
+							autoComplete="off"
 						></input>
 
 						<input type="submit" value="Register"></input>

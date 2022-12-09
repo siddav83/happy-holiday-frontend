@@ -63,6 +63,7 @@ const AddFriend = () => {
 						id="username"
 						name="username"
 						placeholder="Enter Username..."
+						autoComplete="off"
 					/>
 					<input type="submit" value="Add" />
 				</form>
@@ -78,6 +79,7 @@ const AddFriend = () => {
 						id="email"
 						name="email"
 						placeholder="Enter Email..."
+						autoComplete="off"
 					/>
 					<input type="submit" value="Invite" />
 				</form>
