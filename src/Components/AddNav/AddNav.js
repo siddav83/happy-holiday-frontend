@@ -30,9 +30,8 @@ const AddNav = ({ click }) => {
 				></path>
 			</svg>
 			{/* Swirly Pattern END */}
-
-			<NavLink to="/">
-				<i className="fa-solid fa-right-from-bracket"></i>
+			<NavLink to="/holidays">
+				<i className="fa-regular fa-calendar"></i>
 			</NavLink>
 			<NavLink to="/events">
 				<i className="fa-solid fa-champagne-glasses"></i>
@@ -40,11 +39,11 @@ const AddNav = ({ click }) => {
 			<button className="add-btn" onClick={click}>
 				<i className="fa-regular fa-plus btn-big"></i>
 			</button>
-			<NavLink to="/holidays">
-				<i className="fa-regular fa-calendar"></i>
-			</NavLink>
 			<NavLink to="/friends">
 				<i className="fa-solid fa-user-group"></i>
+			</NavLink>
+			<NavLink to="/">
+				<i className="fa-solid fa-right-from-bracket"></i>
 			</NavLink>
 		</nav>
 	);
